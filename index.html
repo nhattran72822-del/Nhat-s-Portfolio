@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nhat Tran — Digital Analytics & Media Strategy</title>
+<meta name="description" content="Nhat Tran — MBA, Digital Business Analytics Manager at Cox Media Group. Turning multi-source data into brand and marketing strategy. Analytics work, interactive media tools, and industry writing." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   Nhat Tran — Portfolio.  Single-file, self-contained.
+   Palette: warm cream / deep navy / confident blue / amber.
+   Type: Fraunces (display) + Inter (UI/body).
+   Charts hand-rolled in SVG — no external libraries, works offline.
+   ============================================================ */
+:root{
+  --bg:#faf8f4;
+  --bg-tint:#f3efe8;
+  --surface:#ffffff;
+  --ink:#161d33;
+  --ink-soft:#3a4058;
+  --muted:#6b7185;
+  --line:#e7e2d9;
+  --line-soft:#efeae1;
+  --brand:#2b4de0;      /* confident data blue  */
+  --brand-ink:#1e3ab0;
+  --brand-tint:#eaeeff;
+  --amber:#f5a524;      /* warm friendly accent */
+  --amber-tint:#fff3dc;
+  --teal:#0ea5a4;
+  --coral:#f4715b;
+  --violet:#7c5cfc;
+  --good:#12a150;
+  --shadow:0 1px 2px rgba(22,29,51,.04), 0 8px 24px rgba(22,29,51,.06);
+  --shadow-lg:0 12px 48px rgba(22,29,51,.12);
+  --radius:18px;
+  --radius-sm:12px;
+  --maxw:1160px;
+  --chart-1:#2b4de0; --chart-2:#0ea5a4; --chart-3:#f5a524;
+  --chart-4:#f4715b; --chart-5:#7c5cfc; --chart-6:#64748b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:var(--bg); color:var(--ink);
+  line-height:1.6; -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility; overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif; font-weight:600; line-height:1.12; color:var(--ink); letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select{font-family:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:"Inter";font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.section{padding:96px 0}
+.section-head{max-width:640px;margin-bottom:48px}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:14px 0 12px}
+.section-head p{color:var(--muted);font-size:1.05rem}
+.alt{background:var(--bg-tint)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.95rem;
+  padding:13px 22px;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease,background .18s;}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 18px rgba(43,77,224,.28)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(43,77,224,.36)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-2px)}
+.btn-amber{background:var(--ink);color:#fff}
+.btn-amber:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+/* ---------- nav ---------- */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(12px);
+  background:rgba(250,248,244,.82);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+header.nav.scrolled{border-color:var(--line);box-shadow:0 4px 20px rgba(22,29,51,.05)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700}
+.brand .mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--brand),var(--violet));
+  color:#fff;display:grid;place-items:center;font-family:"Fraunces";font-weight:600;font-size:1.05rem;box-shadow:0 4px 12px rgba(43,77,224,.3)}
+.brand .who small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:.02em;margin-top:-2px}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--ink-soft);padding:8px 13px;border-radius:9px;transition:.16s;position:relative}
+.nav-links a:hover{color:var(--brand);background:var(--brand-tint)}
+.nav-links a.active{color:var(--brand)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.nav-cta .btn{padding:9px 16px;font-size:.88rem}
+.burger{display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);margin:3px auto;border-radius:2px;transition:.2s}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:70px 0 40px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:center}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);
+  padding:7px 15px;border-radius:999px;font-size:.83rem;font-weight:500;color:var(--ink-soft);box-shadow:var(--shadow);margin-bottom:22px}
+.hero .tag .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px rgba(18,161,80,.15)}
+.hero h1{font-size:clamp(2.5rem,5vw,4rem);margin-bottom:18px}
+.hero h1 .accent{background:linear-gradient(120deg,var(--brand),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+.hero .lede{font-size:1.18rem;color:var(--ink-soft);max-width:560px;margin-bottom:14px}
+.hero .sub{color:var(--muted);max-width:540px;margin-bottom:30px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:28px}
+.hero-stats .st b{font-family:"Fraunces";font-size:1.7rem;font-weight:600;color:var(--ink);display:block;line-height:1}
+.hero-stats .st span{font-size:.82rem;color:var(--muted)}
+.portrait-wrap{position:relative;justify-self:center}
+.portrait{width:340px;height:420px;object-fit:cover;border-radius:26px;box-shadow:var(--shadow-lg);
+  border:6px solid var(--surface);position:relative;z-index:2}
+.portrait-wrap::before{content:"";position:absolute;inset:-18px -18px 40px 30px;border-radius:32px;
+  background:linear-gradient(135deg,var(--brand-tint),var(--amber-tint));z-index:1}
+.float-card{position:absolute;z-index:3;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:12px 15px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:11px;font-size:.85rem;font-weight:600}
+.float-card small{display:block;font-weight:500;color:var(--muted);font-size:.72rem}
+.float-card .ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex-shrink:0}
+.fc-1{top:24px;left:-38px}
+.fc-2{bottom:44px;right:-32px}
+.hero-marquee{margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden}
+.marquee-track{display:flex;gap:52px;align-items:center;white-space:nowrap;animation:scroll 28s linear infinite;color:var(--muted);font-weight:600;font-size:.95rem}
+.marquee-track span{opacity:.75}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about-bio p{color:var(--ink-soft);margin-bottom:16px;font-size:1.04rem}
+.about-bio p strong{color:var(--ink);font-weight:600}
+.pill-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.pill{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:.85rem;font-weight:500;color:var(--ink-soft);transition:.16s}
+.pill:hover{border-color:var(--brand);color:var(--brand)}
+.about-cards{display:flex;flex-direction:column;gap:16px}
+.info-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.info-card h4{font-size:1.15rem;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.info-card .badge{margin-left:auto;font-family:"Inter";font-size:.72rem;font-weight:600;color:var(--amber);background:var(--amber-tint);padding:4px 10px;border-radius:999px}
+.info-card p{color:var(--muted);font-size:.92rem}
+.info-card ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:7px}
+.info-card ul li{font-size:.9rem;color:var(--ink-soft);padding-left:22px;position:relative}
+.info-card ul li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--brand)}
+
+/* ---------- experience timeline ---------- */
+.timeline{position:relative;max-width:820px;margin:0 auto;padding-left:4px}
+.tl-item{position:relative;padding:0 0 40px 42px;border-left:2px solid var(--line)}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-9px;top:2px;width:16px;height:16px;border-radius:50%;
+  background:var(--surface);border:3px solid var(--brand)}
+.tl-item.cur::before{background:var(--brand);box-shadow:0 0 0 5px var(--brand-tint)}
+.tl-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+.tl-head h3{font-size:1.3rem}
+.tl-head .co{font-weight:600;color:var(--brand)}
+.tl-when{margin-left:auto;font-size:.85rem;color:var(--muted);font-weight:500;white-space:nowrap}
+.tl-role{font-size:.95rem;color:var(--ink-soft);font-weight:600;margin-bottom:12px}
+.tl-item ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.tl-item ul li{font-size:.95rem;color:var(--ink-soft);padding-left:24px;position:relative}
+.tl-item ul li::before{content:"→";position:absolute;left:0;color:var(--brand);font-weight:700}
+.tl-item ul li b{color:var(--ink);font-weight:600}
+
+/* ---------- tools ---------- */
+.tool-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;justify-content:center}
+.tool-tab{display:flex;align-items:center;gap:11px;padding:14px 20px;border-radius:14px;background:var(--surface);
+  border:1.5px solid var(--line);font-weight:600;font-size:.95rem;color:var(--ink-soft);transition:.18s}
+.tool-tab .tn{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;background:var(--bg-tint);transition:.18s}
+.tool-tab .tn svg{width:18px;height:18px}
+.tool-tab small{display:block;font-weight:500;font-size:.75rem;color:var(--muted)}
+.tool-tab:hover{border-color:var(--brand);transform:translateY(-2px)}
+.tool-tab.active{border-color:var(--brand);background:var(--brand);color:#fff;box-shadow:0 10px 26px rgba(43,77,224,.28)}
+.tool-tab.active small{color:rgba(255,255,255,.8)}
+.tool-tab.active .tn{background:rgba(255,255,255,.18)}
+.tool-panel{display:none;animation:fade .4s ease}
+.tool-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tool-shell{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);overflow:hidden}
+.tool-top{padding:26px 30px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.tool-top .ic{width:46px;height:46px;border-radius:12px;background:var(--brand-tint);color:var(--brand);display:grid;place-items:center;flex-shrink:0}
+.tool-top .ic svg{width:23px;height:23px}
+.tool-top h3{font-size:1.4rem}
+.tool-top p{color:var(--muted);font-size:.9rem}
+.tool-top .live{margin-left:auto;font-size:.74rem;font-weight:600;color:var(--good);background:rgba(18,161,80,.1);padding:6px 13px;border-radius:999px;display:flex;align-items:center;gap:7px}
+.tool-top .live .dot{width:7px;height:7px;border-radius:50%;background:var(--good);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.tool-body{display:grid;grid-template-columns:340px 1fr;gap:0}
+.tool-controls{padding:28px 30px;border-right:1px solid var(--line-soft);background:var(--bg);display:flex;flex-direction:column;gap:20px}
+.tool-output{padding:28px 30px;min-width:0}
+.field label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600;color:var(--ink-soft);margin-bottom:7px}
+.field label .val{color:var(--brand);font-variant-numeric:tabular-nums}
+.field input[type=number],.field input[type=text],.field select{width:100%;padding:11px 13px;border:1.5px solid var(--line);
+  border-radius:10px;background:var(--surface);font-size:.95rem;color:var(--ink);transition:.16s;font-variant-numeric:tabular-nums}
+.field input:focus,.field select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-tint)}
+.field .prefix-wrap{position:relative}
+.field .prefix-wrap .pfx{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.95rem}
+.field .prefix-wrap input{padding-left:26px}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:999px;background:var(--line);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--brand);
+  border:3px solid #fff;box-shadow:0 2px 6px rgba(43,77,224,.4);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--brand);border:3px solid #fff;cursor:pointer}
+.chan-row{margin-bottom:16px}
+.chan-row .chan-top{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.chan-row .swatch{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+.chan-row .cname{font-size:.86rem;font-weight:600;color:var(--ink-soft)}
+.chan-row .cpct{margin-left:auto;font-size:.85rem;font-weight:600;color:var(--brand);font-variant-numeric:tabular-nums}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:24px}
+.kpi{background:var(--bg);border:1px solid var(--line-soft);border-radius:14px;padding:16px 18px;transition:.2s}
+.kpi:hover{border-color:var(--line);box-shadow:var(--shadow)}
+.kpi .klabel{font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.kpi .kval{font-family:"Fraunces";font-size:1.75rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.kpi .kdelta{font-size:.78rem;font-weight:600;margin-top:5px;display:inline-flex;align-items:center;gap:4px}
+.kdelta.up{color:var(--good)} .kdelta.down{color:var(--coral)}
+.chart-card{background:var(--bg);border:1px solid var(--line-soft);border-radius:16px;padding:20px 22px;margin-bottom:18px}
+.chart-card h5{font-family:"Inter";font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.chart-card .csub{font-size:.78rem;color:var(--muted);margin-bottom:14px}
+.chart-svg{width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+.legend .lg{display:flex;align-items:center;gap:7px;font-size:.8rem;color:var(--ink-soft);font-weight:500}
+.legend .lg i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.data-table{width:100%;border-collapse:collapse;font-size:.86rem;font-variant-numeric:tabular-nums}
+.data-table th{text-align:right;padding:9px 12px;font-weight:600;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1.5px solid var(--line)}
+.data-table th:first-child{text-align:left}
+.data-table td{text-align:right;padding:11px 12px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft)}
+.data-table td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+.data-table td .sw{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:8px;vertical-align:middle}
+.data-table tr.total td{font-weight:700;color:var(--ink);border-top:2px solid var(--line);border-bottom:none;background:var(--bg)}
+.callout{background:var(--brand-tint);border:1px solid #d4dbff;border-radius:14px;padding:16px 18px;display:flex;gap:13px;align-items:flex-start;font-size:.9rem;color:var(--brand-ink)}
+.callout svg{width:20px;height:20px;flex-shrink:0;margin-top:1px}
+.callout b{font-weight:700}
+.note{font-size:.78rem;color:var(--muted);margin-top:8px;font-style:italic}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.seg{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{padding:8px 15px;border-radius:7px;font-size:.85rem;font-weight:600;color:var(--muted);transition:.15s}
+.seg button.on{background:var(--surface);color:var(--brand);box-shadow:var(--shadow)}
+
+/* ---------- MMM sub-tabs + regression ---------- */
+.sub-tabs{display:flex;gap:6px;padding:14px 30px 0;border-bottom:1px solid var(--line-soft);background:var(--surface)}
+.sub-tab{padding:11px 18px;border-radius:10px 10px 0 0;font-weight:600;font-size:.9rem;color:var(--muted);
+  border-bottom:2px solid transparent;transition:.16s;display:flex;align-items:center;gap:8px;margin-bottom:-1px}
+.sub-tab svg{width:16px;height:16px}
+.sub-tab:hover{color:var(--brand);background:var(--bg)}
+.sub-tab.active{color:var(--brand);border-bottom-color:var(--brand);background:var(--bg)}
+.mmm-sub,.dash-sub{display:none}
+.mmm-sub.active,.dash-sub.active{display:block;animation:fade .35s ease}
+.rev-hero{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap}
+.att-bar{display:inline-block;width:100%;min-width:70px;height:16px;border-radius:5px;background:var(--line-soft);overflow:hidden;position:relative;vertical-align:middle}
+.att-bar span{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
+.att-bar .goal{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink);opacity:.55}
+.rank{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--bg-tint);font-size:.76rem;font-weight:700;color:var(--ink-soft);margin-right:9px}
+.rank.top{background:var(--brand);color:#fff}
+.yoy{font-weight:700;font-size:.82rem}.yoy.up{color:var(--good)}.yoy.dn{color:var(--coral)}
+#mmm-regression{padding:26px 30px 30px}
+.reg-intro{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-bottom:24px}
+.reg-explain h4{font-size:1.2rem;margin-bottom:9px}
+.reg-explain p{font-size:.92rem;color:var(--ink-soft);margin-bottom:11px}
+.reg-explain p b{color:var(--ink);font-weight:600}
+.reg-eq{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:var(--ink);color:#e7ecff;
+  border-radius:10px;padding:13px 15px;font-size:.8rem;line-height:1.7;overflow-x:auto;white-space:nowrap}
+.reg-explain .reg-eq b{color:var(--amber);font-weight:600}
+.reg-toggle-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;align-self:start}
+.switch-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.switch-row b{font-size:.95rem}.switch-row small{display:block;color:var(--muted);font-size:.78rem;font-weight:500;margin-top:2px}
+.switch{position:relative;display:inline-block;width:48px;height:27px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.slider-sw{position:absolute;inset:0;background:var(--line);border-radius:999px;transition:.2s;cursor:pointer}
+.slider-sw::before{content:"";position:absolute;height:21px;width:21px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.switch input:checked+.slider-sw{background:var(--brand)}
+.switch input:checked+.slider-sw::before{transform:translateX(21px)}
+.reg-table td .sig{font-weight:700;font-size:.82rem}
+.sig.s3{color:#0a7d3f}.sig.s2{color:#12a150}.sig.s1{color:#7a9a2e}.sig.s0{color:var(--muted)}
+.reg-table tr.insig td:not(:first-child){opacity:.5}
+.reg-table td.pos{color:var(--good)}.reg-table td.neg{color:var(--coral)}
+.reg-badge{display:inline-block;font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:6px}
+.reg-badge.g{background:rgba(18,161,80,.12);color:#0a7d3f}
+.reg-badge.r{background:rgba(244,113,91,.14);color:#c0392b}
+
+/* ---------- dashboard: bands, logos, funnel, heat ---------- */
+.dash-band{display:flex;align-items:center;gap:12px;margin:30px 0 16px;padding-top:24px;border-top:1px solid var(--line)}
+.dash-band .bar{width:4px;height:28px;border-radius:2px}
+.dash-band h4{font-size:1.18rem}
+.dash-band .desc{font-size:.82rem;color:var(--muted);font-weight:500}
+.dash-band .tagx{margin-left:auto;font-size:.72rem;font-weight:600;color:var(--muted);background:var(--bg-tint);padding:6px 13px;border-radius:999px}
+.logo-chip{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:.82rem;padding:5px 11px;border-radius:7px;letter-spacing:-.02em;white-space:nowrap}
+.mini-bar{height:6px;border-radius:999px;background:var(--line-soft);overflow:hidden;min-width:54px;display:inline-block;vertical-align:middle;width:100%}
+.mini-bar span{display:block;height:100%;border-radius:999px}
+.rf-dist{display:flex;flex-direction:column;gap:11px;margin-top:6px}
+.rf-row{display:flex;align-items:center;gap:12px}
+.rf-row .rl{width:44px;font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+.rf-row .rt{flex:1}
+.rf-row .rv{width:88px;text-align:right;font-size:.82rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.funnel{display:flex;flex-direction:column;gap:10px}
+.funnel-row{display:flex;align-items:center;gap:12px}
+.funnel-row .fl{width:96px;font-size:.83rem;font-weight:600;color:var(--ink-soft);flex-shrink:0}
+.funnel-track{flex:1;height:38px;background:var(--bg-tint);border-radius:9px;overflow:hidden}
+.funnel-fill{height:100%;border-radius:9px;display:flex;align-items:center;padding-left:13px;color:#fff;font-size:.82rem;font-weight:700;white-space:nowrap;transition:width .9s cubic-bezier(.2,.8,.3,1)}
+.funnel-row .fv{width:118px;text-align:right;font-size:.82rem;font-weight:700;color:var(--ink);flex-shrink:0;font-variant-numeric:tabular-nums}
+.funnel-row .fv small{display:block;font-weight:500;color:var(--muted);font-size:.72rem}
+td.heat{border-radius:5px;font-weight:600}
+.dash-two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.device-legend{display:flex;flex-direction:column;gap:9px;justify-content:center}
+.device-legend .dl{display:flex;align-items:center;gap:9px;font-size:.85rem;color:var(--ink-soft)}
+.device-legend .dl i{width:11px;height:11px;border-radius:3px}
+.device-legend .dl b{margin-left:auto;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* ---------- AI Analyst Agents ---------- */
+.ai-wrap{padding:26px 30px 30px}
+.ai-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.ai-chip{display:flex;align-items:center;gap:11px;padding:12px 16px;border-radius:13px;background:var(--surface);
+  border:1.5px solid var(--line);text-align:left;transition:.16s;max-width:280px}
+.ai-chip .ci{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;background:var(--bg-tint)}
+.ai-chip .ci svg{width:17px;height:17px}
+.ai-chip b{font-size:.88rem;font-weight:600;display:block;line-height:1.2}
+.ai-chip small{font-size:.74rem;color:var(--muted)}
+.ai-chip:hover{border-color:var(--brand);transform:translateY(-2px)}
+.ai-chip.active{border-color:var(--brand);background:var(--brand);color:#fff}
+.ai-chip.active small{color:rgba(255,255,255,.82)}
+.ai-chip.active .ci{background:rgba(255,255,255,.18)}
+.ai-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.ds-card,.agent-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ds-head,.agent-head{padding:15px 18px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;gap:11px;background:var(--surface)}
+.ds-head .dh{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ds-head b{font-size:.95rem}
+.ds-head .src{margin-left:auto;font-size:.72rem;font-weight:600;color:var(--ink-soft);background:var(--bg-tint);padding:4px 10px;border-radius:999px}
+.ds-meta{padding:9px 18px;font-size:.76rem;color:var(--muted);border-bottom:1px solid var(--line-soft);display:flex;gap:16px;flex-wrap:wrap}
+.ds-scroll{max-height:440px;overflow:auto}
+.ds-scroll table{font-size:.78rem}
+.ds-scroll th{position:sticky;top:0;background:var(--bg);z-index:1;white-space:nowrap}
+.ds-scroll td{white-space:nowrap}
+.ds-scroll td.flag{background:rgba(244,113,91,.16);color:#c0392b;font-weight:700;border-radius:4px}
+/* agent panel */
+.agent-head .av{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--violet));
+  display:grid;place-items:center;flex-shrink:0;box-shadow:0 4px 12px rgba(43,77,224,.3)}
+.agent-head .av svg{width:20px;height:20px;color:#fff}
+.agent-head .an b{font-size:.92rem;display:block}
+.agent-head .an small{font-size:.72rem;color:var(--muted)}
+.agent-head .badge{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--brand);background:var(--brand-tint);padding:5px 10px;border-radius:999px;display:flex;align-items:center;gap:6px}
+.agent-head .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--good);animation:pulse 1.6s infinite}
+.agent-body{padding:18px;min-height:360px}
+.a-prompt{display:flex;gap:10px;margin-bottom:16px}
+.a-prompt .who{width:26px;height:26px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.68rem;font-weight:700;flex-shrink:0}
+.a-prompt .txt{background:var(--surface);border:1px solid var(--line);border-radius:12px;border-top-left-radius:3px;padding:10px 13px;font-size:.86rem;color:var(--ink-soft)}
+.think{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:.85rem;font-weight:500;padding:6px 0}
+.think .dots{display:inline-flex;gap:4px}
+.think .dots i{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:bounce 1.2s infinite}
+.think .dots i:nth-child(2){animation-delay:.18s}.think .dots i:nth-child(3){animation-delay:.36s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
+.a-block{opacity:0;transform:translateY(8px);animation:blockin .45s forwards}
+@keyframes blockin{to{opacity:1;transform:none}}
+.a-summary{display:flex;gap:11px;background:var(--brand-tint);border:1px solid #d4dbff;border-radius:12px;padding:13px 15px;margin-bottom:16px}
+.a-summary svg{width:20px;height:20px;flex-shrink:0;color:var(--brand);margin-top:1px}
+.a-summary p{font-size:.9rem;color:var(--brand-ink);line-height:1.5}
+.a-summary b{font-weight:700}
+.a-mtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.a-mtile{background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;padding:11px 13px}
+.a-mtile .ml{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px}
+.a-mtile .mv{font-family:"Fraunces";font-size:1.35rem;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.a-mtile .mv.neg{color:var(--coral)}.a-mtile .mv.pos{color:var(--good)}
+.a-sec{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 9px}
+.a-find{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.a-find .f{display:flex;gap:10px;font-size:.86rem;color:var(--ink-soft);line-height:1.45}
+.a-find .f .fi{width:20px;height:20px;border-radius:6px;flex-shrink:0;display:grid;place-items:center;margin-top:1px}
+.a-find .f .fi svg{width:12px;height:12px}
+.fi.up{background:rgba(18,161,80,.14);color:var(--good)} .fi.down{background:rgba(244,113,91,.16);color:var(--coral)}
+.fi.warn{background:var(--amber-tint);color:#b26a00} .fi.info{background:var(--brand-tint);color:var(--brand)}
+.a-find .f b{color:var(--ink);font-weight:600}
+.a-actions{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;margin-bottom:4px}
+.a-actions .ttl{font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.a-actions .ttl svg{width:15px;height:15px;color:var(--brand)}
+.a-actions ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.a-actions ol li{font-size:.85rem;color:var(--ink-soft)}
+.a-mini-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-bottom:16px}
+.a-mini-table th{text-align:right;padding:6px 9px;font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);border-bottom:1.5px solid var(--line)}
+.a-mini-table th:first-child{text-align:left}
+.a-mini-table td{text-align:right;padding:7px 9px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.a-mini-table td:first-child{text-align:left;font-weight:600;color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.76rem}
+.a-rerun{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:var(--brand);padding:9px 15px;border-radius:9px;border:1px solid var(--line);background:var(--surface);transition:.16s}
+.a-rerun:hover{border-color:var(--brand);background:var(--brand-tint)}
+.a-rerun svg{width:15px;height:15px}
+@media(max-width:820px){.ai-layout{grid-template-columns:1fr}.a-mtiles{grid-template-columns:1fr 1fr}}
+
+/* ---------- work / case studies ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.work-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:.22s;display:flex;flex-direction:column}
+.work-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:#dcd6ca}
+.work-viz{height:150px;position:relative;overflow:hidden;background:var(--bg-tint);display:grid;place-items:center}
+.work-viz svg{width:100%;height:100%}
+.work-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.work-body .cat{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);margin-bottom:9px}
+.work-body h3{font-size:1.18rem;margin-bottom:9px}
+.work-body p{font-size:.9rem;color:var(--muted);flex:1;margin-bottom:14px}
+.work-metrics{display:flex;gap:18px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.work-metrics .m b{font-family:"Fraunces";font-size:1.15rem;color:var(--ink);display:block;line-height:1}
+.work-metrics .m span{font-size:.72rem;color:var(--muted)}
+.tools-used{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tools-used span{font-size:.72rem;background:var(--bg-tint);color:var(--ink-soft);padding:4px 9px;border-radius:6px;font-weight:500}
+
+/* ---------- blog ---------- */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.blog-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:.22s;cursor:pointer;display:flex;flex-direction:column;text-align:left}
+.blog-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.blog-cover{height:120px;position:relative;overflow:hidden}
+.blog-cover .gr{position:absolute;inset:0}
+.blog-cover .rd{position:absolute;bottom:12px;left:16px;background:rgba(255,255,255,.92);font-size:.72rem;font-weight:600;
+  color:var(--ink);padding:4px 11px;border-radius:999px}
+.blog-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.blog-body .meta{font-size:.76rem;color:var(--muted);font-weight:500;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.blog-body .meta .tagx{color:var(--brand);font-weight:600}
+.blog-body h3{font-size:1.2rem;margin-bottom:10px;line-height:1.25}
+.blog-body p{font-size:.9rem;color:var(--muted);flex:1}
+.blog-body .read{margin-top:16px;font-size:.85rem;font-weight:600;color:var(--brand);display:inline-flex;align-items:center;gap:6px}
+.blog-body .read svg{width:15px;height:15px;transition:.2s}
+.blog-card:hover .read svg{transform:translateX(4px)}
+
+/* ---------- modal ---------- */
+.modal-back{position:fixed;inset:0;z-index:100;background:rgba(22,29,51,.5);backdrop-filter:blur(4px);
+  display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
+.modal-back.open{display:flex;animation:fade .25s}
+.modal{background:var(--surface);border-radius:22px;max-width:720px;width:100%;box-shadow:var(--shadow-lg);
+  overflow:hidden;position:relative;animation:pop .3s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes pop{from{transform:scale(.95) translateY(20px);opacity:0}to{transform:none;opacity:1}}
+.modal-cover{height:180px;position:relative;display:grid;place-items:end start;padding:24px}
+.modal-cover .rd{background:rgba(255,255,255,.92);font-size:.75rem;font-weight:600;padding:5px 13px;border-radius:999px}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);
+  display:grid;place-items:center;z-index:2;box-shadow:var(--shadow);transition:.16s}
+.modal-close:hover{transform:rotate(90deg)}
+.modal-content{padding:32px 38px 40px}
+.modal-content .meta{font-size:.82rem;color:var(--muted);margin-bottom:12px}
+.modal-content h2{font-size:1.9rem;margin-bottom:18px}
+.modal-content p{color:var(--ink-soft);margin-bottom:16px;font-size:1.02rem}
+.modal-content h3{font-size:1.3rem;margin:26px 0 12px}
+.modal-content ul{margin:0 0 16px 20px;color:var(--ink-soft)}
+.modal-content ul li{margin-bottom:8px}
+.modal-content blockquote{border-left:3px solid var(--brand);padding:6px 0 6px 20px;margin:20px 0;
+  font-family:"Fraunces";font-size:1.2rem;font-style:italic;color:var(--ink)}
+
+/* ---------- contact ---------- */
+.contact-card{background:linear-gradient(135deg,var(--ink),#232b47);border-radius:28px;padding:56px 48px;color:#fff;
+  position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.contact-card::before{content:"";position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(43,77,224,.5),transparent 70%)}
+.contact-card::after{content:"";position:absolute;bottom:-100px;left:-40px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,165,36,.28),transparent 70%)}
+.contact-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center}
+.contact-inner h2{color:#fff;font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:14px}
+.contact-inner p{color:rgba(255,255,255,.75);font-size:1.05rem;margin-bottom:26px}
+.contact-cta{display:flex;flex-wrap:wrap;gap:12px}
+.contact-cta .btn-primary{background:#fff;color:var(--ink)}
+.contact-cta .btn-primary:hover{background:var(--amber)}
+.contact-cta .btn-ghost{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
+.contact-cta .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1);color:#fff}
+.contact-list{display:flex;flex-direction:column;gap:16px}
+.contact-list a{display:flex;align-items:center;gap:14px;color:#fff;padding:14px 18px;border-radius:14px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);transition:.18s}
+.contact-list a:hover{background:rgba(255,255,255,.14);transform:translateX(4px)}
+.contact-list a .ic{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.12);display:grid;place-items:center;flex-shrink:0}
+.contact-list a .ic svg{width:19px;height:19px}
+.contact-list a small{display:block;color:rgba(255,255,255,.6);font-size:.75rem}
+.contact-list a b{font-weight:600;font-size:.95rem}
+
+/* ---------- footer ---------- */
+footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
+.foot-inner{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.foot-inner .fbrand{display:flex;align-items:center;gap:11px;font-weight:700}
+.foot-inner p{color:var(--muted);font-size:.85rem}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-size:.88rem;color:var(--ink-soft);font-weight:500}
+.foot-links a:hover{color:var(--brand)}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .portrait-wrap{order:-1}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .tool-body{grid-template-columns:1fr}
+  .tool-controls{border-right:none;border-bottom:1px solid var(--line-soft)}
+  .reg-intro{grid-template-columns:1fr}
+  #mmm-regression [style*="grid-template-columns:1.35fr 1fr"]{grid-template-columns:1fr !important}
+  .work-grid,.blog-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-inner{grid-template-columns:1fr;gap:32px}
+}
+@media(max-width:720px){
+  .section{padding:68px 0}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--surface);flex-direction:column;
+    align-items:stretch;padding:12px;gap:2px;box-shadow:var(--shadow-lg);border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 14px;font-size:1rem}
+  .burger{display:block}
+  .nav-cta .btn.rez{display:none}
+  .work-grid,.blog-grid{grid-template-columns:1fr}
+  .tl-when{margin-left:0;width:100%}
+  .contact-card{padding:36px 26px}
+  .modal-content{padding:26px 24px 32px}
+  .hero-stats{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="mark">NT</span>
+      <span class="who">Nhat Tran<small>Digital Analytics &amp; Media</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#tools">Tools</a>
+      <a href="#work">Work</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="Nhat-Tran-Resume.pdf" target="_blank" class="btn btn-ghost rez">Resume</a>
+      <a href="#contact" class="btn btn-primary">Let's talk</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <span class="tag"><span class="dot"></span> Open to analytics leadership &amp; strategy conversations</span>
+        <h1>Turning data into<br><span class="accent">decisions people act on.</span></h1>
+        <p class="lede">I'm Nhat — a Digital Business Analytics Manager who turns messy, multi-source data into brand and marketing strategy that leaders trust.</p>
+        <p class="sub">MBA. 6+ years across media, finance, and consumer analytics — currently leading digital performance across 20+ markets at Cox Media Group, with earlier roots at PepsiCo. I build the dashboards, models, and measurement frameworks that move marketing from guesswork to growth.</p>
+        <div class="hero-cta">
+          <a href="#tools" class="btn btn-primary">Explore my tools
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#work" class="btn btn-ghost">See my analysis work</a>
+        </div>
+        <div class="hero-stats">
+          <div class="st"><b>6+</b><span>Years in analytics</span></div>
+          <div class="st"><b>20+</b><span>Markets supported</span></div>
+          <div class="st"><b>$1.5M+</b><span>Annual cost savings</span></div>
+          <div class="st"><b>100+</b><span>Hrs/mo automated</span></div>
+        </div>
+      </div>
+      <div class="portrait-wrap reveal">
+        <img src="photo.jpg" alt="Nhat Tran" class="portrait" />
+        <div class="float-card fc-1">
+          <span class="ic" style="background:var(--brand-tint);color:var(--brand)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+          <div>Power BI · DOMO<small>Executive dashboards</small></div>
+        </div>
+        <div class="float-card fc-2">
+          <span class="ic" style="background:var(--amber-tint);color:var(--amber)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg></span>
+          <div>MBA · Full-Ride<small>President's Honor Roll</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-marquee reveal">
+      <div class="marquee-track">
+        <span>Media Mix Modeling</span><span>·</span><span>Digital Media Planning</span><span>·</span><span>Executive Dashboards</span><span>·</span><span>Marketing ROI &amp; KPI Design</span><span>·</span><span>AI &amp; LLM Analytics</span><span>·</span><span>Financial Modeling</span><span>·</span>
+        <span>Media Mix Modeling</span><span>·</span><span>Digital Media Planning</span><span>·</span><span>Executive Dashboards</span><span>·</span><span>Marketing ROI &amp; KPI Design</span><span>·</span><span>AI &amp; LLM Analytics</span><span>·</span><span>Financial Modeling</span><span>·</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-bio reveal">
+        <span class="eyebrow">About me</span>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.7rem);margin:14px 0 20px">A finance mind with a storyteller's instinct for data.</h2>
+        <p>My path started in <strong>business and finance</strong> — I earned my <strong>MBA at the University of Nevada, Reno</strong> on a <strong>full-ride $100,000 scholarship</strong>, made the President's Honor Roll, and served as a <strong>Finance Teaching Assistant</strong>. That foundation taught me to connect every number back to a decision and a dollar.</p>
+        <p>Since then I've spent <strong>6+ years turning multi-source analytics into strategy</strong> — blending digital, media, and consumer data into insights executives can act on. Today I lead digital performance analytics at <strong>Cox Media Group</strong> across 20+ markets. Earlier, I cut my teeth in the field as a <strong>Sales Management Intern at PepsiCo (PBC)</strong>, where diagnosing execution gaps taught me that great analysis only matters if it changes what a team does on Monday.</p>
+        <p>I'm happiest at the intersection of <strong>strategy, storytelling, and technology</strong> — lately building AI &amp; LLM-powered analytics that give teams back their time. Bilingual in English and Vietnamese, and a graduate of <strong>McKinsey's Business Leadership Program</strong>.</p>
+        <div class="pill-row">
+          <span class="pill">Power BI</span><span class="pill">DOMO</span><span class="pill">Tableau</span>
+          <span class="pill">NinjaCat</span><span class="pill">SAP / SAC</span><span class="pill">Advanced Excel &amp; Power Query</span>
+          <span class="pill">GAM · CM360 · DV360</span><span class="pill">Meta · Amazon Ads</span><span class="pill">AI &amp; LLM Enablement</span>
+          <span class="pill">Financial Modeling</span><span class="pill">ROI &amp; KPI Design</span>
+        </div>
+      </div>
+      <div class="about-cards reveal">
+        <div class="info-card">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" style="width:20px;height:20px"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg> Education <span class="badge">MBA</span></h4>
+          <ul>
+            <li><b>M.B.A.</b> + Finance TA — University of Nevada, Reno · 2019</li>
+            <li><b>A.A.</b> Business Administration &amp; Management — Sierra College · 2017</li>
+            <li>Full-Ride $100K Scholarship · President's Honor Roll</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" style="width:20px;height:20px"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> Recognition</h4>
+          <ul>
+            <li>McKinsey's Business Leadership Program · 2023</li>
+            <li>AI Strategy Lead — analytics automation (−100+ hrs/mo)</li>
+            <li>Bilingual · English &amp; Vietnamese</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" style="width:20px;height:20px"><path d="M20 7L9 18l-5-5"/></svg> What I do best</h4>
+          <p>Measurement frameworks, executive storytelling, and cross-functional analytics that connect Marketing, Finance, and Operations around one source of truth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section alt" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Experience</span>
+      <h2>From the sales floor to the executive dashboard</h2>
+      <p>Six-plus years of turning data into decisions — across media, payments, and consumer goods.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item cur reveal">
+        <div class="tl-head"><h3>Cox Media Group</h3><span class="co">· Atlanta, GA</span><span class="tl-when">Dec 2021 – Present</span></div>
+        <div class="tl-role">Business Financial Analyst → Digital Business Analytics Manager · Reporting to VP of Digital Operations</div>
+        <ul>
+          <li>Serve as <b>strategic analytics advisor</b> on enterprise-scale digital performance across <b>20+ markets</b>, partnering with marketing, finance, sales, and technology leaders.</li>
+          <li>Built executive brand &amp; performance dashboards in <b>Power BI, DOMO, and NinjaCat</b>, unifying paid search, social, programmatic, and OTT into one view of growth levers.</li>
+          <li>Directed cross-functional analytics tracking advertising performance and customer behavior across digital and offline channels — <b>$1.5M+ in annual cost savings</b>.</li>
+          <li>Partnered with AI &amp; data science to deploy <b>LLM-powered analytics agents</b>, removing <b>100+ hours/month</b> of manual reporting.</li>
+          <li>Governed campaign &amp; consumer data from 20+ platforms (Meta, GAM, CM360, DV360, Amazon) and mentored the analytics team on data storytelling.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head"><h3>Universal Processing</h3><span class="co">· Atlanta, GA</span><span class="tl-when">Feb 2020 – Nov 2021</span></div>
+        <div class="tl-role">Merchant Consultant → Senior Merchant Consultant</div>
+        <ul>
+          <li>Delivered data-driven recommendations on payment processing focused on <b>revenue growth, margin optimization, and customer lifecycle</b>.</li>
+          <li>Built financial &amp; performance models for pricing and profitability — <b>consistently hit 200%+ of monthly revenue targets</b>.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head"><h3>PepsiCo</h3><span class="co">· PBC · Las Vegas, NV</span><span class="tl-when">Summers 2018 &amp; 2019</span></div>
+        <div class="tl-role">Sales Management Intern</div>
+        <ul>
+          <li>Supported enterprise performance analytics through <b>KPI monitoring, root-cause analysis, and operational diagnostics</b>.</li>
+          <li>Identified execution &amp; promotional gaps that delivered an <b>11.4% increase in margin contribution</b>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section class="section" id="tools">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Interactive tools</span>
+      <h2>Play with the models I build</h2>
+      <p>Four working tools from my analytics toolkit — real math, live charts, sample data. Tweak the inputs and watch the numbers move.</p>
+    </div>
+
+    <div class="tool-tabs reveal">
+      <button class="tool-tab active" data-tool="mmm">
+        <span class="tn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15c2-6 4-8 6-8s3 3 5 3"/></svg></span>
+        Media Mix Modeling<small>Optimize spend allocation</small></button>
+      <button class="tool-tab" data-tool="planner">
+        <span class="tn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></span>
+        Digital Media Planner<small>Build a channel plan</small></button>
+      <button class="tool-tab" data-tool="impr">
+        <span class="tn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
+        Impressions Calculator<small>Budget ↔ reach math</small></button>
+      <button class="tool-tab" data-tool="dash">
+        <span class="tn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/></svg></span>
+        Reporting &amp; Dashboard<small>Live performance view</small></button>
+      <button class="tool-tab" data-tool="agent">
+        <span class="tn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 13h.01M15 13h.01M2 12h2M20 12h2"/></svg></span>
+        AI Analyst Agents<small>Auto-analyze your data</small></button>
+    </div>
+
+    <!-- ---- MMM ---- -->
+    <div class="tool-panel active" id="tool-mmm">
+      <div class="tool-shell reveal">
+        <div class="tool-top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15c2-6 4-8 6-8s3 3 5 3"/></svg></span>
+          <div><h3>Media Mix Modeling</h3><p>Optimize the spend mix — then open the regression to see which channels are <em>statistically</em> real.</p></div>
+          <span class="live"><span class="dot"></span>Live model</span>
+        </div>
+
+        <div class="sub-tabs" id="mmmSubTabs">
+          <button class="sub-tab active" data-sub="optimizer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>Budget Optimizer</button>
+          <button class="sub-tab" data-sub="regression">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16h16"/><circle cx="9" cy="12" r="1.6"/><circle cx="13" cy="8" r="1.6"/><circle cx="17" cy="10" r="1.6"/><path d="M7 17l10-8"/></svg>Regression Analysis</button>
+        </div>
+
+        <!-- ===== Sub-panel: Optimizer (original) ===== -->
+        <div class="mmm-sub active" id="mmm-optimizer">
+        <div class="tool-body">
+          <div class="tool-controls">
+            <div class="field">
+              <label>Total media budget <span class="val" id="mmmBudgetVal">$1,000,000</span></label>
+              <input type="range" id="mmmBudget" min="1000" max="3000000" step="1000" value="1000000" />
+            </div>
+            <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px">Current allocation</div>
+            <div id="mmmChannels"></div>
+            <button class="btn btn-primary" id="mmmOptimize" style="width:100%;justify-content:center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 6v6l4 2"/></svg>
+              Optimize allocation</button>
+            <button class="btn btn-ghost" id="mmmReset" style="width:100%;justify-content:center">Reset to current</button>
+            <p class="note">Channel efficiency &amp; ROAS ordering reflect published cross-channel benchmarks; saturation curves are illustrative. Sources: <a href="https://blog.coupler.io/ppc-statistics/" target="_blank" rel="noopener" style="color:var(--brand)">Coupler.io PPC Benchmarks</a> · <a href="https://www.postaffiliatepro.com/faq/good-cpm-digital-marketing/" target="_blank" rel="noopener" style="color:var(--brand)">CPM Benchmark Guide</a>.</p>
+          </div>
+          <div class="tool-output">
+            <div class="kpi-grid">
+              <div class="kpi"><div class="klabel">Predicted conversions</div><div class="kval" id="mmmConv">0</div><div class="kdelta up" id="mmmConvD"></div></div>
+              <div class="kpi"><div class="klabel">Blended ROAS</div><div class="kval" id="mmmRoas">0×</div></div>
+              <div class="kpi"><div class="klabel">Revenue impact</div><div class="kval" id="mmmRev">$0</div><div class="kdelta up" id="mmmRevD"></div></div>
+            </div>
+            <div class="chart-card">
+              <h5>Channel response curves</h5>
+              <div class="csub">Where each channel sits on its saturation curve — dots show current spend.</div>
+              <svg class="chart-svg" id="mmmCurves" viewBox="0 0 560 260"></svg>
+              <div class="legend" id="mmmLegend"></div>
+            </div>
+            <div class="chart-card" id="mmmOptCard" style="display:none">
+              <h5>Optimizer recommendation</h5>
+              <div class="csub">Suggested reallocation to equalize marginal return across channels.</div>
+              <svg class="chart-svg" id="mmmOptBars" viewBox="0 0 560 200"></svg>
+            </div>
+            <div class="callout" id="mmmCallout">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4M12 16h.01"/></svg>
+              <div>Move the sliders to test a mix, then hit <b>Optimize</b> to see how reallocating the same budget can lift conversions.</div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- ===== Sub-panel: Regression Analysis (new) ===== -->
+        <div class="mmm-sub" id="mmm-regression">
+          <div class="reg-intro">
+            <div class="reg-explain">
+              <h4>What is Marketing Mix Modeling?</h4>
+              <p><b>Marketing Mix Modeling (MMM)</b> is a regression technique that separates what <em>actually</em> drives sales. We fit two years of weekly <b>Sales&nbsp;($)</b> against each channel's spend, the <b>retail (promotional) budget</b>, and real-world events — so we can read every factor's isolated effect while holding the others constant.</p>
+              <p class="reg-eq">Sales = β₀ + β₁·Search + β₂·Social + β₃·Programmatic + β₄·OTT + β₅·Video + β₆·<b>Retail&nbsp;Budget</b> + β₇·<b>War</b> + ε</p>
+              <p><b>What it predicts:</b> the dollars of sales each channel returns per $1k spent — and, via the <b>p-value</b>, whether we can trust that number or it's just noise. Toggle the war factor to watch an external shock reshape the model.</p>
+            </div>
+            <div class="reg-toggle-card">
+              <div class="switch-row">
+                <div><b>Iran–US war factor</b><small>An external demand shock during the test window</small></div>
+                <label class="switch"><input type="checkbox" id="regWar" checked /><span class="slider-sw"></span></label>
+              </div>
+              <p class="note" id="regWarNote" style="margin-top:10px"></p>
+            </div>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi"><div class="klabel">Model fit · R²</div><div class="kval" id="regR2">0</div><div class="kdelta up" id="regR2sub"></div></div>
+            <div class="kpi"><div class="klabel">Adjusted R²</div><div class="kval" id="regAdj">0</div></div>
+            <div class="kpi"><div class="klabel">Observations</div><div class="kval" id="regN">0</div><div class="kdelta" style="color:var(--muted)">weekly · 2 yrs</div></div>
+            <div class="kpi"><div class="klabel">War impact / week</div><div class="kval" id="regWarImp">—</div><div class="kdelta down" id="regWarP"></div></div>
+          </div>
+
+          <div class="chart-card">
+            <h5>Actual vs. model-predicted sales</h5>
+            <div class="csub">Shaded band = Iran–US war window. A good model tracks the line — <em>including</em> the dip.</div>
+            <svg class="chart-svg" id="regFit" viewBox="0 0 560 240"></svg>
+            <div class="legend">
+              <span class="lg"><i style="background:#161d33"></i>Actual sales</span>
+              <span class="lg"><i style="background:#2b4de0"></i>Model prediction</span>
+              <span class="lg"><i style="background:#f4715b;opacity:.4"></i>War period</span>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:18px">
+            <div class="chart-card" style="margin-bottom:0">
+              <h5>Regression results</h5>
+              <div class="csub">Coefficient (β) = $ sales per $1k spent. <b>p&lt;0.05</b> = statistically significant.</div>
+              <div style="overflow-x:auto"><table class="data-table reg-table" id="regTable"></table></div>
+              <p class="note">*** p&lt;0.001 · ** p&lt;0.01 · * p&lt;0.05 · n.s. = not significant</p>
+            </div>
+            <div class="chart-card" style="margin-bottom:0">
+              <h5>Correlation with sales</h5>
+              <div class="csub">Linear association (r) of each driver with weekly sales.</div>
+              <svg class="chart-svg" id="regCorr" viewBox="0 0 300 250"></svg>
+            </div>
+          </div>
+
+          <div class="callout" id="regInsight" style="margin-top:18px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0012 2z"/></svg>
+            <div id="regInsightTxt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- PLANNER ---- -->
+    <div class="tool-panel" id="tool-planner">
+      <div class="tool-shell reveal">
+        <div class="tool-top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></span>
+          <div><h3>Digital Media Planner</h3><p>Split a budget across channels and instantly see delivery — impressions, clicks, conversions, and efficiency.</p></div>
+          <span class="live"><span class="dot"></span>Live plan</span>
+        </div>
+        <div class="tool-body">
+          <div class="tool-controls">
+            <div class="field">
+              <label>Campaign budget <span class="val" id="planBudgetVal">$500,000</span></label>
+              <input type="range" id="planBudget" min="1000" max="2000000" step="1000" value="500000" />
+            </div>
+            <div style="font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:4px">Budget split (auto-normalized)</div>
+            <div id="planChannels"></div>
+            <div class="callout" style="font-size:.82rem;padding:12px 14px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4M12 16h.01"/></svg>
+              <div>Weights auto-scale to 100%. CPM, CTR &amp; CVR defaults are 2025–26 cross-channel benchmarks (see source below).</div>
+            </div>
+            <p class="note">Benchmark defaults — CPM, click-through &amp; conversion rates vary by industry, geo &amp; objective. Sources: <a href="https://blog.coupler.io/ppc-statistics/" target="_blank" rel="noopener" style="color:var(--brand)">Coupler.io PPC Benchmarks (2026)</a> · <a href="https://www.postaffiliatepro.com/faq/good-cpm-digital-marketing/" target="_blank" rel="noopener" style="color:var(--brand)">Post Affiliate Pro — CPM Guide</a>.</p>
+          </div>
+          <div class="tool-output">
+            <div class="kpi-grid">
+              <div class="kpi"><div class="klabel">Impressions</div><div class="kval" id="planImpr">0</div></div>
+              <div class="kpi"><div class="klabel">Clicks</div><div class="kval" id="planClicks">0</div></div>
+              <div class="kpi"><div class="klabel">Conversions</div><div class="kval" id="planConv">0</div></div>
+              <div class="kpi"><div class="klabel">Blended CPM</div><div class="kval" id="planCpm">$0</div></div>
+            </div>
+            <div class="chart-card">
+              <h5>Budget &amp; impression share by channel</h5>
+              <div class="csub">Spend allocation (donut) vs. impression delivery (bars).</div>
+              <div style="display:grid;grid-template-columns:180px 1fr;gap:20px;align-items:center">
+                <svg class="chart-svg" id="planDonut" viewBox="0 0 180 180"></svg>
+                <svg class="chart-svg" id="planBars" viewBox="0 0 340 180"></svg>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h5>Plan detail</h5>
+              <div class="csub">Full media plan with delivery and efficiency per channel.</div>
+              <div style="overflow-x:auto">
+                <table class="data-table" id="planTable"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- IMPRESSIONS ---- -->
+    <div class="tool-panel" id="tool-impr">
+      <div class="tool-shell reveal">
+        <div class="tool-top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
+          <div><h3>Impressions Calculator</h3><p>The core media math — solve for impressions, budget, or CPM, then see reach, frequency, and clicks fall out.</p></div>
+          <span class="live"><span class="dot"></span>Live calc</span>
+        </div>
+        <div class="tool-body">
+          <div class="tool-controls">
+            <div class="seg" style="width:100%" id="imprMode">
+              <button class="on" data-solve="impr" style="flex:1">Solve impressions</button>
+              <button data-solve="budget" style="flex:1">Solve budget</button>
+              <button data-solve="cpm" style="flex:1">Solve CPM</button>
+            </div>
+            <div class="field" id="f-budget">
+              <label>Budget</label>
+              <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="imprBudget" value="250000" /></div>
+            </div>
+            <div class="field" id="f-cpm">
+              <label>CPM (cost per 1,000)</label>
+              <div class="prefix-wrap"><span class="pfx">$</span><input type="number" id="imprCpm" value="12.50" step="0.5" /></div>
+            </div>
+            <div class="field" id="f-impr">
+              <label>Target impressions</label>
+              <input type="number" id="imprImpr" value="20000000" />
+            </div>
+            <hr style="border:none;border-top:1px solid var(--line);margin:2px 0" />
+            <div class="field">
+              <label>Unique reach (people)</label>
+              <input type="number" id="imprReach" value="4000000" />
+            </div>
+            <div class="field">
+              <label>Click-through rate <span class="val" id="imprCtrVal">0.80%</span></label>
+              <input type="range" id="imprCtr" min="0.1" max="5" step="0.05" value="0.8" />
+            </div>
+          </div>
+          <div class="tool-output">
+            <div class="kpi-grid">
+              <div class="kpi" style="grid-column:span 2"><div class="klabel">Impressions delivered</div><div class="kval" id="rImpr" style="font-size:2.1rem">0</div></div>
+              <div class="kpi"><div class="klabel">Effective CPM</div><div class="kval" id="rCpm">$0</div></div>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi"><div class="klabel">Avg. frequency</div><div class="kval" id="rFreq">0×</div></div>
+              <div class="kpi"><div class="klabel">Est. clicks</div><div class="kval" id="rClicks">0</div></div>
+              <div class="kpi"><div class="klabel">Est. CPC</div><div class="kval" id="rCpc">$0</div></div>
+            </div>
+            <div class="chart-card">
+              <h5>Reach &amp; frequency build</h5>
+              <div class="csub">How impressions translate to unique reach and repeat exposure.</div>
+              <svg class="chart-svg" id="imprChart" viewBox="0 0 560 180"></svg>
+            </div>
+            <div class="callout" id="imprInsight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0012 2z"/></svg>
+              <div id="imprInsightTxt"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- DASHBOARD ---- -->
+    <div class="tool-panel" id="tool-dash">
+      <div class="tool-shell reveal">
+        <div class="tool-top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/></svg></span>
+          <div><h3>Reporting &amp; Dashboarding</h3><p>Two dashboards in one — operational <b>Digital Performance</b> and executive <b>Revenue Performance</b>.</p></div>
+          <span class="live"><span class="dot"></span>Sample data</span>
+        </div>
+
+        <div class="sub-tabs" id="dashSubTabs">
+          <button class="sub-tab active" data-sub="digital">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 4-5"/></svg>Digital Performance</button>
+          <button class="sub-tab" data-sub="revenue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Revenue Performance</button>
+        </div>
+
+        <div class="dash-sub active" id="dash-digital">
+        <div class="tool-body" style="grid-template-columns:1fr">
+          <div class="tool-output" style="border-right:none">
+            <div class="toolbar">
+              <div class="seg" id="dashChannel">
+                <button class="on" data-ch="all">All channels</button>
+                <button data-ch="Paid Search">Paid Search</button>
+                <button data-ch="Paid Social">Paid Social</button>
+                <button data-ch="Programmatic">Programmatic</button>
+                <button data-ch="OTT / CTV">OTT / CTV</button>
+                <button data-ch="Online Video">Online Video</button>
+              </div>
+              <div class="seg" id="dashRange" style="margin-left:auto">
+                <button data-r="7">7D</button>
+                <button class="on" data-r="30">30D</button>
+                <button data-r="90">90D</button>
+              </div>
+            </div>
+
+            <!-- KPI tiles: digital performance only -->
+            <div class="kpi-grid">
+              <div class="kpi"><div class="klabel">Impressions</div><div class="kval" id="dImpr">0</div><div class="kdelta up" id="dImprD"></div></div>
+              <div class="kpi"><div class="klabel">Clicks</div><div class="kval" id="dClicks">0</div><div class="kdelta up" id="dClicksD"></div></div>
+              <div class="kpi"><div class="klabel">CTR</div><div class="kval" id="dCtr">0%</div><div class="kdelta up" id="dCtrD"></div></div>
+              <div class="kpi"><div class="klabel">Avg CPC</div><div class="kval" id="dCpc">$0</div><div class="kdelta down" id="dCpcD"></div></div>
+              <div class="kpi"><div class="klabel">Avg CPM</div><div class="kval" id="dCpm">$0</div><div class="kdelta down" id="dCpmD"></div></div>
+              <div class="kpi"><div class="klabel">Media spend</div><div class="kval" id="dSpend">$0</div><div class="kdelta" id="dSpendD"></div></div>
+              <div class="kpi"><div class="klabel">Unique reach</div><div class="kval" id="dReach">0</div><div class="kdelta up" id="dReachD"></div></div>
+              <div class="kpi"><div class="klabel">Viewability</div><div class="kval" id="dView">0%</div><div class="kdelta up" id="dViewD"></div></div>
+            </div>
+
+            <!-- Daily trend + Device -->
+            <div class="dash-two">
+              <div class="chart-card" style="margin-bottom:0">
+                <div style="display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap">
+                  <div><h5>Daily performance trend</h5><div class="csub"><span id="dTrendCh">All channels</span> · <span id="dTrendDays">30</span> days</div></div>
+                  <div class="seg" id="dashMetric" style="margin-left:auto">
+                    <button class="on" data-m="impr">Impr.</button>
+                    <button data-m="clicks">Clicks</button>
+                    <button data-m="ctr">CTR</button>
+                    <button data-m="spend">Spend</button>
+                  </div>
+                </div>
+                <svg class="chart-svg" id="dashLine" viewBox="0 0 520 220" style="margin-top:8px"></svg>
+              </div>
+              <div class="chart-card" style="margin-bottom:0">
+                <h5>Device by impressions</h5>
+                <div class="csub">Where the impressions rendered.</div>
+                <div style="display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center;margin-top:6px">
+                  <svg class="chart-svg" id="dashDevice" viewBox="0 0 150 150"></svg>
+                  <div class="device-legend" id="dashDeviceLeg"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Creative + Ads -->
+            <div class="chart-card" style="margin-top:18px;margin-bottom:0">
+              <h5>Creative performance</h5>
+              <div class="csub">Top creatives by engagement — display, video &amp; CTV units.</div>
+              <div style="overflow-x:auto"><table class="data-table" id="dashCreative"></table></div>
+            </div>
+            <div class="chart-card" style="margin-top:18px;margin-bottom:0">
+              <h5>Ads &amp; line-item performance</h5>
+              <div class="csub">Delivery and efficiency by campaign line item.</div>
+              <div style="overflow-x:auto"><table class="data-table" id="dashAds"></table></div>
+            </div>
+
+            <!-- Geo -->
+            <div class="chart-card" style="margin-top:18px;margin-bottom:0">
+              <h5>Geo &amp; ZIP performance</h5>
+              <div class="csub">Top markets by delivery — CTR heat-shaded (Atlanta-weighted book of business).</div>
+              <div style="overflow-x:auto"><table class="data-table" id="dashGeo"></table></div>
+            </div>
+
+            <!-- OTT / CTV band -->
+            <div class="dash-band">
+              <span class="bar" style="background:#f4715b"></span>
+              <div><h4>OTT / CTV — Publisher Performance</h4><div class="desc">Completion-driven delivery across streaming publishers</div></div>
+              <span class="tagx">Video-first</span>
+            </div>
+            <div class="dash-two">
+              <div class="chart-card" style="margin-bottom:0">
+                <h5>Publisher delivery</h5>
+                <div class="csub">Impressions, completion rate &amp; reach by streaming app.</div>
+                <div style="overflow-x:auto"><table class="data-table" id="dashPub"></table></div>
+              </div>
+              <div class="chart-card" style="margin-bottom:0">
+                <h5>Reach &amp; frequency</h5>
+                <div class="csub">Unique households and how often they saw the ad.</div>
+                <div class="kpi-grid" style="grid-template-columns:1fr 1fr;margin:8px 0 4px">
+                  <div class="kpi"><div class="klabel">Unique reach</div><div class="kval" id="ottReach">0</div></div>
+                  <div class="kpi"><div class="klabel">Avg frequency</div><div class="kval" id="ottFreq">0×</div></div>
+                </div>
+                <div style="font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:10px 0 2px">Frequency distribution</div>
+                <div class="rf-dist" id="ottDist"></div>
+              </div>
+            </div>
+
+            <!-- Email band -->
+            <div class="dash-band">
+              <span class="bar" style="background:#7c5cfc"></span>
+              <div><h4>Email Marketing</h4><div class="desc">Owned-channel engagement &amp; deliverability</div></div>
+              <span class="tagx">Owned audience</span>
+            </div>
+            <div class="kpi-grid" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
+              <div class="kpi"><div class="klabel">Emails sent</div><div class="kval" id="emSent">0</div></div>
+              <div class="kpi"><div class="klabel">Delivery rate</div><div class="kval" id="emDeliv">0%</div></div>
+              <div class="kpi"><div class="klabel">Open rate</div><div class="kval" id="emOpen">0%</div><div class="kdelta up" id="emOpenD"></div></div>
+              <div class="kpi"><div class="klabel">Click rate (CTR)</div><div class="kval" id="emCtr">0%</div><div class="kdelta up" id="emCtrD"></div></div>
+              <div class="kpi"><div class="klabel">Click-to-open</div><div class="kval" id="emCtor">0%</div></div>
+              <div class="kpi"><div class="klabel">Unsub rate</div><div class="kval" id="emUnsub">0%</div></div>
+            </div>
+            <div class="chart-card" style="margin-top:18px;margin-bottom:0">
+              <h5>Engagement funnel</h5>
+              <div class="csub">From send to click — where the audience drops off.</div>
+              <div class="funnel" id="emFunnel" style="margin-top:10px"></div>
+            </div>
+          </div>
+        </div>
+        </div><!-- /dash-digital -->
+
+        <!-- ===== Sub-panel: Revenue Performance (executive) ===== -->
+        <div class="dash-sub" id="dash-revenue">
+          <div class="tool-body" style="grid-template-columns:1fr">
+            <div class="tool-output" style="border-right:none">
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px">
+                <div style="font-size:.82rem;color:var(--muted)">Digital revenue · fiscal year to date · <b>8 markets</b></div>
+                <div class="seg" id="revYear" style="margin-left:auto">
+                  <button class="on" data-y="cy">This year</button>
+                  <button data-y="vs">vs. last year</button>
+                </div>
+              </div>
+
+              <!-- Executive KPI tiles -->
+              <div class="kpi-grid">
+                <div class="kpi" style="grid-column:span 2"><div class="klabel">Net revenue (YTD)</div><div class="kval" id="rvNet" style="font-size:2.1rem">$0</div><div class="kdelta up" id="rvNetD"></div></div>
+                <div class="kpi"><div class="klabel">Churn rate</div><div class="kval" id="rvChurn">0%</div><div class="kdelta up" id="rvChurnD"></div></div>
+                <div class="kpi"><div class="klabel">Active advertisers</div><div class="kval" id="rvAdv">0</div><div class="kdelta up" id="rvAdvD"></div></div>
+              </div>
+              <div class="kpi-grid">
+                <div class="kpi"><div class="klabel">ARPC</div><div class="kval" id="rvArpa">$0</div></div>
+                <div class="kpi"><div class="klabel">Digital mix of total</div><div class="kval" id="rvMix">0%</div><div class="kdelta up" id="rvMixD"></div></div>
+                <div class="kpi"><div class="klabel">Renewal rate</div><div class="kval" id="rvRen">0%</div></div>
+                <div class="kpi"><div class="klabel">New business</div><div class="kval" id="rvNew">$0</div><div class="kdelta up" id="rvNewD"></div></div>
+              </div>
+
+              <!-- Monthly trend + product mix -->
+              <div class="dash-two" style="grid-template-columns:1.5fr 1fr">
+                <div class="chart-card" style="margin-bottom:0">
+                  <h5>Net revenue — monthly trend</h5>
+                  <div class="csub">This year vs. last year, against monthly goal.</div>
+                  <svg class="chart-svg" id="rvTrend" viewBox="0 0 520 220"></svg>
+                  <div class="legend"><span class="lg"><i style="background:#2b4de0"></i>This year</span><span class="lg"><i style="background:#c3cef9"></i>Last year</span><span class="lg"><i style="background:#f5a524"></i>Goal</span></div>
+                </div>
+                <div class="chart-card" style="margin-bottom:0">
+                  <h5>Revenue by product</h5>
+                  <div class="csub">Digital product mix.</div>
+                  <div style="display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;margin-top:6px">
+                    <svg class="chart-svg" id="rvDonut" viewBox="0 0 150 150"></svg>
+                    <div class="device-legend" id="rvDonutLeg"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Digital product performance -->
+              <div class="chart-card" style="margin-top:18px;margin-bottom:0">
+                <h5>Digital product performance</h5>
+                <div class="csub">Net revenue, share of book, YoY growth &amp; contribution margin by product.</div>
+                <div style="overflow-x:auto"><table class="data-table" id="rvProdTable"></table></div>
+              </div>
+
+              <!-- Market + AE -->
+              <div class="dash-two" style="margin-top:18px">
+                <div class="chart-card" style="margin-bottom:0">
+                  <h5>Market performance</h5>
+                  <div class="csub">Net revenue &amp; attainment to goal by market.</div>
+                  <div style="overflow-x:auto"><table class="data-table" id="rvMktTable"></table></div>
+                </div>
+                <div class="chart-card" style="margin-bottom:0">
+                  <h5>Account Executive leaderboard</h5>
+                  <div class="csub">Net revenue vs. quota — ranked by attainment.</div>
+                  <div style="overflow-x:auto"><table class="data-table" id="rvAeTable"></table></div>
+                </div>
+              </div>
+
+              <!-- Advertisers -->
+              <div class="chart-card" style="margin-top:18px;margin-bottom:0">
+                <h5>Top advertisers — revenue by product &amp; market</h5>
+                <div class="csub">Largest accounts, their lead product, home market &amp; year-over-year trend.</div>
+                <div style="overflow-x:auto"><table class="data-table" id="rvAdvTable"></table></div>
+              </div>
+
+              <div class="callout" style="margin-top:18px">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4M12 16h.01"/></svg>
+                <div id="rvInsight"></div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /dash-revenue -->
+      </div>
+    </div>
+
+    <!-- ---- AI ANALYST AGENTS ---- -->
+    <div class="tool-panel" id="tool-agent">
+      <div class="tool-shell reveal">
+        <div class="tool-top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 13h.01M15 13h.01M2 12h2M20 12h2"/></svg></span>
+          <div><h3>AI Analyst Agents</h3><p>Point an agent at a raw export — it reads the data, finds what matters, and writes the takeaway. The manual analysis, automated.</p></div>
+          <span class="live"><span class="dot"></span>LLM-powered</span>
+        </div>
+        <div class="ai-wrap">
+          <div class="ai-chips" id="aiChips"></div>
+          <div class="ai-layout">
+            <div class="ds-card">
+              <div class="ds-head"><span class="dh">Input data</span><b id="dsName"></b><span class="src" id="dsSrc"></span></div>
+              <div class="ds-meta" id="dsMeta"></div>
+              <div class="ds-scroll"><table class="data-table" id="dsTable"></table></div>
+            </div>
+            <div class="agent-card">
+              <div class="agent-head">
+                <span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg></span>
+                <div class="an"><b id="agName">Analyst Agent</b><small id="agRole"></small></div>
+                <span class="badge"><span class="dot"></span>Live</span>
+              </div>
+              <div class="agent-body" id="agentBody"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="section alt" id="work">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Selected work</span>
+      <h2>Analysis that changed a decision</h2>
+      <p>A few projects where the numbers didn't just describe the business — they moved it.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card reveal">
+        <div class="work-viz" data-viz="line"></div>
+        <div class="work-body">
+          <div class="cat">Executive Dashboarding</div>
+          <h3>One source of truth across 20+ markets</h3>
+          <p>Unified paid search, social, programmatic, and OTT from 20+ platforms into executive Power BI &amp; DOMO dashboards — replacing a patchwork of manual decks with a single live view of growth levers.</p>
+          <div class="tools-used"><span>Power BI</span><span>DOMO</span><span>NinjaCat</span><span>CM360</span></div>
+          <div class="work-metrics"><div class="m"><b>20+</b><span>Markets unified</span></div><div class="m"><b>1</b><span>Source of truth</span></div></div>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-viz" data-viz="area"></div>
+        <div class="work-body">
+          <div class="cat">Cost Optimization</div>
+          <h3>$1.5M in annual savings, found in the data</h3>
+          <p>Directed cross-functional analytics tracking advertising performance and customer behavior across digital and offline channels — surfacing waste and efficiency plays worth $1.5M+ per year.</p>
+          <div class="tools-used"><span>Financial Modeling</span><span>Attribution</span><span>Power Query</span></div>
+          <div class="work-metrics"><div class="m"><b>$1.5M+</b><span>Annual savings</span></div><div class="m"><b>Multi</b><span>Channel scope</span></div></div>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-viz" data-viz="bars"></div>
+        <div class="work-body">
+          <div class="cat">AI &amp; Automation</div>
+          <h3>LLM analytics agents that give back time</h3>
+          <p>Partnered with AI &amp; data science to design and deploy LLM-powered analytics agents — automating recurring analysis and reporting, and removing 100+ hours of manual work every month.</p>
+          <div class="tools-used"><span>LLM Agents</span><span>Prompt Design</span><span>Python</span><span>Automation</span></div>
+          <div class="work-metrics"><div class="m"><b>100+</b><span>Hrs/mo saved</span></div><div class="m"><b>AI Lead</b><span>Strategy role</span></div></div>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-viz" data-viz="scatter"></div>
+        <div class="work-body">
+          <div class="cat">Measurement Framework</div>
+          <h3>KPI &amp; ROI frameworks that guide investment</h3>
+          <p>Partnered with Marketing, Sales, and Finance to define benchmarking and KPI frameworks for campaign ROI, category share, and lead quality — guiding where dollars and positioning go next.</p>
+          <div class="tools-used"><span>KPI Design</span><span>ROI Modeling</span><span>Benchmarking</span></div>
+          <div class="work-metrics"><div class="m"><b>ROI</b><span>Framework</span></div><div class="m"><b>3</b><span>Teams aligned</span></div></div>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-viz" data-viz="donut"></div>
+        <div class="work-body">
+          <div class="cat">Consumer Goods</div>
+          <h3>+11.4% margin contribution at PepsiCo</h3>
+          <p>As a Sales Management Intern with PepsiCo (PBC), used KPI monitoring and root-cause analysis to find execution and promotional gaps — delivering an 11.4% lift in margin contribution.</p>
+          <div class="tools-used"><span>Root-Cause</span><span>KPI Monitoring</span><span>Diagnostics</span></div>
+          <div class="work-metrics"><div class="m"><b>+11.4%</b><span>Margin lift</span></div><div class="m"><b>PBC</b><span>Field analytics</span></div></div>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-viz" data-viz="growth"></div>
+        <div class="work-body">
+          <div class="cat">Revenue Strategy</div>
+          <h3>200%+ of targets through pricing models</h3>
+          <p>Built financial and digital performance models for pricing strategy and profitability at Universal Processing — consistently delivering 200%+ of monthly revenue targets.</p>
+          <div class="tools-used"><span>Pricing Models</span><span>Profitability</span><span>Segmentation</span></div>
+          <div class="work-metrics"><div class="m"><b>200%+</b><span>Of target</span></div><div class="m"><b>Monthly</b><span>Cadence</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="section" id="blog">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Writing &amp; ideas</span>
+      <h2>Thoughts from the analytics floor</h2>
+      <p>Notes on measurement, media, and the messy reality of turning data into decisions. Click any post to read.</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+    <p class="note" style="text-align:center;margin-top:26px">These are starter posts — edit the text in <b>index.html</b> (the <code>POSTS</code> array) to publish your own.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="contact-inner">
+        <div>
+          <span class="eyebrow" style="color:var(--amber)">Let's connect</span>
+          <h2>Have a data problem worth solving?</h2>
+          <p>Whether it's a measurement framework, a dashboard that finally tells the truth, or an analytics team to build — I'd love to talk. Based in Atlanta, working everywhere.</p>
+          <div class="contact-cta">
+            <a href="mailto:nhat.tran72822@gmail.com" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              Email me</a>
+            <a href="https://www.linkedin.com/in/nhat-tran-mba/" target="_blank" class="btn btn-ghost">Connect on LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-list">
+          <a href="mailto:nhat.tran72822@gmail.com">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <div><small>Email</small><b>nhat.tran72822@gmail.com</b></div></a>
+          <a href="tel:+14043946685">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.5 2.1L8 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z"/></svg></span>
+            <div><small>Phone</small><b>(404) 394-6685</b></div></a>
+          <a href="https://www.linkedin.com/in/nhat-tran-mba/" target="_blank">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.3 18V10H5.7v8h2.6zM7 8.8a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 00-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3z"/></svg></span>
+            <div><small>LinkedIn</small><b>/in/nhat-tran-mba</b></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <div class="fbrand"><span class="mark" style="width:34px;height:34px;font-size:.95rem;border-radius:10px">NT</span>
+      <div>Nhat Tran<p style="margin:0">Digital Analytics &amp; Media Strategy · Atlanta, GA</p></div></div>
+    <div class="foot-links">
+      <a href="#about">About</a><a href="#tools">Tools</a><a href="#work">Work</a>
+      <a href="#blog">Blog</a><a href="Nhat-Tran-Resume.pdf" target="_blank">Resume</a>
+    </div>
+    <p>© <span id="year"></span> Nhat Tran</p>
+  </div>
+</footer>
+
+<!-- ============ BLOG MODAL ============ -->
+<div class="modal-back" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-cover" id="modalCover"><span class="rd" id="modalTag"></span></div>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Utilities
+   ============================================================ */
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+const fmt = n => n.toLocaleString('en-US',{maximumFractionDigits:0});
+const fmt$ = n => '$'+Math.round(n).toLocaleString('en-US');
+const fmt$c = n => '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const compact = n => {
+  if(n>=1e9) return (n/1e9).toFixed(n>=1e10?0:1)+'B';
+  if(n>=1e6) return (n/1e6).toFixed(n>=1e7?0:1)+'M';
+  if(n>=1e3) return (n/1e3).toFixed(n>=1e4?0:1)+'K';
+  return Math.round(n).toString();
+};
+const CH_COLORS = ['#2b4de0','#0ea5a4','#f5a524','#f4715b','#7c5cfc','#64748b'];
+const NS='http://www.w3.org/2000/svg';
+function svgEl(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function clear(el){while(el.firstChild)el.removeChild(el.firstChild);}
+
+/* ============================================================
+   Nav: scroll state, active link, mobile menu
+   ============================================================ */
+const nav = $('#nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>10));
+const navLinks = $('#navLinks');
+$('#burger').addEventListener('click',()=>navLinks.classList.toggle('open'));
+$$('#navLinks a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+const sections = ['about','experience','tools','work','blog','contact'];
+const spy = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){
+    $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+  }});
+},{rootMargin:'-45% 0px -50% 0px'});
+sections.forEach(id=>{const el=document.getElementById(id); if(el)spy.observe(el);});
+$('#year').textContent = new Date().getFullYear();
+
+/* Reveal on scroll */
+const revObs = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target);} });
+},{threshold:.12});
+$$('.reveal').forEach(el=>revObs.observe(el));
+
+/* ============================================================
+   Tool tab switching
+   ============================================================ */
+$$('.tool-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    $$('.tool-tab').forEach(t=>t.classList.remove('active'));
+    $$('.tool-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    $('#tool-'+tab.dataset.tool).classList.add('active');
+  });
+});
+
+/* ============================================================
+   Chart helpers (hand-rolled SVG)
+   ============================================================ */
+function lineChart(svg,{series,labels,yFmt=compact,colors=CH_COLORS,area=false,dots=true}){
+  clear(svg);
+  const vb=svg.viewBox.baseVal, W=vb.width,H=vb.height;
+  const pad={l:46,r:14,t:14,b:28};
+  const iw=W-pad.l-pad.r, ih=H-pad.t-pad.b;
+  let max=0,min=Infinity;
+  series.forEach(s=>s.data.forEach(v=>{max=Math.max(max,v);min=Math.min(min,v);}));
+  min=Math.min(min,0); const range=max-min||1;
+  const X=i=>pad.l+iw*(i/(labels.length-1));
+  const Y=v=>pad.t+ih*(1-(v-min)/range);
+  // gridlines + y labels
+  for(let g=0;g<=4;g++){
+    const v=min+range*g/4, y=Y(v);
+    svg.appendChild(svgEl('line',{x1:pad.l,y1:y,x2:W-pad.r,y2:y,stroke:'#e7e2d9','stroke-width':1}));
+    const t=svgEl('text',{x:pad.l-8,y:y+4,'text-anchor':'end','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    t.textContent=yFmt(v); svg.appendChild(t);
+  }
+  // x labels (sparse)
+  labels.forEach((lb,i)=>{
+    if(labels.length>8 && i%2) return;
+    const t=svgEl('text',{x:X(i),y:H-8,'text-anchor':'middle','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    t.textContent=lb; svg.appendChild(t);
+  });
+  series.forEach((s,si)=>{
+    const c=s.color||colors[si%colors.length];
+    let d='';s.data.forEach((v,i)=>d+=(i?'L':'M')+X(i)+' '+Y(v)+' ');
+    if(area){
+      const ar=d+'L'+X(s.data.length-1)+' '+Y(min)+' L'+X(0)+' '+Y(min)+' Z';
+      const gid='ag'+si+Math.round(X(0));
+      const grad=svgEl('linearGradient',{id:gid,x1:0,y1:0,x2:0,y2:1});
+      grad.appendChild(svgEl('stop',{offset:'0%','stop-color':c,'stop-opacity':.22}));
+      grad.appendChild(svgEl('stop',{offset:'100%','stop-color':c,'stop-opacity':0}));
+      svg.appendChild(grad);
+      svg.appendChild(svgEl('path',{d:ar,fill:'url(#'+gid+')'}));
+    }
+    const path=svgEl('path',{d,fill:'none',stroke:c,'stroke-width':2.6,'stroke-linecap':'round','stroke-linejoin':'round'});
+    svg.appendChild(path);
+    const len=path.getTotalLength?path.getTotalLength():0;
+    if(len){path.setAttribute('stroke-dasharray',len);path.setAttribute('stroke-dashoffset',len);
+      path.style.transition='stroke-dashoffset 1.1s ease';requestAnimationFrame(()=>path.setAttribute('stroke-dashoffset',0));}
+    if(dots)s.data.forEach((v,i)=>{
+      const cc=svgEl('circle',{cx:X(i),cy:Y(v),r:3.2,fill:'#fff',stroke:c,'stroke-width':2});
+      svg.appendChild(cc);
+    });
+  });
+}
+
+function barChart(svg,{cats,series,yFmt=compact,colors=CH_COLORS}){
+  clear(svg);
+  const vb=svg.viewBox.baseVal,W=vb.width,H=vb.height;
+  const pad={l:46,r:14,t:14,b:30};
+  const iw=W-pad.l-pad.r, ih=H-pad.t-pad.b;
+  let max=0; series.forEach(s=>s.data.forEach(v=>max=Math.max(max,v))); max=max||1;
+  const ns=series.length, group=iw/cats.length, bw=Math.min(group*0.7/ns,34);
+  for(let g=0;g<=4;g++){
+    const y=pad.t+ih*(1-g/4);
+    svg.appendChild(svgEl('line',{x1:pad.l,y1:y,x2:W-pad.r,y2:y,stroke:'#e7e2d9','stroke-width':1}));
+    const t=svgEl('text',{x:pad.l-8,y:y+4,'text-anchor':'end','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    t.textContent=yFmt(max*g/4); svg.appendChild(t);
+  }
+  cats.forEach((cat,i)=>{
+    const gx=pad.l+group*i+group/2;
+    series.forEach((s,si)=>{
+      const v=s.data[i],h=ih*(v/max);
+      const x=gx-(ns*bw)/2+si*bw;
+      const r=svgEl('rect',{x,y:pad.t+ih-h,width:bw-3,height:h,rx:4,fill:s.color||colors[si%colors.length]});
+      r.style.transformOrigin=(pad.t+ih)+'px';r.style.transform='scaleY(0)';r.style.transition='transform .8s cubic-bezier(.2,.8,.3,1) '+(i*0.05)+'s';
+      svg.appendChild(r);requestAnimationFrame(()=>r.style.transform='scaleY(1)');
+    });
+    const t=svgEl('text',{x:gx,y:H-9,'text-anchor':'middle','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    t.textContent=cat; svg.appendChild(t);
+  });
+}
+
+function donut(svg,{data,colors=CH_COLORS,thick=26,center=null,centerSub='channels'}){
+  clear(svg);
+  const vb=svg.viewBox.baseVal,W=vb.width,H=vb.height;
+  const cx=W/2,cy=H/2,r=Math.min(W,H)/2-6;
+  const tot=data.reduce((a,b)=>a+b.value,0)||1;
+  let ang=-Math.PI/2;
+  data.forEach((d,i)=>{
+    const frac=d.value/tot, a2=ang+frac*Math.PI*2;
+    const large=frac>0.5?1:0;
+    const x1=cx+r*Math.cos(ang),y1=cy+r*Math.sin(ang);
+    const x2=cx+r*Math.cos(a2),y2=cy+r*Math.sin(a2);
+    const p=svgEl('path',{d:`M${x1} ${y1} A${r} ${r} 0 ${large} 1 ${x2} ${y2}`,
+      fill:'none',stroke:d.color||colors[i%colors.length],'stroke-width':thick,'stroke-linecap':'butt'});
+    const len=p.getTotalLength?p.getTotalLength():0;
+    if(len){p.setAttribute('stroke-dasharray',len);p.setAttribute('stroke-dashoffset',len);
+      p.style.transition='stroke-dashoffset .9s ease '+(i*0.08)+'s';requestAnimationFrame(()=>p.setAttribute('stroke-dashoffset',0));}
+    svg.appendChild(p); ang=a2;
+  });
+  const c=svgEl('text',{x:cx,y:cy-2,'text-anchor':'middle','font-size':15,'font-weight':700,fill:'#161d33','font-family':'Fraunces'});
+  c.textContent=center!=null?center:data.length; svg.appendChild(c);
+  const c2=svgEl('text',{x:cx,y:cy+14,'text-anchor':'middle','font-size':9,fill:'#6b7185','font-family':'Inter'});
+  c2.textContent=centerSub; svg.appendChild(c2);
+}
+
+/* ============================================================
+   TOOL 1 — Media Mix Modeling
+   ============================================================ */
+const MMM_CH = [
+  {name:'Paid Search',  beta:0.42, sat:0.30, roas:4.2},
+  {name:'Paid Social',  beta:0.30, sat:0.42, roas:3.1},
+  {name:'Programmatic', beta:0.22, sat:0.55, roas:2.4},
+  {name:'OTT / CTV',    beta:0.20, sat:0.70, roas:2.0},
+  {name:'Online Video', beta:0.16, sat:0.60, roas:1.8},
+];
+// weights (share of budget), start
+let mmmW = [0.34,0.26,0.18,0.12,0.10];
+const AOV = 90;          // avg order value for revenue
+const CONV_SCALE = 58000; // conversions-at-saturation scale (tuned for a healthy ~2.8x blended ROAS)
+// response: conversions from spend on a channel (saturating / diminishing returns)
+function chResponse(ch, spend){
+  const S = 1_000_000;
+  const conv = ch.beta * CONV_SCALE * (1 - Math.exp(-spend/(ch.sat*S)));
+  return conv;
+}
+function mmmTotalConv(budget,weights){
+  return MMM_CH.reduce((a,ch,i)=>a+chResponse(ch,budget*weights[i]),0);
+}
+function buildMMMControls(){
+  const box=$('#mmmChannels'); box.innerHTML='';
+  MMM_CH.forEach((ch,i)=>{
+    const row=document.createElement('div'); row.className='chan-row';
+    row.innerHTML=`<div class="chan-top"><span class="swatch" style="background:${CH_COLORS[i]}"></span>
+      <span class="cname">${ch.name}</span><span class="cpct" id="mmmPct${i}">0%</span></div>
+      <input type="range" min="0" max="100" step="1" value="${Math.round(mmmW[i]*100)}" data-i="${i}" class="mmmSlider">`;
+    box.appendChild(row);
+  });
+  $$('.mmmSlider').forEach(s=>s.addEventListener('input',()=>{
+    const raw=$$('.mmmSlider').map(x=>+x.value);
+    const sum=raw.reduce((a,b)=>a+b,0)||1;
+    mmmW=raw.map(v=>v/sum);
+    $('#mmmOptCard').style.display='none';
+    renderMMM();
+  }));
+}
+let mmmBaseConv=null;
+function renderMMM(optimized=null){
+  const budget=+$('#mmmBudget').value;
+  $('#mmmBudgetVal').textContent=fmt$(budget);
+  MMM_CH.forEach((ch,i)=>$('#mmmPct'+i).textContent=Math.round(mmmW[i]*100)+'%');
+  const conv=mmmTotalConv(budget,mmmW);
+  const rev=conv*AOV, roas=rev/budget;
+  $('#mmmConv').textContent=fmt(conv);
+  $('#mmmRev').textContent=fmt$(rev);
+  $('#mmmRoas').textContent=roas.toFixed(2)+'×';
+  if(mmmBaseConv!==null){
+    const d=(conv-mmmBaseConv)/mmmBaseConv*100;
+    $('#mmmConvD').textContent=(d>=0?'▲ ':'▼ ')+Math.abs(d).toFixed(1)+'% vs. baseline';
+    $('#mmmConvD').className='kdelta '+(d>=0?'up':'down');
+    $('#mmmRevD').textContent=(d>=0?'▲ ':'▼ ')+fmt$(Math.abs(conv-mmmBaseConv)*AOV);
+    $('#mmmRevD').className='kdelta '+(d>=0?'up':'down');
+  } else {$('#mmmConvD').textContent='';$('#mmmRevD').textContent='';}
+  // response curves
+  const svg=$('#mmmCurves'); clear(svg);
+  const W=560,H=260,pad={l:46,r:14,t:14,b:28},iw=W-pad.l-pad.r,ih=H-pad.t-pad.b;
+  const maxSpend=budget*0.6;
+  let maxC=0;
+  MMM_CH.forEach(ch=>{for(let s=0;s<=maxSpend;s+=maxSpend/20)maxC=Math.max(maxC,chResponse(ch,s));});
+  maxC=maxC||1;
+  for(let g=0;g<=4;g++){const y=pad.t+ih*(1-g/4);
+    svg.appendChild(svgEl('line',{x1:pad.l,y1:y,x2:W-pad.r,y2:y,stroke:'#e7e2d9','stroke-width':1}));
+    const t=svgEl('text',{x:pad.l-8,y:y+4,'text-anchor':'end','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    t.textContent=compact(maxC*g/4);svg.appendChild(t);}
+  [0,.25,.5,.75,1].forEach(f=>{const x=pad.l+iw*f;
+    const t=svgEl('text',{x,y:H-8,'text-anchor':'middle','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    t.textContent=fmt$(maxSpend*f).replace('$','$');svg.appendChild(t);});
+  MMM_CH.forEach((ch,i)=>{
+    let d='';for(let k=0;k<=40;k++){const s=maxSpend*k/40;const x=pad.l+iw*(k/40);const y=pad.t+ih*(1-chResponse(ch,s)/maxC);d+=(k?'L':'M')+x+' '+y+' ';}
+    svg.appendChild(svgEl('path',{d,fill:'none',stroke:CH_COLORS[i],'stroke-width':2.4,'stroke-linecap':'round'}));
+    const sp=budget*mmmW[i],x=pad.l+iw*Math.min(sp/maxSpend,1),y=pad.t+ih*(1-chResponse(ch,Math.min(sp,maxSpend))/maxC);
+    svg.appendChild(svgEl('circle',{cx:x,cy:y,r:5,fill:CH_COLORS[i],stroke:'#fff','stroke-width':2}));
+  });
+  $('#mmmLegend').innerHTML=MMM_CH.map((ch,i)=>`<span class="lg"><i style="background:${CH_COLORS[i]}"></i>${ch.name}</span>`).join('');
+  if(optimized){
+    $('#mmmOptCard').style.display='block';
+    barChart($('#mmmOptBars'),{
+      cats:MMM_CH.map(c=>c.name.split(' ')[0]),
+      series:[{name:'Current',data:mmmW.map(w=>budget*w),color:'#cbd5e1'},
+              {name:'Optimized',data:optimized.map(w=>budget*w),color:'#2b4de0'}],
+      yFmt:v=>fmt$(v)
+    });
+  }
+}
+$('#mmmBudget').addEventListener('input',()=>{$('#mmmOptCard').style.display='none';renderMMM();});
+$('#mmmOptimize').addEventListener('click',()=>{
+  const budget=+$('#mmmBudget').value;
+  mmmBaseConv=mmmTotalConv(budget,mmmW);
+  // hill-climb: shift budget toward highest marginal return
+  let w=mmmW.slice();
+  const step=0.01;
+  for(let iter=0;iter<400;iter++){
+    // marginal return per channel
+    const marg=MMM_CH.map((ch,i)=>{
+      const s=budget*w[i];const dS=budget*step;
+      return (chResponse(ch,s+dS)-chResponse(ch,s));
+    });
+    let hi=0,lo=0;
+    marg.forEach((m,i)=>{if(m>marg[hi])hi=i;if(m<marg[lo]&&w[i]>step)lo=i;});
+    if(hi===lo||w[lo]<=step)break;
+    w[lo]-=step;w[hi]+=step;
+  }
+  mmmW=w;
+  renderMMM(w);
+  const newConv=mmmTotalConv(budget,w);
+  const lift=(newConv-mmmBaseConv)/mmmBaseConv*100;
+  $('#mmmCallout').innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+    <div><b>Optimized.</b> Reallocating the same ${fmt$(budget)} lifts predicted conversions by <b>${lift>=0?'+':''}${lift.toFixed(1)}%</b> — by shifting dollars toward channels with unspent headroom on their response curves.</div>`;
+  $('#mmmCallout').style.background='var(--amber-tint)';$('#mmmCallout').style.borderColor='#f3d9a0';$('#mmmCallout').style.color='#8a5a00';
+  buildMMMControls();
+});
+$('#mmmReset').addEventListener('click',()=>{
+  mmmW=[0.34,0.26,0.18,0.12,0.10];mmmBaseConv=null;$('#mmmOptCard').style.display='none';
+  $('#mmmCallout').style.background='';$('#mmmCallout').style.borderColor='';$('#mmmCallout').style.color='';
+  $('#mmmCallout').innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4M12 16h.01"/></svg><div>Move the sliders to test a mix, then hit <b>Optimize</b> to see how reallocating the same budget can lift conversions.</div>`;
+  buildMMMControls();renderMMM();
+});
+
+/* ============================================================
+   MMM sub-tab: REGRESSION ANALYSIS
+   Real OLS multiple regression with p-values, R², and an
+   external-shock (Iran-US war) control variable.
+   ============================================================ */
+/* ---- linear algebra ---- */
+function mTranspose(A){return A[0].map((_,j)=>A.map(r=>r[j]));}
+function mMul(A,B){const bt=mTranspose(B);return A.map(r=>bt.map(c=>r.reduce((s,v,i)=>s+v*c[i],0)));}
+function mVec(A,x){return A.map(r=>r.reduce((s,v,i)=>s+v*x[i],0));}
+function mInv(A){ // Gauss-Jordan with partial pivoting
+  const n=A.length, M=A.map((r,i)=>[...r,...r.map((_,j)=>i===j?1:0)]);
+  for(let c=0;c<n;c++){
+    let piv=c; for(let r=c+1;r<n;r++) if(Math.abs(M[r][c])>Math.abs(M[piv][c])) piv=r;
+    [M[c],M[piv]]=[M[piv],M[c]];
+    const d=M[c][c]||1e-12;
+    for(let j=0;j<2*n;j++) M[c][j]/=d;
+    for(let r=0;r<n;r++){ if(r===c) continue; const f=M[r][c]; for(let j=0;j<2*n;j++) M[r][j]-=f*M[c][j]; }
+  }
+  return M.map(r=>r.slice(n));
+}
+/* ---- t-distribution two-tailed p-value via regularized incomplete beta ---- */
+function gammln(x){
+  const c=[76.18009172947146,-86.50532032941677,24.01409824083091,-1.231739572450155,0.1208650973866179e-2,-0.5395239384953e-5];
+  let y=x,tmp=x+5.5;tmp-=(x+0.5)*Math.log(tmp);let ser=1.000000000190015;
+  for(let j=0;j<6;j++){y++;ser+=c[j]/y;}
+  return -tmp+Math.log(2.5066282746310005*ser/x);
+}
+function betacf(a,b,x){
+  const MAXIT=200,EPS=3e-9,FPMIN=1e-30; let qab=a+b,qap=a+1,qam=a-1,c=1,d=1-qab*x/qap;
+  if(Math.abs(d)<FPMIN)d=FPMIN; d=1/d; let h=d;
+  for(let m=1;m<=MAXIT;m++){const m2=2*m;
+    let aa=m*(b-m)*x/((qam+m2)*(a+m2));
+    d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d; h*=d*c;
+    aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2));
+    d=1+aa*d; if(Math.abs(d)<FPMIN)d=FPMIN; c=1+aa/c; if(Math.abs(c)<FPMIN)c=FPMIN; d=1/d;
+    const del=d*c; h*=del; if(Math.abs(del-1)<EPS)break;
+  }
+  return h;
+}
+function betai(a,b,x){
+  if(x<=0)return 0; if(x>=1)return 1;
+  const bt=Math.exp(gammln(a+b)-gammln(a)-gammln(b)+a*Math.log(x)+b*Math.log(1-x));
+  return x<(a+1)/(a+b+2) ? bt*betacf(a,b,x)/a : 1-bt*betacf(b,a,1-x)/b;
+}
+function tPvalue(t,df){ const x=df/(df+t*t); return betai(df/2,0.5,x); } // P(|T|>|t|)
+
+/* ---- OLS ---- */
+function ols(X,y){
+  const n=X.length,k=X[0].length;
+  const Xt=mTranspose(X), XtX=mMul(Xt,X), XtXinv=mInv(XtX), Xty=mVec(Xt,y);
+  const beta=mVec(XtXinv,Xty);
+  const yhat=mVec(X,beta);
+  const resid=y.map((v,i)=>v-yhat[i]);
+  const sse=resid.reduce((s,e)=>s+e*e,0);
+  const ybar=y.reduce((s,v)=>s+v,0)/n;
+  const sst=y.reduce((s,v)=>s+(v-ybar)**2,0);
+  const r2=1-sse/sst, df=n-k, sigma2=sse/df;
+  const se=beta.map((_,j)=>Math.sqrt(Math.max(sigma2*XtXinv[j][j],0)));
+  const t=beta.map((b,j)=>se[j]>0?b/se[j]:0);
+  const p=t.map(tv=>tPvalue(Math.abs(tv),df));
+  const adjR2=1-(1-r2)*(n-1)/df;
+  return {beta,se,t,p,r2,adjR2,n,k,df,yhat,sse};
+}
+function pearson(a,b){
+  const n=a.length,ma=a.reduce((s,v)=>s+v,0)/n,mb=b.reduce((s,v)=>s+v,0)/n;
+  let num=0,da=0,db=0;
+  for(let i=0;i<n;i++){num+=(a[i]-ma)*(b[i]-mb);da+=(a[i]-ma)**2;db+=(b[i]-mb)**2;}
+  return num/Math.sqrt(da*db||1);
+}
+
+/* ---- synthetic dataset: 104 weeks, 5 channels + retail budget + war shock ---- */
+const REG_VARS=['Paid Search','Paid Social','Programmatic','OTT / CTV','Online Video','Retail Budget'];
+const REG_KEYS=['search','social','prog','ott','video','retail'];
+const REG_WAR0=60, REG_WAR1=72; // war weeks (inclusive)
+const REG_DATA=(function(){
+  const rnd=seeded(20240717);
+  const gauss=()=>rnd()+rnd()+rnd()+rnd()+rnd()+rnd()-3; // ~N(0,0.707)
+  // true structural coefficients ($ sales per $1k spend)
+  const B={b0:1500, search:10, social:5.5, prog:1.2, ott:4, video:0.8, retail:6, war:-560};
+  const rows=[];
+  for(let w=0;w<104;w++){
+    const r={};
+    r.search=Math.max(6, 30+14*gauss());
+    r.social=Math.max(4, 20+10*gauss());
+    r.prog  =Math.max(3, 15+8*gauss());
+    r.ott   =Math.max(3, 12+7*gauss());
+    r.video =Math.max(2, 9+6*gauss());
+    r.retail=Math.max(8, 32+13*gauss());
+    r.war   =(w>=REG_WAR0 && w<=REG_WAR1)?1:0;
+    const noise=(rnd()-0.5)*520; // +/-260, sd~150
+    r.sales=B.b0 + B.search*r.search + B.social*r.social + B.prog*r.prog
+          + B.ott*r.ott + B.video*r.video + B.retail*r.retail + B.war*r.war + noise;
+    r.w=w; rows.push(r);
+  }
+  return rows;
+})();
+function buildRegModel(includeWar){
+  const y=REG_DATA.map(r=>r.sales);
+  const cols=REG_KEYS.slice(); if(includeWar) cols.push('war');
+  const X=REG_DATA.map(r=>[1,...cols.map(c=>r[c])]);
+  const res=ols(X,y);
+  const names=['Intercept',...REG_VARS,...(includeWar?['Iran–US War']:[])];
+  return {res,names,cols,includeWar};
+}
+function sigOf(p){ return p<0.001?{s:3,l:'***'}:p<0.01?{s:2,l:'**'}:p<0.05?{s:1,l:'*'}:{s:0,l:'n.s.'}; }
+function pFmt(p){ return p<0.001?'<0.001':p.toFixed(3); }
+
+let regInit=false;
+function renderReg(){
+  const includeWar=$('#regWar').checked;
+  const withWar=buildRegModel(true), noWar=buildRegModel(false);
+  const M=includeWar?withWar:noWar;
+  const {res,names}=M;
+  // KPI tiles
+  $('#regR2').textContent=res.r2.toFixed(3);
+  $('#regAdj').textContent=res.adjR2.toFixed(3);
+  $('#regN').textContent=res.n;
+  const dR2=(withWar.res.r2-noWar.res.r2);
+  $('#regR2sub').textContent=includeWar?('▲ +'+dR2.toFixed(3)+' vs. no war control'):('▼ −'+dR2.toFixed(3)+' without war control');
+  $('#regR2sub').className='kdelta '+(includeWar?'up':'down');
+  if(includeWar){
+    const wi=names.indexOf('Iran–US War');
+    $('#regWarImp').textContent=fmt$(res.beta[wi]);
+    $('#regWarP').textContent='p '+pFmt(res.p[wi])+' · '+sigOf(res.p[wi]).l;
+  } else { $('#regWarImp').textContent='not modeled'; $('#regWarP').textContent='effect hidden in error'; }
+  // war note
+  $('#regWarNote').innerHTML=includeWar
+    ? `Modeled as a dummy variable (weeks ${REG_WAR0+1}–${REG_WAR1+1}). It <b>isolates</b> the shock so media effects aren't blamed for the demand dip.`
+    : `Now <b>omitted</b>. The unexplained war dip inflates the error term — watch R² fall and standard errors widen.`;
+  // fit chart: actual vs predicted, war shaded
+  drawRegFit(res.yhat);
+  // regression table
+  const t=$('#regTable');
+  let rowsHtml='';
+  names.forEach((nm,j)=>{
+    const b=res.beta[j], se=res.se[j], tv=res.t[j], p=res.p[j], sg=sigOf(p);
+    const isInt=nm==='Intercept';
+    rowsHtml+=`<tr class="${(!isInt&&sg.s===0)?'insig':''}">
+      <td>${nm}</td>
+      <td class="${!isInt&&b>=0?'pos':(!isInt&&b<0?'neg':'')}">${isInt?fmt$(b):(b>=0?'+':'−')+'$'+Math.abs(b).toFixed(1)}</td>
+      <td>${se.toFixed(1)}</td>
+      <td>${tv.toFixed(2)}</td>
+      <td class="pv">${isInt?'—':pFmt(p)}</td>
+      <td>${isInt?'':'<span class="sig s'+sg.s+'">'+sg.l+'</span>'}</td></tr>`;
+  });
+  t.innerHTML=`<thead><tr><th>Variable</th><th>β (coef)</th><th>Std&nbsp;Err</th><th>t</th><th>p-value</th><th>Sig.</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+  // correlation chart
+  drawRegCorr();
+  // interpretation
+  writeRegInsight(withWar.res, noWar.res, includeWar);
+}
+function drawRegFit(yhat){
+  const svg=$('#regFit'); clear(svg);
+  const W=560,H=240,pad={l:52,r:12,t:14,b:26},iw=W-pad.l-pad.r,ih=H-pad.t-pad.b;
+  const actual=REG_DATA.map(r=>r.sales);
+  let max=-Infinity,min=Infinity;
+  actual.concat(yhat).forEach(v=>{max=Math.max(max,v);min=Math.min(min,v);});
+  const pp=(max-min)*0.08; max+=pp; min-=pp; const range=max-min||1;
+  const n=REG_DATA.length;
+  const X=i=>pad.l+iw*(i/(n-1)), Y=v=>pad.t+ih*(1-(v-min)/range);
+  // war band
+  const bx1=X(REG_WAR0), bx2=X(REG_WAR1);
+  svg.appendChild(svgEl('rect',{x:bx1,y:pad.t,width:bx2-bx1,height:ih,fill:'#f4715b','fill-opacity':0.12}));
+  const wl=svgEl('text',{x:(bx1+bx2)/2,y:pad.t+12,'text-anchor':'middle','font-size':9.5,fill:'#c0392b','font-weight':600,'font-family':'Inter'});
+  wl.textContent='Iran–US war'; svg.appendChild(wl);
+  for(let g=0;g<=4;g++){const v=min+range*g/4,y=Y(v);
+    svg.appendChild(svgEl('line',{x1:pad.l,y1:y,x2:W-pad.r,y2:y,stroke:'#e7e2d9','stroke-width':1}));
+    const tx=svgEl('text',{x:pad.l-8,y:y+4,'text-anchor':'end','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    tx.textContent='$'+compact(v); svg.appendChild(tx);}
+  [0,26,52,78,103].forEach(i=>{const tx=svgEl('text',{x:X(i),y:H-8,'text-anchor':'middle','font-size':10,fill:'#6b7185','font-family':'Inter'});
+    tx.textContent='W'+(i+1); svg.appendChild(tx);});
+  const mkPath=(arr)=>{let d='';arr.forEach((v,i)=>d+=(i?'L':'M')+X(i)+' '+Y(v)+' ');return d;};
+  // actual (dark)
+  svg.appendChild(svgEl('path',{d:mkPath(actual),fill:'none',stroke:'#161d33','stroke-width':1.8,'stroke-opacity':0.85,'stroke-linejoin':'round'}));
+  // predicted (blue, animated)
+  const pth=svgEl('path',{d:mkPath(yhat),fill:'none',stroke:'#2b4de0','stroke-width':2.4,'stroke-linejoin':'round','stroke-linecap':'round'});
+  svg.appendChild(pth);
+  const len=pth.getTotalLength?pth.getTotalLength():0;
+  if(len){pth.setAttribute('stroke-dasharray',len);pth.setAttribute('stroke-dashoffset',len);
+    pth.style.transition='stroke-dashoffset 1.1s ease';requestAnimationFrame(()=>pth.setAttribute('stroke-dashoffset',0));}
+}
+function drawRegCorr(){
+  const svg=$('#regCorr'); clear(svg);
+  const W=300,H=250,padL=96,padR=16,padT=10,padB=22;
+  const items=REG_KEYS.map((k,i)=>({name:REG_VARS[i],r:pearson(REG_DATA.map(d=>d[k]),REG_DATA.map(d=>d.sales)),c:CH_COLORS[i]}));
+  items.push({name:'Iran–US War',r:pearson(REG_DATA.map(d=>d.war),REG_DATA.map(d=>d.sales)),c:'#c0392b'});
+  const iw=W-padL-padR, ih=H-padT-padB;
+  const zero=padL+iw*0.5, half=iw*0.5; // r in [-1,1]
+  const bh=ih/items.length*0.62, gap=ih/items.length;
+  // zero axis
+  svg.appendChild(svgEl('line',{x1:zero,y1:padT,x2:zero,y2:padT+ih,stroke:'#cbd2de','stroke-width':1}));
+  [-1,-0.5,0,0.5,1].forEach(v=>{const x=zero+half*v;
+    const tx=svgEl('text',{x,y:H-6,'text-anchor':'middle','font-size':9,fill:'#6b7185','font-family':'Inter'});
+    tx.textContent=v; svg.appendChild(tx);});
+  items.forEach((it,i)=>{
+    const y=padT+gap*i+(gap-bh)/2;
+    const w=half*Math.abs(it.r);
+    const x=it.r>=0?zero:zero-w;
+    const rr=svgEl('rect',{x,y,width:Math.max(w,1),height:bh,rx:3,fill:it.c});
+    rr.style.transformOrigin=zero+'px';rr.style.transform='scaleX(0)';rr.style.transition='transform .7s cubic-bezier(.2,.8,.3,1) '+(i*0.05)+'s';
+    svg.appendChild(rr);requestAnimationFrame(()=>rr.style.transform='scaleX(1)');
+    const lb=svgEl('text',{x:padL-8,y:y+bh/2+3.5,'text-anchor':'end','font-size':9.5,fill:'#3a4058','font-family':'Inter','font-weight':500});
+    lb.textContent=it.name; svg.appendChild(lb);
+    const vl=svgEl('text',{x:it.r>=0?x+w+5:x-5,y:y+bh/2+3.5,'text-anchor':it.r>=0?'start':'end','font-size':9.5,fill:'#161d33','font-weight':700,'font-family':'Inter'});
+    vl.textContent=it.r.toFixed(2); svg.appendChild(vl);
+  });
+}
+function writeRegInsight(withWar,noWar,includeWar){
+  const names=['Intercept',...REG_VARS,'Iran–US War'];
+  // find most significant media channel (exclude intercept, retail, war)
+  const chIdx=[1,2,3,4,5]; // media channels
+  let best=chIdx[0]; chIdx.forEach(i=>{if(withWar.p[i]<withWar.p[best])best=i;});
+  const weak=chIdx.filter(i=>withWar.p[i]>=0.05).map(i=>REG_VARS[i-1]);
+  const wi=names.indexOf('Iran–US War');
+  const warB=withWar.beta[wi], warP=withWar.p[wi];
+  let html;
+  if(includeWar){
+    html=`<div><b>Reading the model.</b> With the war controlled, <b>${names[best]}</b> is the strongest media driver —
+      each $1k returns <b>$${withWar.beta[best].toFixed(1)}</b> in sales at <b>p ${pFmt(withWar.p[best])}</b>, so there's under a
+      ${(withWar.p[best]*100)<0.1?'0.1':(withWar.p[best]*100).toFixed(1)}% chance that effect is random noise.
+      ${weak.length?`By contrast, <b>${weak.join(' & ')}</b> ${weak.length>1?'are':'is'} <b>not significant</b> (p≥0.05) — we can't statistically distinguish ${weak.length>1?'their':'its'} effect from zero, so don't over-invest on ${weak.length>1?'them':'it'} yet.`:''}
+      The <b>Iran–US war</b> cut sales by <b>${fmt$(Math.abs(warB))}/week</b> (p ${pFmt(warP)}) — a real, measurable shock, not a media failure.
+      Overall the model explains <b>${(withWar.r2*100).toFixed(0)}%</b> of weekly sales variation (R²=${withWar.r2.toFixed(2)}).</div>`;
+  } else {
+    const drop=(withWar.r2-noWar.r2);
+    html=`<div><b>What happens without the control?</b> Drop the war factor and the model's fit falls from
+      R²=<b>${withWar.r2.toFixed(2)}</b> to <b>${noWar.r2.toFixed(2)}</b> (−${drop.toFixed(2)}). The war-period sales dip is now
+      unexplained — it leaks into the residuals, <b>inflating standard errors</b> and making every channel look less certain.
+      This is <b>omitted-variable bias</b> in action: leave out a real driver and you misjudge the ones you kept.
+      <b>The lesson:</b> a credible MMM must account for external forces — promotions, seasonality, competitors, world events — before trusting any channel's ROI.</div>`;
+  }
+  $('#regInsightTxt').innerHTML=html;
+}
+/* sub-tab switching */
+$$('#mmmSubTabs .sub-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    $$('#mmmSubTabs .sub-tab').forEach(t=>t.classList.remove('active'));
+    $$('#tool-mmm .mmm-sub').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    $('#mmm-'+tab.dataset.sub).classList.add('active');
+    if(tab.dataset.sub==='regression'){ renderReg(); }
+  });
+});
+$('#regWar').addEventListener('change',renderReg);
+
+/* ============================================================
+   TOOL 2 — Digital Media Planner
+   ============================================================ */
+// Defaults = 2025-26 published cross-channel benchmarks (CPM $, CTR %, CVR %).
+// Values chosen within cited ranges and kept internally consistent so the
+// derived CPC & CPA also land on benchmark. Sources: Coupler.io PPC Benchmarks
+// (2026) + Post Affiliate Pro CPM guide. See links in the tool UI.
+const PLAN_CH = [
+  {name:'Paid Search',  w:30, cpm:105,  ctr:3.9,  cvr:6.0},  // CPC ~$2.69, CPA ~$45
+  {name:'Paid Social',  w:25, cpm:14,   ctr:1.1,  cvr:2.6},  // Meta CPM ~$13.6, CPC ~$1.27
+  {name:'Programmatic', w:20, cpm:3.5,  ctr:0.35, cvr:0.9},  // GDN/programmatic CPM $2-5
+  {name:'OTT / CTV',    w:15, cpm:30,   ctr:0.20, cvr:0.7},  // CTV CPM ~$24-35, upper funnel
+  {name:'Online Video', w:10, cpm:10,   ctr:0.65, cvr:1.2},  // YouTube CPM $5-10, in-stream CTR 0.65%
+];
+let planW = PLAN_CH.map(c=>c.w);
+function buildPlanControls(){
+  const box=$('#planChannels');box.innerHTML='';
+  PLAN_CH.forEach((ch,i)=>{
+    const row=document.createElement('div');row.className='chan-row';
+    row.innerHTML=`<div class="chan-top"><span class="swatch" style="background:${CH_COLORS[i]}"></span>
+      <span class="cname">${ch.name}</span><span class="cpct" id="planPct${i}">0%</span></div>
+      <input type="range" min="0" max="100" step="1" value="${planW[i]}" data-i="${i}" class="planSlider">`;
+    box.appendChild(row);
+  });
+  $$('.planSlider').forEach(s=>s.addEventListener('input',()=>{
+    planW=$$('.planSlider').map(x=>+x.value);renderPlan();
+  }));
+}
+function renderPlan(){
+  const budget=+$('#planBudget').value;
+  $('#planBudgetVal').textContent=fmt$(budget);
+  const sum=planW.reduce((a,b)=>a+b,0)||1;
+  const rows=PLAN_CH.map((ch,i)=>{
+    const share=planW[i]/sum, spend=budget*share;
+    const impr=spend/ch.cpm*1000;
+    const clicks=impr*ch.ctr/100;
+    const conv=clicks*ch.cvr/100;
+    $('#planPct'+i).textContent=Math.round(share*100)+'%';
+    return {...ch,share,spend,impr,clicks,conv};
+  });
+  const tot=rows.reduce((a,r)=>({spend:a.spend+r.spend,impr:a.impr+r.impr,clicks:a.clicks+r.clicks,conv:a.conv+r.conv}),{spend:0,impr:0,clicks:0,conv:0});
+  $('#planImpr').textContent=compact(tot.impr);
+  $('#planClicks').textContent=compact(tot.clicks);
+  $('#planConv').textContent=fmt(tot.conv);
+  $('#planCpm').textContent=fmt$c(tot.spend/tot.impr*1000);
+  // donut spend
+  donut($('#planDonut'),{data:rows.map((r,i)=>({value:r.spend,color:CH_COLORS[i]}))});
+  // bars impressions
+  barChart($('#planBars'),{cats:rows.map(r=>r.name.split(' ')[0]),series:[{name:'Impr',data:rows.map(r=>r.impr),color:'#0ea5a4'}],yFmt:compact});
+  // table
+  const t=$('#planTable');
+  t.innerHTML=`<thead><tr><th>Channel</th><th>Share</th><th>Spend</th><th>Impr.</th><th>Clicks</th><th>CTR</th><th>Conv.</th><th>CPA</th></tr></thead>
+  <tbody>${rows.map((r,i)=>`<tr>
+    <td><span class="sw" style="background:${CH_COLORS[i]}"></span>${r.name}</td>
+    <td>${Math.round(r.share*100)}%</td><td>${fmt$(r.spend)}</td><td>${compact(r.impr)}</td>
+    <td>${compact(r.clicks)}</td><td>${r.ctr.toFixed(2)}%</td><td>${fmt(r.conv)}</td>
+    <td>${r.conv>0?fmt$(r.spend/r.conv):'—'}</td></tr>`).join('')}
+    <tr class="total"><td>Total</td><td>100%</td><td>${fmt$(tot.spend)}</td><td>${compact(tot.impr)}</td>
+    <td>${compact(tot.clicks)}</td><td>${(tot.clicks/tot.impr*100).toFixed(2)}%</td><td>${fmt(tot.conv)}</td>
+    <td>${fmt$(tot.spend/tot.conv)}</td></tr></tbody>`;
+}
+$('#planBudget').addEventListener('input',renderPlan);
+
+/* ============================================================
+   TOOL 3 — Impressions Calculator
+   ============================================================ */
+let imprSolve='impr';
+$$('#imprMode button').forEach(b=>b.addEventListener('click',()=>{
+  $$('#imprMode button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  imprSolve=b.dataset.solve;
+  // disable the solved-for field
+  $('#f-budget').style.opacity = imprSolve==='budget'?.5:1;
+  $('#f-cpm').style.opacity    = imprSolve==='cpm'?.5:1;
+  $('#f-impr').style.opacity   = imprSolve==='impr'?.5:1;
+  $('#imprBudget').disabled = imprSolve==='budget';
+  $('#imprCpm').disabled    = imprSolve==='cpm';
+  $('#imprImpr').disabled   = imprSolve==='impr';
+  renderImpr();
+}));
+function renderImpr(){
+  let budget=+$('#imprBudget').value||0;
+  let cpm=+$('#imprCpm').value||0;
+  let impr=+$('#imprImpr').value||0;
+  const reach=+$('#imprReach').value||0;
+  const ctr=+$('#imprCtr').value;
+  $('#imprCtrVal').textContent=ctr.toFixed(2)+'%';
+  if(imprSolve==='impr'){ impr = cpm>0? budget/cpm*1000 : 0; $('#imprImpr').value=Math.round(impr); }
+  else if(imprSolve==='budget'){ budget = impr/1000*cpm; $('#imprBudget').value=Math.round(budget); }
+  else { cpm = impr>0? budget/impr*1000 : 0; $('#imprCpm').value=cpm.toFixed(2); }
+  const eff = impr>0? budget/impr*1000 : 0;
+  const freq = reach>0? impr/reach : 0;
+  const clicks = impr*ctr/100;
+  const cpc = clicks>0? budget/clicks : 0;
+  $('#rImpr').textContent=compact(impr);
+  $('#rCpm').textContent=fmt$c(eff);
+  $('#rFreq').textContent=freq.toFixed(1)+'×';
+  $('#rClicks').textContent=compact(clicks);
+  $('#rCpc').textContent=fmt$c(cpc);
+  // reach/freq viz — bar: reach vs impressions
+  const svg=$('#imprChart');clear(svg);
+  const W=560,H=180,pad={l:12,r:12,t:20,b:34};
+  const iw=W-pad.l-pad.r;
+  const max=Math.max(impr,reach)||1;
+  const bars=[{lb:'Impressions',v:impr,c:'#2b4de0'},{lb:'Unique reach',v:reach,c:'#0ea5a4'}];
+  const bh=40,gap=22;
+  bars.forEach((b,i)=>{
+    const y=pad.t+i*(bh+gap);
+    svg.appendChild(svgEl('rect',{x:pad.l,y,width:iw,height:bh,rx:8,fill:'#eef0f5'}));
+    const w=iw*(b.v/max);
+    const r=svgEl('rect',{x:pad.l,y,width:w,height:bh,rx:8,fill:b.c});
+    r.style.transformOrigin='left';r.style.transform='scaleX(0)';r.style.transition='transform .8s cubic-bezier(.2,.8,.3,1)';
+    svg.appendChild(r);requestAnimationFrame(()=>r.style.transform='scaleX(1)');
+    const t=svgEl('text',{x:pad.l+12,y:y+bh/2+4,'font-size':12,'font-weight':600,fill:'#fff','font-family':'Inter'});
+    t.textContent=b.lb;svg.appendChild(t);
+    const vt=svgEl('text',{x:pad.l+iw-6,y:y+bh/2+4,'text-anchor':'end','font-size':12,'font-weight':700,fill:'#161d33','font-family':'Inter'});
+    vt.textContent=compact(b.v);svg.appendChild(vt);
+  });
+  const ft=svgEl('text',{x:pad.l,y:H-8,'font-size':11,fill:'#6b7185','font-family':'Inter'});
+  ft.textContent=`On average, each person sees this campaign ${freq.toFixed(1)} times.`;svg.appendChild(ft);
+  // insight
+  let msg;
+  if(freq<1.5) msg=`With ${compact(impr)} impressions against ${compact(reach)} people, frequency is low (${freq.toFixed(1)}×) — great for <b>broad reach</b>, but light on repetition. Consider tightening reach to build memory.`;
+  else if(freq<=5) msg=`A ${freq.toFixed(1)}× average frequency sits in the <b>effective range</b> — enough repetition to be remembered without heavy waste. Effective CPM: <b>${fmt$c(eff)}</b>.`;
+  else msg=`At ${freq.toFixed(1)}× frequency you're hitting the same ${compact(reach)} people hard — risk of <b>fatigue &amp; waste</b>. Expand reach or trim budget to rebalance.`;
+  $('#imprInsightTxt').innerHTML=msg;
+}
+['imprBudget','imprCpm','imprImpr','imprReach'].forEach(id=>$('#'+id).addEventListener('input',renderImpr));
+$('#imprCtr').addEventListener('input',renderImpr);
+
+/* ============================================================
+   TOOL 4 — Reporting & Dashboard
+   ============================================================ */
+function seeded(a){return function(){a=(a*1103515245+12345)&0x7fffffff;return a/0x7fffffff;};}
+// ---- digital performance data (no sales/revenue) ----
+const PERF_CH=['Paid Search','Paid Social','Programmatic','OTT / CTV','Online Video'];
+const PERF_COL={'Paid Search':'#2b4de0','Paid Social':'#0ea5a4','Programmatic':'#f5a524','OTT / CTV':'#f4715b','Online Video':'#7c5cfc'};
+// benchmark-aligned unit economics + daily base spend; view = viewability/VCR
+const PERF_SPEC={
+  'Paid Search':{cpm:105,ctr:3.9,view:0.71,base:8200},
+  'Paid Social':{cpm:14, ctr:1.1,view:0.78,base:6400},
+  'Programmatic':{cpm:3.5,ctr:0.35,view:0.66,base:5200},
+  'OTT / CTV':{cpm:30, ctr:0.20,view:0.96,base:7600},
+  'Online Video':{cpm:10,ctr:0.65,view:0.83,base:4200},
+};
+const PERF_DAYS=180;
+const PERF_DATA={};
+PERF_CH.forEach((ch,ci)=>{
+  const rnd=seeded(ci*131+29), sp=PERF_SPEC[ch], arr=[];
+  for(let d=0;d<PERF_DAYS;d++){
+    const dow=d%7, weekend=(dow===0||dow===6)?0.80:1;
+    const trend=1+d*0.0011, noise=0.9+rnd()*0.2;
+    const spend=sp.base*trend*weekend*noise;
+    const impr=spend/sp.cpm*1000, clicks=impr*sp.ctr/100;
+    arr.push({spend,impr,clicks});
+  }
+  PERF_DATA[ch]=arr;
+});
+const FREQ_BY_RANGE={7:1.9,30:3.3,90:5.2};
+const DEVICE=['Desktop','Mobile','Tablet','Connected TV'], DEV_COL=['#2b4de0','#0ea5a4','#f5a524','#f4715b'];
+const DEV_SPLIT={'Paid Search':[46,47,5,2],'Paid Social':[17,77,6,0],'Programmatic':[31,59,8,2],'OTT / CTV':[0,0,0,100],'Online Video':[27,53,5,15]};
+const CREATIVES=[
+  {name:'Search_RSA_Promo_Q3',type:'Search',share:0.15,ctrMul:2.3,vcr:null},
+  {name:'Retargeting_Carousel_v4',type:'Social',share:0.13,ctrMul:1.9,vcr:null},
+  {name:'Holiday_Hero_300x250',type:'Display',share:0.16,ctrMul:1.2,vcr:null},
+  {name:'Brand_Story_15s',type:'Video',share:0.14,ctrMul:0.95,vcr:0.90},
+  {name:'CTV_30s_Spot_A',type:'CTV',share:0.18,ctrMul:0.30,vcr:0.97},
+  {name:'Awareness_728x90',type:'Display',share:0.11,ctrMul:0.65,vcr:null},
+  {name:'Shorts_6s_Bumper',type:'Video',share:0.13,ctrMul:1.1,vcr:0.86},
+];
+const ADS=[
+  {name:'Always-On Brand Search',ch:'Paid Search',share:0.22},
+  {name:'Competitor Conquesting',ch:'Paid Search',share:0.12},
+  {name:'Prospecting — Meta',ch:'Paid Social',share:0.18},
+  {name:'Retargeting — Display',ch:'Programmatic',share:0.15},
+  {name:'CTV Awareness',ch:'OTT / CTV',share:0.19},
+  {name:'YouTube TrueView',ch:'Online Video',share:0.14},
+];
+const GEO=[
+  {z:'30305',m:'Buckhead, ATL',share:0.13,ctrMul:1.5},
+  {z:'30309',m:'Midtown, ATL',share:0.12,ctrMul:1.35},
+  {z:'30303',m:'Downtown, ATL',share:0.11,ctrMul:1.2},
+  {z:'30076',m:'Roswell, GA',share:0.08,ctrMul:0.95},
+  {z:'30188',m:'Woodstock, GA',share:0.08,ctrMul:0.85},
+  {z:'DMA',m:'Charlotte DMA',share:0.13,ctrMul:1.05},
+  {z:'DMA',m:'Tampa DMA',share:0.13,ctrMul:1.1},
+  {z:'DMA',m:'Nashville DMA',share:0.12,ctrMul:0.9},
+];
+// OTT publishers — brand-colored wordmark chips (stylized, not official logos)
+const PUBS=[
+  {p:'hulu',bg:'#1ce783',fg:'#0a3d2a',share:0.22,vcr:0.98},
+  {p:'Roku',bg:'#662d91',fg:'#ffffff',share:0.18,vcr:0.97},
+  {p:'peacock',bg:'#05050a',fg:'#ffffff',share:0.12,vcr:0.96},
+  {p:'Tubi',bg:'#ff3300',fg:'#ffffff',share:0.14,vcr:0.95},
+  {p:'Samsung TV+',bg:'#1428a0',fg:'#ffffff',share:0.10,vcr:0.98},
+  {p:'Pluto TV',bg:'#0b0b3b',fg:'#ffe600',share:0.09,vcr:0.94},
+  {p:'YouTube TV',bg:'#ff0000',fg:'#ffffff',share:0.09,vcr:0.93},
+  {p:'Paramount+',bg:'#0064ff',fg:'#ffffff',share:0.06,vcr:0.97},
+];
+const EMAIL={perDay:41000,delivery:0.984,openRate:0.417,ctrDel:0.029,unsub:0.0022};
+
+let dashCh='all',dashMetric='impr',dashRange=30;
+$$('#dashChannel button').forEach(b=>b.addEventListener('click',()=>{
+  $$('#dashChannel button').forEach(x=>x.classList.remove('on'));b.classList.add('on');dashCh=b.dataset.ch;renderDash();}));
+$$('#dashRange button').forEach(b=>b.addEventListener('click',()=>{
+  $$('#dashRange button').forEach(x=>x.classList.remove('on'));b.classList.add('on');dashRange=+b.dataset.r;renderDash();}));
+// metric buttons are bound after DOM ready via delegation below
+function bindDashMetric(){
+  $$('#dashMetric button').forEach(b=>b.addEventListener('click',()=>{
+    $$('#dashMetric button').forEach(x=>x.classList.remove('on'));b.classList.add('on');dashMetric=b.dataset.m;renderDash();}));
+}
+function perfAgg(range,ch,offset=0){
+  const chs=ch==='all'?PERF_CH:[ch];
+  const end=PERF_DAYS-offset*range, start=Math.max(0,end-range);
+  let o={impr:0,clicks:0,spend:0,vNum:0}, daily=[];
+  for(let d=start;d<end;d++){
+    let day={impr:0,clicks:0,spend:0};
+    chs.forEach(c=>{const r=PERF_DATA[c][d];day.impr+=r.impr;day.clicks+=r.clicks;day.spend+=r.spend;o.vNum+=r.impr*PERF_SPEC[c].view;});
+    o.impr+=day.impr;o.clicks+=day.clicks;o.spend+=day.spend;daily.push(day);
+  }
+  o.view=o.impr?o.vNum/o.impr:0;o.daily=daily;return o;
+}
+function heatColor(t){ // t in 0..1 -> soft blue heat
+  const a=0.10+t*0.55; return `background:rgba(43,77,224,${a.toFixed(2)});color:${t>0.62?'#fff':'#161d33'}`;
+}
+function renderDash(){
+  const range=dashRange, ch=dashCh;
+  const cur=perfAgg(range,ch,0), prev=perfAgg(range,ch,1);
+  const ctr=cur.impr?cur.clicks/cur.impr*100:0, cpc=cur.clicks?cur.spend/cur.clicks:0, cpm=cur.impr?cur.spend/cur.impr*1000:0;
+  const freq=FREQ_BY_RANGE[range], reach=cur.impr/freq;
+  const pCtr=prev.impr?prev.clicks/prev.impr*100:0, pCpc=prev.clicks?prev.spend/prev.clicks:0, pCpm=prev.impr?prev.spend/prev.impr*1000:0;
+  const pReach=prev.impr/freq;
+  const d=(a,b)=>b?((a-b)/b*100):0;
+  $('#dImpr').textContent=compact(cur.impr);
+  $('#dClicks').textContent=compact(cur.clicks);
+  $('#dCtr').textContent=ctr.toFixed(2)+'%';
+  $('#dCpc').textContent=fmt$c(cpc);
+  $('#dCpm').textContent=fmt$c(cpm);
+  $('#dSpend').textContent=fmt$(cur.spend);
+  $('#dReach').textContent=compact(reach);
+  $('#dView').textContent=(cur.view*100).toFixed(1)+'%';
+  const setD=(id,val,goodUp=true)=>{const up=val>=0,good=goodUp?up:!up,el=$(id);
+    el.textContent=(up?'▲ ':'▼ ')+Math.abs(val).toFixed(1)+'% vs prior '+range+'d';el.className='kdelta '+(good?'up':'down');};
+  setD('#dImprD',d(cur.impr,prev.impr),true);
+  setD('#dClicksD',d(cur.clicks,prev.clicks),true);
+  setD('#dCtrD',d(ctr,pCtr),true);
+  setD('#dCpcD',d(cpc,pCpc),false);
+  setD('#dCpmD',d(cpm,pCpm),false);
+  setD('#dSpendD',d(cur.spend,prev.spend),true);$('#dSpendD').className='kdelta';$('#dSpendD').style.color='var(--muted)';
+  setD('#dReachD',d(reach,pReach),true);
+  setD('#dViewD',d(cur.view,prev.view),true);
+  // daily trend
+  $('#dTrendCh').textContent = ch==='all'?'All channels':ch;
+  $('#dTrendDays').textContent = range;
+  const mkey={impr:'impr',clicks:'clicks',spend:'spend',ctr:'ctr'}[dashMetric];
+  const series = cur.daily.map(day=> dashMetric==='ctr' ? (day.impr?day.clicks/day.impr*100:0) : day[mkey]);
+  const yf = dashMetric==='ctr'?(v=>v.toFixed(1)+'%') : dashMetric==='spend'?(v=>'$'+compact(v)) : compact;
+  const step = range<=10?1:(range<=45?Math.ceil(range/6/2)*2:Math.ceil(range/6/2)*2);
+  const labels = series.map((_,i)=> (i%step===0)?('D'+(i+1)):'');
+  lineChart($('#dashLine'),{labels,series:[{name:dashMetric,data:series,color:ch==='all'?'#2b4de0':PERF_COL[ch]}],yFmt:yf,area:true,dots:range<=30});
+  // device donut
+  const chImpr={}; (ch==='all'?PERF_CH:[ch]).forEach(c=>chImpr[c]=perfAgg(range,c).impr);
+  const devTot=DEVICE.map((_,i)=>Object.keys(chImpr).reduce((s,c)=>s+chImpr[c]*(DEV_SPLIT[c][i]/100),0));
+  const devSum=devTot.reduce((a,b)=>a+b,0)||1;
+  donut($('#dashDevice'),{data:DEVICE.map((dv,i)=>({value:devTot[i],color:DEV_COL[i]})),thick:22,center:compact(devSum),centerSub:'impr'});
+  $('#dashDeviceLeg').innerHTML=DEVICE.map((dv,i)=>`<div class="dl"><i style="background:${DEV_COL[i]}"></i>${dv}<b>${(devTot[i]/devSum*100).toFixed(0)}%</b></div>`).join('');
+  // creative table
+  const baseCtr=ctr||1;
+  const crRows=CREATIVES.map(c=>{const impr=cur.impr*c.share, cctr=baseCtr*c.ctrMul, clicks=impr*cctr/100;return {...c,impr,cctr,clicks};}).sort((a,b)=>b.cctr-a.cctr);
+  $('#dashCreative').innerHTML=`<thead><tr><th>Creative</th><th>Type</th><th>Impr.</th><th>Clicks</th><th>CTR</th><th>VCR</th></tr></thead><tbody>${
+    crRows.map(r=>`<tr><td>${r.name}</td><td style="text-align:left;color:var(--muted)">${r.type}</td><td>${compact(r.impr)}</td><td>${compact(r.clicks)}</td><td>${r.cctr.toFixed(2)}%</td><td>${r.vcr?(r.vcr*100).toFixed(0)+'%':'—'}</td></tr>`).join('')}</tbody>`;
+  // ads table
+  const adRows=ADS.map(a=>{const sp=PERF_SPEC[a.ch],spend=cur.spend*a.share,impr=spend/sp.cpm*1000,clicks=impr*sp.ctr/100;return {...a,spend,impr,clicks,cpc:clicks?spend/clicks:0,ctr:sp.ctr};}).sort((a,b)=>b.impr-a.impr);
+  $('#dashAds').innerHTML=`<thead><tr><th>Line item</th><th>Channel</th><th>Impr.</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>Spend</th></tr></thead><tbody>${
+    adRows.map(r=>`<tr><td>${r.name}</td><td style="text-align:left"><span class="sw" style="background:${PERF_COL[r.ch]}"></span>${r.ch}</td><td>${compact(r.impr)}</td><td>${compact(r.clicks)}</td><td>${r.ctr.toFixed(2)}%</td><td>${fmt$c(r.cpc)}</td><td>${fmt$(r.spend)}</td></tr>`).join('')}</tbody>`;
+  // geo table (CTR heat)
+  const geoRows=GEO.map(g=>{const impr=cur.impr*g.share,gctr=baseCtr*g.ctrMul,clicks=impr*gctr/100;return {...g,impr,gctr,clicks};}).sort((a,b)=>b.impr-a.impr);
+  const gmin=Math.min(...geoRows.map(r=>r.gctr)),gmax=Math.max(...geoRows.map(r=>r.gctr));
+  $('#dashGeo').innerHTML=`<thead><tr><th>ZIP / Market</th><th>Impr.</th><th>Share</th><th>Clicks</th><th>CTR</th></tr></thead><tbody>${
+    geoRows.map(r=>{const t=(r.gctr-gmin)/((gmax-gmin)||1);return `<tr><td>${r.z==='DMA'?'':'<b>'+r.z+'</b> · '}${r.m}</td><td>${compact(r.impr)}</td><td style="min-width:80px"><span class="mini-bar"><span style="width:${(r.share*100/geoRows[0].share*100).toFixed(0)}%;background:#2b4de0"></span></span></td><td>${compact(r.clicks)}</td><td class="heat" style="${heatColor(t)}">${r.gctr.toFixed(2)}%</td></tr>`;}).join('')}</tbody>`;
+  // OTT publishers
+  const ottImpr=perfAgg(range,'OTT / CTV').impr;
+  const pubRows=PUBS.map(p=>{const impr=ottImpr*p.share,completed=impr*p.vcr,pfreq=2.2+p.share*3,preach=impr/pfreq;return {...p,impr,completed,pfreq,preach};});
+  $('#dashPub').innerHTML=`<thead><tr><th>Publisher</th><th>Impr.</th><th>Completed</th><th>VCR</th><th>Reach</th><th>Freq</th></tr></thead><tbody>${
+    pubRows.map(r=>`<tr><td><span class="logo-chip" style="background:${r.bg};color:${r.fg}">${r.p}</span></td><td>${compact(r.impr)}</td><td>${compact(r.completed)}</td><td>${(r.vcr*100).toFixed(0)}%</td><td>${compact(r.preach)}</td><td>${r.pfreq.toFixed(1)}×</td></tr>`).join('')}</tbody>`;
+  // OTT reach & frequency
+  const ottFreq=freq*0.95, ottReach=ottImpr/ottFreq;
+  $('#ottReach').textContent=compact(ottReach);
+  $('#ottFreq').textContent=ottFreq.toFixed(1)+'×';
+  const dist=[{l:'1×',s:0.34},{l:'2×',s:0.28},{l:'3×',s:0.20},{l:'4+×',s:0.18}];
+  const dmax=Math.max(...dist.map(x=>x.s));
+  $('#ottDist').innerHTML=dist.map((x,i)=>`<div class="rf-row"><span class="rl">${x.l}</span><span class="rt"><span class="mini-bar" style="height:14px"><span style="width:${(x.s/dmax*100).toFixed(0)}%;background:${['#2b4de0','#4a68e8','#8aa0f8','#c3cef9'][i]}"></span></span></span><span class="rv">${compact(ottReach*x.s)}</span></div>`).join('');
+  // email (scales with range)
+  const sent=EMAIL.perDay*range, delivered=sent*EMAIL.delivery, opens=delivered*EMAIL.openRate, clicks=delivered*EMAIL.ctrDel, ctor=opens?clicks/opens:0, unsub=delivered*EMAIL.unsub;
+  $('#emSent').textContent=compact(sent);
+  $('#emDeliv').textContent=(EMAIL.delivery*100).toFixed(1)+'%';
+  $('#emOpen').textContent=(EMAIL.openRate*100).toFixed(1)+'%';
+  $('#emCtr').textContent=(EMAIL.ctrDel*100).toFixed(2)+'%';
+  $('#emCtor').textContent=(ctor*100).toFixed(1)+'%';
+  $('#emUnsub').textContent=(EMAIL.unsub*100).toFixed(2)+'%';
+  $('#emOpenD').textContent='▲ 2.1% vs prior '+range+'d';$('#emOpenD').className='kdelta up';
+  $('#emCtrD').textContent='▲ 0.4% vs prior '+range+'d';$('#emCtrD').className='kdelta up';
+  const fun=[{l:'Sent',v:sent,c:'#7c5cfc'},{l:'Delivered',v:delivered,c:'#2b4de0'},{l:'Opened',v:opens,c:'#0ea5a4'},{l:'Clicked',v:clicks,c:'#f5a524'}];
+  $('#emFunnel').innerHTML=fun.map(f=>{const pct=f.v/sent*100;return `<div class="funnel-row"><span class="fl">${f.l}</span><div class="funnel-track"><div class="funnel-fill" style="width:${Math.max(pct,3).toFixed(1)}%;background:${f.c}">${pct>=10?pct.toFixed(1)+'%':''}</div></div><span class="fv">${compact(f.v)}<small>${f.l==='Sent'?'100%':pct.toFixed(1)+'% of sent'}</small></span></div>`;}).join('');
+}
+
+/* ============================================================
+   Dashboard sub-tab: REVENUE PERFORMANCE (executive view)
+   Deterministic sample data — $M. No live randomness.
+   ============================================================ */
+const REV_PRODUCTS=[  // rev in $M (YTD), yoy %, contribution margin %
+  {name:'OTT / CTV',        rev:6.8, yoy:34, margin:42, color:'#f4715b'},
+  {name:'Display',          rev:4.2, yoy:6,  margin:55, color:'#2b4de0'},
+  {name:'Paid Search (SEM)',rev:3.9, yoy:18, margin:38, color:'#0ea5a4'},
+  {name:'Social',           rev:3.1, yoy:22, margin:46, color:'#7c5cfc'},
+  {name:'Streaming Audio',  rev:2.4, yoy:15, margin:40, color:'#f5a524'},
+  {name:'O&O Websites',     rev:2.0, yoy:-4, margin:61, color:'#64748b'},
+  {name:'Online Video',     rev:1.6, yoy:28, margin:44, color:'#e879f9'},
+  {name:'Email',            rev:0.7, yoy:9,  margin:58, color:'#22c55e'},
+];
+const REV_MARKETS=[  // rev $M, yoy %, attainment % — fictional markets
+  {name:'North Harbor, WA', rev:7.2, yoy:19, att:104},
+  {name:'Riverton, TX',     rev:3.6, yoy:12, att:98},
+  {name:'Cedar Ridge, CO',  rev:3.1, yoy:21, att:108},
+  {name:'Fairmont, OH',     rev:2.9, yoy:15, att:101},
+  {name:'Bayside, CA',      rev:2.4, yoy:9,  att:95},
+  {name:'Lakeshore, MI',    rev:2.1, yoy:7,  att:93},
+  {name:'Summit Valley, AZ',rev:1.8, yoy:14, att:99},
+  {name:'Westgate, MO',     rev:1.6, yoy:4,  att:91},
+];
+const REV_AES=[  // rev $M, quota $M
+  {name:'Sarah Mitchell', mkt:'North Harbor',  rev:3.4, quota:3.0, yoy:22},
+  {name:'Priya Patel',    mkt:'Fairmont',      rev:2.1, quota:1.9, yoy:17},
+  {name:'Maria Lopez',    mkt:'Cedar Ridge',   rev:2.4, quota:2.2, yoy:26},
+  {name:'Ashley Nguyen',  mkt:'Summit Valley', rev:1.6, quota:1.5, yoy:11},
+  {name:'David Chen',     mkt:'North Harbor',  rev:2.6, quota:2.8, yoy:8},
+  {name:'James Carter',   mkt:'Riverton',      rev:2.2, quota:2.4, yoy:5},
+  {name:'Michael O’Brien',mkt:'Bayside',       rev:1.8, quota:2.0, yoy:6},
+  {name:'Robert Kim',     mkt:'Lakeshore',     rev:1.5, quota:1.7, yoy:3},
+];
+const REV_ADV=[  // rev $M — fictional advertisers & markets
+  {name:'Vantage Auto Group',      ind:'Automotive',    mkt:'North Harbor, WA', prod:'OTT / CTV',        rev:1.24, yoy:28},
+  {name:'Evergreen Home Services', ind:'Home Services', mkt:'Cedar Ridge, CO',  prod:'Paid Search (SEM)',rev:0.92, yoy:15},
+  {name:'Meridian Financial',      ind:'Finance',       mkt:'Riverton, TX',     prod:'Display',          rev:0.81, yoy:6},
+  {name:'ClearView Orthodontics',  ind:'Healthcare',    mkt:'Fairmont, OH',     prod:'Social',           rev:0.74, yoy:33},
+  {name:'Cornerstone Realty',      ind:'Real Estate',   mkt:'North Harbor, WA', prod:'OTT / CTV',        rev:0.68, yoy:12},
+  {name:'Harvest Market Co.',      ind:'Retail',        mkt:'Bayside, CA',      prod:'Streaming Audio',  rev:0.61, yoy:9},
+  {name:'Anchor Legal Group',      ind:'Legal',         mkt:'Summit Valley, AZ',prod:'Paid Search (SEM)',rev:0.55, yoy:19},
+  {name:'Northstar Health',        ind:'Healthcare',    mkt:'Lakeshore, MI',    prod:'O&O Websites',     rev:0.48, yoy:-3},
+];
+const REV_SEASON=[0.82,0.84,0.94,0.99,1.05,1.10,0.97,1.00,1.05,1.12,1.20,0.92]; // 12 mo
+const REV_MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmtM=v=>'$'+v.toFixed(1)+'M';
+const yoyTag=v=>`<span class="yoy ${v>=0?'up':'dn'}">${v>=0?'+':''}${v}%</span>`;
+let revYear='cy';
+function seasonize(total,season){const s=season.reduce((a,b)=>a+b,0);return season.map(w=>total*w/s);}
+let revBound=false;
+function renderRevenue(){
+  const net=REV_PRODUCTS.reduce((a,p)=>a+p.rev,0);           // $M
+  const prior=REV_PRODUCTS.reduce((a,p)=>a+p.rev/(1+p.yoy/100),0);
+  const yoy=(net-prior)/prior*100;
+  const goal=REV_MARKETS.reduce((a,m)=>a+m.rev/(m.att/100),0);
+  const att=net/goal*100;
+  const advCount=428, arpa=net*1e6/advCount;
+  // KPIs
+  $('#rvNet').textContent=fmtM(net);
+  $('#rvNetD').textContent='▲ +'+yoy.toFixed(1)+'% YoY';$('#rvNetD').className='kdelta up';
+  const churn=6.8; // annualized advertiser churn %; lower is better
+  $('#rvChurn').textContent=churn.toFixed(1)+'%';
+  $('#rvChurnD').textContent='▼ 1.3 pts YoY';$('#rvChurnD').className='kdelta up';
+  $('#rvAdv').textContent=advCount;
+  $('#rvAdvD').textContent='▲ +34 net new';$('#rvAdvD').className='kdelta up';
+  $('#rvArpa').textContent=fmt$(arpa);
+  $('#rvMix').textContent='38%';
+  $('#rvMixD').textContent='▲ +5 pts YoY';$('#rvMixD').className='kdelta up';
+  $('#rvRen').textContent='87%';
+  $('#rvNew').textContent=fmtM(net*0.13);
+  $('#rvNewD').textContent='▲ 13% of book';$('#rvNewD').className='kdelta up';
+  // monthly trend
+  const cy=seasonize(net,REV_SEASON), ly=seasonize(prior,REV_SEASON), gl=seasonize(goal,REV_SEASON);
+  const series=[{name:'This year',data:cy.map(v=>v*1e6),color:'#2b4de0'}];
+  if(revYear==='vs') series.push({name:'Last year',data:ly.map(v=>v*1e6),color:'#c3cef9'});
+  series.push({name:'Goal',data:gl.map(v=>v*1e6),color:'#f5a524'});
+  lineChart($('#rvTrend'),{labels:REV_MONTHS,series,yFmt:v=>'$'+compact(v),area:revYear==='cy',dots:true});
+  // product donut
+  donut($('#rvDonut'),{data:REV_PRODUCTS.map(p=>({value:p.rev,color:p.color})),thick:22,center:fmtM(net),centerSub:'net rev'});
+  $('#rvDonutLeg').innerHTML=REV_PRODUCTS.slice(0,6).map(p=>`<div class="dl"><i style="background:${p.color}"></i>${p.name}<b>${(p.rev/net*100).toFixed(0)}%</b></div>`).join('');
+  // product table
+  const pmax=Math.max(...REV_PRODUCTS.map(p=>p.rev));
+  $('#rvProdTable').innerHTML=`<thead><tr><th>Product</th><th>Net revenue</th><th>Share</th><th>YoY</th><th>Margin</th></tr></thead><tbody>${
+    REV_PRODUCTS.map(p=>`<tr><td><span class="sw" style="background:${p.color}"></span>${p.name}</td><td>${fmtM(p.rev)}</td><td style="min-width:90px"><span class="mini-bar"><span style="width:${(p.rev/pmax*100).toFixed(0)}%;background:${p.color}"></span></span></td><td>${yoyTag(p.yoy)}</td><td>${p.margin}%</td></tr>`).join('')}
+    <tr class="total"><td>Total digital</td><td>${fmtM(net)}</td><td></td><td>${yoyTag(+yoy.toFixed(0))}</td><td>${(REV_PRODUCTS.reduce((a,p)=>a+p.margin*p.rev,0)/net).toFixed(0)}%</td></tr></tbody>`;
+  // market table
+  const mmax=Math.max(...REV_MARKETS.map(m=>m.rev));
+  $('#rvMktTable').innerHTML=`<thead><tr><th>Market</th><th>Net rev</th><th>YoY</th><th>Attainment</th></tr></thead><tbody>${
+    REV_MARKETS.map(m=>{const col=m.att>=100?'#12a150':m.att>=95?'#f5a524':'#f4715b';return `<tr><td>${m.name}</td><td>${fmtM(m.rev)}</td><td>${yoyTag(m.yoy)}</td><td style="min-width:120px"><div style="display:flex;align-items:center;gap:8px"><span class="att-bar"><span style="width:${Math.min(m.att,120)/120*100}%;background:${col}"></span><span class="goal" style="left:${100/120*100}%"></span></span><b style="font-size:.8rem;color:${col}">${m.att}%</b></div></td></tr>`;}).join('')}</tbody>`;
+  // AE leaderboard (sorted by attainment)
+  const aes=REV_AES.map(a=>({...a,att:a.rev/a.quota*100})).sort((x,y)=>y.att-x.att);
+  $('#rvAeTable').innerHTML=`<thead><tr><th>Account Executive</th><th>Net rev</th><th>Quota</th><th>Attainment</th></tr></thead><tbody>${
+    aes.map((a,i)=>{const col=a.att>=100?'#12a150':a.att>=95?'#f5a524':'#f4715b';return `<tr><td><span class="rank ${i<3?'top':''}">${i+1}</span>${a.name}<div style="font-size:.72rem;color:var(--muted);margin-left:31px">${a.mkt}</div></td><td>${fmtM(a.rev)}</td><td>${fmtM(a.quota)}</td><td style="min-width:120px"><div style="display:flex;align-items:center;gap:8px"><span class="att-bar"><span style="width:${Math.min(a.att,120)/120*100}%;background:${col}"></span><span class="goal" style="left:${100/120*100}%"></span></span><b style="font-size:.8rem;color:${col}">${a.att.toFixed(0)}%</b></div></td></tr>`;}).join('')}</tbody>`;
+  // advertiser table
+  $('#rvAdvTable').innerHTML=`<thead><tr><th>Advertiser</th><th>Industry</th><th>Market</th><th>Lead product</th><th>Net revenue</th><th>YoY</th></tr></thead><tbody>${
+    REV_ADV.map(a=>{const pc=(REV_PRODUCTS.find(p=>p.name===a.prod)||{}).color||'#64748b';return `<tr><td>${a.name}</td><td style="text-align:left;color:var(--muted)">${a.ind}</td><td style="text-align:left">${a.mkt}</td><td style="text-align:left"><span class="sw" style="background:${pc}"></span>${a.prod}</td><td>${fmtM(a.rev)}</td><td>${yoyTag(a.yoy)}</td></tr>`;}).join('')}</tbody>`;
+  // insight
+  const topP=[...REV_PRODUCTS].sort((a,b)=>b.yoy-a.yoy)[0];
+  const lag=REV_PRODUCTS.find(p=>p.yoy<0);
+  const topM=[...REV_MARKETS].sort((a,b)=>b.att-a.att)[0];
+  $('#rvInsight').innerHTML=`<div><b>Executive read.</b> Digital net revenue of <b>${fmtM(net)}</b> is pacing at <b>${att.toFixed(0)}% to goal</b>, up <b>+${yoy.toFixed(1)}% YoY</b> — led by <b>${topP.name}</b> (${yoyTag(topP.yoy)}). <b>${topM.name}</b> is the strongest market at ${topM.att}% attainment. Watch <b>${lag?lag.name:'legacy products'}</b> (${lag?yoyTag(lag.yoy):''}) — the one product declining year over year and a candidate to reposition.</div>`;
+}
+/* dashboard sub-tab switching */
+$$('#dashSubTabs .sub-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    $$('#dashSubTabs .sub-tab').forEach(t=>t.classList.remove('active'));
+    $$('#tool-dash .dash-sub').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    $('#dash-'+tab.dataset.sub).classList.add('active');
+    if(tab.dataset.sub==='revenue') renderRevenue();
+  });
+});
+$$('#revYear button').forEach(b=>b.addEventListener('click',()=>{
+  $$('#revYear button').forEach(x=>x.classList.remove('on'));b.classList.add('on');revYear=b.dataset.y;renderRevenue();
+}));
+
+/* ============================================================
+   TOOL 5 — AI Analyst Agents (simulated agent over sample data)
+   Findings are computed from the shown dataset — nothing hidden.
+   ============================================================ */
+const AI_ICON={
+  up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
+  down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 5v14M5 12l7 7 7-7"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 9v4M12 17h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 16v-4M12 8h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>'};
+const sgn=v=>(v>=0?'+':'')+v.toFixed(0)+'%';
+
+const AI_AGENTS=[
+  {
+    id:'ga4', name:'GA4 Channel Performance', role:'Channel MoM analysis · sessions & key events',
+    source:'Google Analytics 4', meta:['Report · Traffic acquisition','Compare · Aug vs Jul','8 default channels'],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 4-5"/></svg>',
+    task:'Analyze GA4 channel performance month-over-month. Which channels are winning, which are slipping? Call out sessions and key events by session source/medium, channel and campaign.',
+    fields:[{key:'ch',label:'Channel',align:'l'},{key:'sm',label:'Session src / medium',align:'l'},{key:'camp',label:'Campaign',align:'l'},{key:'sess',label:'Sessions',fmt:compact},{key:'prev',label:'Prev',fmt:compact},{key:'ke',label:'Key events',fmt:fmt},{key:'eng',label:'Eng%',fmt:v=>v+'%'}],
+    rows:[
+      {ch:'Organic Search',sm:'google / organic',camp:'(not set)',sess:24300,prev:23760,ke:980,prevKe:1020,eng:58},
+      {ch:'Paid Search',sm:'google / cpc',camp:'Brand_Exact',sess:18420,prev:15880,ke:1240,prevKe:1010,eng:62},
+      {ch:'Direct',sm:'(direct) / (none)',camp:'(not set)',sess:12100,prev:12640,ke:610,prevKe:640,eng:49},
+      {ch:'Paid Social',sm:'facebook / cpc',camp:'Prospecting_Q3',sess:9800,prev:7420,ke:420,prevKe:290,eng:44},
+      {ch:'Email',sm:'newsletter / email',camp:'Aug_Promo',sess:6700,prev:6180,ke:540,prevKe:500,eng:66},
+      {ch:'Organic Social',sm:'instagram / social',camp:'(not set)',sess:5300,prev:8150,ke:150,prevKe:260,eng:31},
+      {ch:'Display',sm:'dv360 / display',camp:'Awareness_CTV',sess:4100,prev:4620,ke:60,prevKe:80,eng:22},
+      {ch:'Referral',sm:'partner.com / referral',camp:'(not set)',sess:3200,prev:3050,ke:120,prevKe:110,eng:47},
+    ],
+    analyze(rows){
+      const r=rows.map(x=>({...x,dS:(x.sess-x.prev)/x.prev*100,dK:(x.ke-x.prevKe)/x.prevKe*100}));
+      const totS=r.reduce((a,x)=>a+x.sess,0),totP=r.reduce((a,x)=>a+x.prev,0);
+      const totKe=r.reduce((a,x)=>a+x.ke,0),totPKe=r.reduce((a,x)=>a+x.prevKe,0);
+      const bd=[...r].sort((a,b)=>b.dS-a.dS);const top=bd[0],loser=bd[bd.length-1];
+      const disp=r.find(x=>x.ch==='Display'),org=r.find(x=>x.ch==='Organic Search');
+      return {
+        summary:`<b>${top.ch}</b> is the breakout channel — sessions <b>${sgn(top.dS)}</b> and key events <b>${sgn(top.dK)}</b> MoM. The one to fix is <b>${loser.ch}</b>, down <b>${Math.abs(loser.dS).toFixed(0)}%</b> in sessions with the account's weakest engagement (${loser.eng}%).`,
+        metrics:[{label:'Total sessions',value:compact(totS)},{label:'Sessions MoM',value:sgn((totS-totP)/totP*100),tone:'pos'},{label:'Key events MoM',value:sgn((totKe-totPKe)/totPKe*100),tone:'pos'}],
+        findings:[
+          {tone:'up',html:`<b>${top.ch}</b> led growth — <b>${compact(top.sess)}</b> sessions (${sgn(top.dS)}) and <b>${top.ke}</b> key events (${sgn(top.dK)}), driven by <b>${top.sm}</b> · campaign <b>${top.camp}</b>.`},
+          {tone:'down',html:`<b>${loser.ch}</b> slipped hardest — sessions ${compact(loser.prev)}→<b>${compact(loser.sess)}</b> (${sgn(loser.dS)}) and key events ${loser.prevKe}→${loser.ke}. Source/medium <b>${loser.sm}</b>; engagement <b>${loser.eng}%</b> is the lowest on the account.`},
+          {tone:'warn',html:`<b>${disp.ch}</b> (<b>${disp.sm}</b>, ${disp.camp}) is under-indexing — ${sgn(disp.dS)} sessions and only ${(disp.ke/disp.sess*100).toFixed(1)}% key-event rate. Buying reach, not action.`},
+          {tone:'info',html:`<b>${org.ch}</b> still drives the most volume (<b>${compact(org.sess)}</b> sessions) but key events dipped ${sgn(org.dK)} — a content/landing-page review would protect the top of funnel.`},
+        ],
+        actions:[
+          `Shift budget toward ${top.ch} (${top.sm} · ${top.camp}) while efficiency is high.`,
+          `Audit ${loser.ch} — the ${Math.abs(loser.dS).toFixed(0)}% session drop lines up with a paused content cadence; rebuild the calendar.`,
+          `Review Display / CTV placements & frequency caps; ${disp.camp} shows weak downstream key events.`,
+          `Run a landing-page test for ${org.ch} to recover the key-event dip.`,
+        ],
+      };
+    }
+  },
+  {
+    id:'ads', name:'Google Ads Wasted Spend', role:'Finds keywords burning budget with no return',
+    source:'Google Ads · Search terms', meta:['Campaign · Non-brand Search','Window · last 30 days','8 keywords'],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>',
+    task:'Analyze these Google Ads keywords and flag the ones wasting money — spend with no clicks, or spend with clicks but zero conversions. Quantify the recoverable budget.',
+    fields:[{key:'kw',label:'Keyword',align:'l'},{key:'mt',label:'Match',align:'l'},{key:'impr',label:'Impr',fmt:compact},{key:'clicks',label:'Clicks',fmt:fmt},{key:'cost',label:'Cost',fmt:fmt$},{key:'conv',label:'Conv',fmt:fmt}],
+    rows:[
+      {kw:'[marketing analytics software]',mt:'Exact',impr:8400,clicks:312,cost:1240,conv:28},
+      {kw:'"media planning tool"',mt:'Phrase',impr:5200,clicks:186,cost:820,conv:14},
+      {kw:'[power bi consultant]',mt:'Exact',impr:2400,clicks:88,cost:560,conv:9},
+      {kw:'+free +analytics',mt:'Broad',impr:22000,clicks:140,cost:640,conv:0},
+      {kw:'"business intelligence"',mt:'Phrase',impr:18500,clicks:95,cost:410,conv:0},
+      {kw:'+cheap +bi +tool',mt:'Broad',impr:9800,clicks:63,cost:210,conv:0},
+      {kw:'reporting automation',mt:'Broad',impr:14200,clicks:41,cost:180,conv:0},
+      {kw:'[data dashboard]',mt:'Exact',impr:3100,clicks:0,cost:95,conv:0},
+    ],
+    flag:(r,f)=>(r.cost>0&&(r.clicks===0||r.conv===0))&&(f.key==='cost'||f.key==='conv'||f.key==='clicks'),
+    analyze(rows){
+      const waste=rows.filter(r=>r.cost>0&&(r.clicks===0||r.conv===0));
+      const wasted=waste.reduce((a,r)=>a+r.cost,0);
+      const total=rows.reduce((a,r)=>a+r.cost,0);
+      const noClick=rows.find(r=>r.clicks===0&&r.cost>0);
+      const biggest=[...waste].sort((a,b)=>b.cost-a.cost)[0];
+      const best=[...rows].filter(r=>r.conv>0).sort((a,b)=>(a.cost/a.conv)-(b.cost/b.conv))[0];
+      return {
+        summary:`<b>${fmt$(wasted)}</b> of <b>${fmt$(total)}</b> total spend (<b>${(wasted/total*100).toFixed(0)}%</b>) went to <b>${waste.length} keywords</b> with clicks but zero conversions — or no clicks at all. Pause them and you recover that budget this week.`,
+        metrics:[{label:'Total spend',value:fmt$(total)},{label:'Wasted spend',value:fmt$(wasted),tone:'neg'},{label:'% wasted',value:(wasted/total*100).toFixed(0)+'%',tone:'neg'}],
+        findings:[
+          {tone:'down',html:`<b>${waste.length} keywords</b> burned <b>${fmt$(wasted)}</b> with <b>0 conversions</b> — every one is Broad or Phrase match, letting irrelevant queries through.`},
+          {tone:'warn',html:`<b>${noClick.kw}</b> (${noClick.mt}) spent <b>${fmt$(noClick.cost)}</b> for <b>0 clicks</b> — pure impression waste. Pause or fix relevance immediately.`},
+          {tone:'down',html:`Biggest leak: <b>${biggest.kw}</b> — <b>${fmt$(biggest.cost)}</b> across ${biggest.clicks} clicks, <b>0 conversions</b>. "free"/"cheap" intent rarely converts.`},
+          {tone:'up',html:`Keep scaling <b>${best.kw}</b> — your efficiency leader at <b>${best.conv}</b> conversions and <b>${fmt$(best.cost/best.conv)}</b> CPA.`},
+        ],
+        table:{title:'Flagged — recoverable budget',cols:['Keyword','Cost','Clicks','Conv','Issue'],rows:waste.sort((a,b)=>b.cost-a.cost).map(r=>[r.kw,fmt$(r.cost),fmt(r.clicks),r.conv,r.clicks===0?'No clicks':'No conv.'])},
+        actions:[
+          `Pause the ${waste.length} zero-conversion keywords → recover ${fmt$(wasted)}/mo.`,
+          `Add negative keywords ("free", "cheap") to the Broad campaigns to stop the bleed at the source.`,
+          `Tighten Broad → Phrase/Exact on "business intelligence" & "reporting automation".`,
+          `Reallocate the recovered ${fmt$(wasted)} to Exact-match converters like ${best.kw}.`,
+        ],
+      };
+    }
+  },
+  {
+    id:'cm360', name:'CM360 Impression Anomaly', role:'Daily anomaly detection across channels',
+    source:'Campaign Manager 360', meta:['Delivery · daily impressions','Window · Jul 15–24','5 channels'],
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>',
+    task:'Scan daily CM360 impressions across all channels and flag any abnormal drops. Identify the channel, the day, the magnitude, and the likely cause.',
+    fields:(function(){const ch=['Programmatic Display','Paid Social','OTT / CTV','Online Video','Paid Search'];return [{key:'date',label:'Date',align:'l'}].concat(ch.map(c=>({key:c,label:c.replace(' Display','').replace(' / CTV','/CTV'),fmt:compact})));})(),
+    rows:(function(){
+      const ch=['Programmatic Display','Paid Social','OTT / CTV','Online Video','Paid Search'];
+      const base=[2080000,1450000,980000,620000,340000];
+      const days=['Jul 15','Jul 16','Jul 17','Jul 18','Jul 19','Jul 20','Jul 21','Jul 22','Jul 23','Jul 24'];
+      const mult=[1.00,0.98,1.03,0.99,1.02,1.01,0.97,1.00,1.04,0.98];
+      return days.map((d,di)=>{const o={date:d};ch.forEach((c,ci)=>{o[c]=Math.round(base[ci]*mult[di]);});o['Programmatic Display']=di===7?770000:o['Programmatic Display'];return o;});
+    })(),
+    flag:(r,f)=>f.key==='Programmatic Display'&&r.date==='Jul 22',
+    analyze(rows){
+      const ch=['Programmatic Display','Paid Social','OTT / CTV','Online Video','Paid Search'];
+      let worst=null;
+      ch.forEach(c=>{const vals=rows.map(r=>r[c]);rows.forEach((r,i)=>{const others=vals.filter((_,j)=>j!==i);const base=others.reduce((a,b)=>a+b,0)/others.length;const dev=(r[c]-base)/base;if(!worst||dev<worst.dev)worst={ch:c,date:r.date,val:r[c],base,dev};});});
+      const pct=(worst.dev*100);
+      const lost=worst.base-worst.val;
+      return {
+        summary:`<b>1 anomaly</b> detected across ${ch.length} channels. <b>${worst.ch}</b> collapsed on <b>${worst.date}</b> — <b>${compact(worst.val)}</b> impressions vs a <b>${compact(worst.base)}</b> daily baseline, a <b>${pct.toFixed(0)}%</b> drop. Every other channel held steady.`,
+        metrics:[{label:'Anomalies',value:'1',tone:'neg'},{label:'Worst drop',value:pct.toFixed(0)+'%',tone:'neg'},{label:'Impr. lost',value:compact(lost),tone:'neg'}],
+        findings:[
+          {tone:'down',html:`<b>${worst.ch} · ${worst.date}</b> — <b>${compact(worst.val)}</b> impressions against a ${compact(worst.base)} baseline (<b>${pct.toFixed(0)}%</b>). Roughly <b>${compact(lost)}</b> impressions never delivered.`},
+          {tone:'info',html:`The other 4 channels stayed within ±5% of baseline on ${worst.date} — this is <b>isolated</b>, not a market-wide dip.`},
+          {tone:'warn',html:`A single-day, single-channel collapse that self-recovers the next day is the classic signature of a <b>tag / trafficking failure</b>, not a demand shift.`},
+        ],
+        actions:[
+          `Verify Floodlight & placement tags fired for ${worst.ch} on ${worst.date} (check for a site/CMS deploy that day).`,
+          `Confirm budget caps / pacing didn't exhaust early and pause delivery.`,
+          `Check the creative wasn't rejected or auto-paused in CM360.`,
+          `Open a trafficking ticket and assess a make-good for the ~${compact(lost)} lost impressions.`,
+        ],
+      };
+    }
+  },
+];
+
+let aiCurrent=null, aiToken=0;
+function renderDataset(a){
+  $('#dsName').textContent=a.name;
+  $('#dsSrc').textContent=a.source;
+  $('#dsMeta').innerHTML=a.meta.map(m=>`<span>${m}</span>`).join('');
+  const t=$('#dsTable');
+  t.innerHTML=`<thead><tr>${a.fields.map(f=>`<th style="text-align:${f.align==='l'?'left':'right'}">${f.label}</th>`).join('')}</tr></thead><tbody>${
+    a.rows.map(r=>`<tr>${a.fields.map(f=>{const v=f.fmt?f.fmt(r[f.key],r):r[f.key];const fl=a.flag&&a.flag(r,f)?' flag':'';return `<td class="${fl}" style="text-align:${f.align==='l'?'left':'right'}">${v}</td>`;}).join('')}</tr>`).join('')}</tbody>`;
+}
+function runAgent(a){
+  const token=++aiToken, body=$('#agentBody');
+  body.innerHTML=`<div class="a-prompt"><span class="who">You</span><div class="txt">${a.task}</div></div>
+    <div class="think"><span>Reading ${a.rows.length} rows from ${a.source}…</span><span class="dots"><i></i><i></i><i></i></span></div>`;
+  setTimeout(()=>{
+    if(token!==aiToken) return;
+    const res=a.analyze(a.rows);
+    let h=`<div class="a-prompt"><span class="who">You</span><div class="txt">${a.task}</div></div>`;
+    let step=0;const dl=()=>`style="animation-delay:${(step++*0.09).toFixed(2)}s"`;
+    h+=`<div class="a-block" ${dl()}><div class="a-summary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg><p>${res.summary}</p></div></div>`;
+    h+=`<div class="a-block" ${dl()}><div class="a-mtiles">${res.metrics.map(m=>`<div class="a-mtile"><div class="ml">${m.label}</div><div class="mv ${m.tone||''}">${m.value}</div></div>`).join('')}</div></div>`;
+    h+=`<div class="a-block" ${dl()}><div class="a-sec">Key findings</div><div class="a-find">${res.findings.map(f=>`<div class="f"><span class="fi ${f.tone}">${AI_ICON[f.tone]}</span><div>${f.html}</div></div>`).join('')}</div></div>`;
+    if(res.table){h+=`<div class="a-block" ${dl()}><div class="a-sec">${res.table.title}</div><table class="a-mini-table"><thead><tr>${res.table.cols.map((c,i)=>`<th style="text-align:${i===0?'left':'right'}">${c}</th>`).join('')}</tr></thead><tbody>${res.table.rows.map(row=>`<tr>${row.map((cell,i)=>`<td style="text-align:${i===0?'left':'right'}">${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
+    h+=`<div class="a-block" ${dl()}><div class="a-actions"><div class="ttl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Recommended actions</div><ol>${res.actions.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>`;
+    h+=`<div class="a-block" ${dl()} style="margin-top:14px"><button class="a-rerun" id="agRerun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0114.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0020.5 15"/></svg>Re-run analysis</button></div>`;
+    body.innerHTML=h;
+    const rr=$('#agRerun'); if(rr) rr.addEventListener('click',()=>runAgent(a));
+  },950);
+}
+function selectAgent(a){
+  aiCurrent=a;
+  $$('#aiChips .ai-chip').forEach(c=>c.classList.toggle('active',c.dataset.id===a.id));
+  $('#agName').textContent=a.name+' Agent';
+  $('#agRole').textContent=a.role;
+  renderDataset(a);
+  runAgent(a);
+}
+function buildAgents(){
+  $('#aiChips').innerHTML=AI_AGENTS.map(a=>`<button class="ai-chip" data-id="${a.id}"><span class="ci">${a.icon}</span><span><b>${a.name}</b><small>${a.role}</small></span></button>`).join('');
+  $$('#aiChips .ai-chip').forEach(c=>c.addEventListener('click',()=>selectAgent(AI_AGENTS.find(a=>a.id===c.dataset.id))));
+  selectAgent(AI_AGENTS[0]);
+}
+// re-run the agent animation whenever the AI tab is opened
+const aiTabBtn=$('.tool-tab[data-tool="agent"]');
+if(aiTabBtn) aiTabBtn.addEventListener('click',()=>{ if(aiCurrent) runAgent(aiCurrent); });
+
+/* ============================================================
+   Work card mini-visuals
+   ============================================================ */
+function workViz(el,type){
+  const svg=svgEl('svg',{viewBox:'0 0 300 150',preserveAspectRatio:'none'});
+  svg.style.width='100%';svg.style.height='100%';
+  const grad=svgEl('linearGradient',{id:'wg'+Math.random().toString(36).slice(2,7),x1:0,y1:0,x2:0,y2:1});
+  const gid=grad.id;
+  grad.appendChild(svgEl('stop',{offset:'0%','stop-color':'#2b4de0','stop-opacity':.18}));
+  grad.appendChild(svgEl('stop',{offset:'100%','stop-color':'#2b4de0','stop-opacity':0}));
+  svg.appendChild(grad);
+  const rnd=seeded(type.length*31+7);
+  if(type==='line'||type==='area'){
+    let pts=[];for(let i=0;i<=10;i++)pts.push([i*30,110-(30+rnd()*70)*(0.5+i/20)]);
+    let d='M'+pts.map(p=>p.join(' ')).join(' L');
+    if(type==='area'){svg.appendChild(svgEl('path',{d:d+' L300 150 L0 150 Z',fill:'url(#'+gid+')'}));}
+    svg.appendChild(svgEl('path',{d,fill:'none',stroke:'#2b4de0','stroke-width':2.5,'stroke-linecap':'round','stroke-linejoin':'round'}));
+    pts.forEach(p=>svg.appendChild(svgEl('circle',{cx:p[0],cy:p[1],r:2.4,fill:'#fff',stroke:'#2b4de0','stroke-width':1.5})));
+  } else if(type==='bars'||type==='growth'){
+    for(let i=0;i<8;i++){const h=30+rnd()*90;svg.appendChild(svgEl('rect',{x:14+i*36,y:120-h,width:22,height:h,rx:4,fill:type==='growth'?['#2b4de0','#3a5ae4','#4a68e8','#5a76ec','#6a84f0','#7a92f4','#8aa0f8','#9aaefc'][i]:'#2b4de0',opacity:.55+i*0.05}));}
+  } else if(type==='donut'){
+    const cx=150,cy=75,r=48;let ang=-Math.PI/2;const vals=[.35,.25,.22,.18];const cols=['#2b4de0','#0ea5a4','#f5a524','#f4715b'];
+    vals.forEach((v,i)=>{const a2=ang+v*Math.PI*2;const large=v>.5?1:0;
+      svg.appendChild(svgEl('path',{d:`M${cx+r*Math.cos(ang)} ${cy+r*Math.sin(ang)} A${r} ${r} 0 ${large} 1 ${cx+r*Math.cos(a2)} ${cy+r*Math.sin(a2)}`,fill:'none',stroke:cols[i],'stroke-width':18}));ang=a2;});
+  } else if(type==='scatter'){
+    const cols=['#2b4de0','#0ea5a4','#f5a524','#f4715b','#7c5cfc'];
+    for(let i=0;i<26;i++)svg.appendChild(svgEl('circle',{cx:20+rnd()*260,cy:20+rnd()*110,r:3+rnd()*7,fill:cols[i%5],opacity:.5}));
+  }
+  el.appendChild(svg);
+}
+$$('.work-viz').forEach(el=>workViz(el,el.dataset.viz));
+
+/* ============================================================
+   Blog posts + modal
+   ============================================================ */
+const POSTS=[
+  {tag:'Measurement',date:'Jul 2026',read:'6 min',grad:'linear-gradient(135deg,#2b4de0,#7c5cfc)',
+   title:'Your dashboard is lying to you (and it\'s not the data\'s fault)',
+   excerpt:'Most executive dashboards fail not because the numbers are wrong, but because nobody agreed on what a "good" number means. Here\'s the framework I use to fix that.',
+   body:`<p>Every analyst has lived this moment: you ship a beautiful dashboard, leadership nods politely, and three weeks later two directors are arguing about whether the business is up or down — using the same chart.</p>
+   <p>The problem is almost never the data. It's that a dashboard without a <strong>decision it's meant to serve</strong> is just decoration. Before I build anything at Cox Media Group, I ask three questions.</p>
+   <h3>1. What decision does this change?</h3>
+   <p>If a metric can't move a budget, a headcount, or a strategy, it doesn't belong on the executive view. It belongs in the appendix. Ruthless editing is the highest-leverage design skill in analytics.</p>
+   <h3>2. What's the benchmark?</h3>
+   <p>A number without a reference point is trivia. Is $2.4M in revenue good? Only relative to plan, to last year, and to the cost that produced it. Every KPI on my dashboards ships with a benchmark baked in.</p>
+   <blockquote>A metric without a benchmark is a fact. A metric with a benchmark is a decision.</blockquote>
+   <h3>3. Who owns the "so what"?</h3>
+   <p>The best dashboards assign a name to every red cell. Measurement without ownership is just anxiety at scale.</p>
+   <p>Get these three right and the tool practically narrates itself — which, not coincidentally, is when people finally start trusting it.</p>`},
+  {tag:'Media Strategy',date:'Jun 2026',read:'5 min',grad:'linear-gradient(135deg,#0ea5a4,#2b4de0)',
+   title:'Marketing Mix Modeling, minus the mystique',
+   excerpt:'MMM has a reputation for being a black box only PhDs can open. It isn\'t. At its core it\'s one honest idea: every channel has a point of diminishing returns.',
+   body:`<p>When people hear "marketing mix modeling" they picture a statistical séance. In reality, the intuition behind MMM fits on a napkin: <strong>the first dollar in a channel works harder than the last.</strong></p>
+   <p>That single idea — the saturation curve — is why pouring your entire budget into last-click search eventually stops paying off, and why the "obviously best" channel isn't always where the next dollar should go.</p>
+   <h3>The marginal-return rule</h3>
+   <p>The optimal mix isn't the one where every channel has the highest average ROI. It's the one where the <em>next</em> dollar in every channel returns the same amount. When marginal returns are equal, you can't do better by moving money around. That's the whole game.</p>
+   <p>You can feel this yourself in the <strong>Media Mix Modeling tool</strong> on this site — set a lopsided budget, hit optimize, and watch it push dollars off the flat part of one curve onto the steep part of another.</p>
+   <h3>What MMM won't tell you</h3>
+   <ul><li>It won't give you person-level attribution — it's a top-down view.</li><li>It struggles with channels that have little spend variation.</li><li>It needs enough history to see the curves bend.</li></ul>
+   <p>Used honestly, though, MMM answers the one question every CMO actually asks: <em>where does the next dollar go?</em></p>`},
+  {tag:'AI & Analytics',date:'May 2026',read:'7 min',grad:'linear-gradient(135deg,#f5a524,#f4715b)',
+   title:'I gave 100 hours a month back to my team with LLM agents',
+   excerpt:'The highest-value AI use case in analytics isn\'t flashy — it\'s deleting the recurring manual work that quietly burns out your best people.',
+   body:`<p>Everyone wants AI to generate insight. In my experience, the bigger win is letting it <strong>generate time.</strong></p>
+   <p>At Cox Media Group I helped design LLM-powered analytics agents that took over the most soul-draining part of the job: the recurring pull-clean-summarize-format cycle that ate 100+ hours a month across the team.</p>
+   <h3>Start with the boring wins</h3>
+   <p>We didn't begin with a moonshot. We began with the monthly business review — a report so predictable you could set a watch by it. If a task is repetitive, rule-based, and well-documented, it's a candidate. If it needs judgment and context, keep a human in the loop.</p>
+   <blockquote>Automate the sentence you've written a hundred times. Keep the sentence only you can write.</blockquote>
+   <h3>Guardrails matter more than cleverness</h3>
+   <p>An agent that's confidently wrong is worse than no agent. We built in source citations, value-range checks, and a human sign-off before anything reached leadership. Trust is the product; the automation is just the delivery mechanism.</p>
+   <h3>The real payoff</h3>
+   <p>The hours we recovered didn't go back into more reports. They went into the work that actually needs a human: asking better questions, pressure-testing assumptions, and telling the story the data can't tell on its own.</p>`},
+];
+function buildBlog(){
+  const g=$('#blogGrid');
+  g.innerHTML=POSTS.map((p,i)=>`<button class="blog-card" data-i="${i}">
+    <div class="blog-cover"><div class="gr" style="background:${p.grad}"></div><span class="rd">${p.read} read</span></div>
+    <div class="blog-body">
+      <div class="meta"><span class="tagx">${p.tag}</span> · <span>${p.date}</span></div>
+      <h3>${p.title}</h3><p>${p.excerpt}</p>
+      <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div></button>`).join('');
+  $$('.blog-card').forEach(c=>c.addEventListener('click',()=>openPost(+c.dataset.i)));
+}
+function openPost(i){
+  const p=POSTS[i];
+  $('#modalCover').style.background=p.grad;
+  $('#modalTag').textContent=p.tag;
+  $('#modalContent').innerHTML=`<div class="meta">${p.date} · ${p.read} read</div><h2>${p.title}</h2>${p.body}`;
+  $('#modal').classList.add('open');document.body.style.overflow='hidden';
+}
+function closePost(){$('#modal').classList.remove('open');document.body.style.overflow='';}
+$('#modalClose').addEventListener('click',closePost);
+$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))closePost();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePost();});
+
+/* ============================================================
+   Init
+   ============================================================ */
+buildMMMControls(); renderMMM();
+buildPlanControls(); renderPlan();
+renderImpr();
+bindDashMetric(); renderDash();
+buildAgents();
+buildBlog();
+// render charts that live in hidden panels once, after first paint
+window.addEventListener('load',()=>{setTimeout(()=>{renderPlan();renderImpr();renderDash();},60);});
+</script>
+</body>
+</html>
