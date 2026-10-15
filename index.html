@@ -62,6 +62,16 @@
       ]
     },
     {
+      "@type": "ProfessionalService",
+      "@id": "https://nhattran.co/#service",
+      "name": "Digital Analytics Contractor — Multi-Channel Reporting & Dashboards",
+      "url": "https://nhattran.co/#services",
+      "provider": { "@id": "https://nhattran.co/#person" },
+      "description": "Contract digital analytics for brands and in-house media teams: month-end reporting across all digital channels, multi-channel reporting and dashboards, and ROAS and ROI measurement, layered on top of existing workflows.",
+      "serviceType": [ "Digital Analytics", "Marketing Reporting", "Dashboard Management", "ROAS Measurement", "ROI Measurement" ],
+      "areaServed": "Worldwide"
+    },
+    {
       "@type": "WebSite",
       "@id": "https://nhattran.co/#website",
       "url": "https://nhattran.co/",
@@ -454,6 +464,21 @@ td.heat{border-radius:5px;font-weight:600}
 .tools-used{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tools-used span{font-size:.72rem;background:var(--bg-tint);color:var(--ink-soft);padding:4px 9px;border-radius:6px;font-weight:500}
 
+/* ---------- services ---------- */
+.services-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start}
+.services-intro .avail{display:inline-flex;align-items:center;gap:8px;background:var(--brand-tint);color:var(--brand-ink);font-size:.8rem;font-weight:600;padding:6px 13px;border-radius:999px}
+.services-intro .avail::before{content:"";width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.services-intro h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:16px 0 14px}
+.services-intro p{color:var(--ink-soft);font-size:1.02rem;margin-bottom:14px}
+.services-intro .btn{margin-top:10px}
+.service-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.service-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:.22s}
+.service-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#dcd6ca}
+.service-item .ic{width:42px;height:42px;border-radius:11px;background:var(--brand-tint);color:var(--brand);display:grid;place-items:center;margin-bottom:14px}
+.service-item .ic svg{width:21px;height:21px}
+.service-item h3{font-size:1.05rem;margin-bottom:6px}
+.service-item p{color:var(--muted);font-size:.9rem}
+
 /* ---------- blog ---------- */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .blog-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
@@ -541,6 +566,7 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
   .reg-intro{grid-template-columns:1fr}
   #mmm-regression [style*="grid-template-columns:1.35fr 1fr"]{grid-template-columns:1fr !important}
   .work-grid,.blog-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:1fr;gap:32px}
   .contact-inner{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:720px){
@@ -551,7 +577,7 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
   .nav-links a{padding:12px 14px;font-size:1rem}
   .burger{display:block}
   .nav-cta .btn.rez{display:none}
-  .work-grid,.blog-grid{grid-template-columns:1fr}
+  .work-grid,.blog-grid,.service-list{grid-template-columns:1fr}
   .tl-when{margin-left:0;width:100%}
   .contact-card{padding:36px 26px}
   .modal-content{padding:26px 24px 32px}
@@ -573,6 +599,7 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
       <a href="#experience">Experience</a>
       <a href="#tools">Tools</a>
       <a href="#work">Work</a>
+      <a href="#services">Services</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -1279,6 +1306,44 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
   </div>
 </section>
 
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="services-grid">
+      <div class="services-intro reveal">
+        <span class="avail">Available for contract work</span>
+        <h2>Digital Analytics Contractor for brands &amp; in-house media teams</h2>
+        <p>Need reporting you can trust, without hiring full-time? I step in as an extension of your team to manage multi-channel <strong>reporting &amp; dashboards</strong> — and I do it <strong>on top of your existing workflows</strong>, so nothing about how your team works has to change.</p>
+        <p>From month-end close to ROAS and ROI measurement, I turn scattered platform data into one clear view of what's working and where the next dollar should go.</p>
+        <a href="#contact" class="btn btn-primary">Reach out about my services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="service-list">
+        <div class="service-item reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h3M8 17h6"/></svg></div>
+          <h3>Month-end reporting</h3>
+          <p>Complete monthly reporting across all digital channels — search, social, programmatic, OTT, video, and email — delivered on a predictable schedule.</p>
+        </div>
+        <div class="service-item reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+          <h3>Reporting &amp; dashboards</h3>
+          <p>Multi-channel dashboards in Power BI, DOMO, Tableau, or NinjaCat — built or managed so your team always has a live, trusted view.</p>
+        </div>
+        <div class="service-item reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+          <h3>ROAS &amp; ROI measurement</h3>
+          <p>Clear return-on-ad-spend and ROI analysis by channel and campaign, so budget decisions are backed by numbers, not guesses.</p>
+        </div>
+        <div class="service-item reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg></div>
+          <h3>Fits your workflow</h3>
+          <p>I plug into your existing tools, platforms, and processes — no rip-and-replace, no new stack to learn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ BLOG ============ -->
 <section class="section" id="blog">
   <div class="wrap">
@@ -1331,7 +1396,7 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
       <div>Nhat Tran<p style="margin:0">Digital Analytics &amp; Media Strategy · Atlanta, GA</p></div></div>
     <div class="foot-links">
       <a href="#about">About</a><a href="#tools">Tools</a><a href="#work">Work</a>
-      <a href="#blog">Blog</a><a href="Nhat-Tran-Resume.pdf" target="_blank">Resume</a>
+      <a href="#services">Services</a><a href="#blog">Blog</a><a href="Nhat-Tran-Resume.pdf" target="_blank">Resume</a>
     </div>
     <p>© <span id="year"></span> Nhat Tran</p>
   </div>
@@ -1375,7 +1440,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
 const navLinks = $('#navLinks');
 $('#burger').addEventListener('click',()=>navLinks.classList.toggle('open'));
 $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-const sections = ['about','experience','tools','work','blog','contact'];
+const sections = ['about','experience','tools','work','services','blog','contact'];
 const spy = new IntersectionObserver(es=>{
   es.forEach(e=>{ if(e.isIntersecting){
     $$('#navLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
