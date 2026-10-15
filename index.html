@@ -72,6 +72,68 @@
       "areaServed": "Worldwide"
     },
     {
+      "@type": "FAQPage",
+      "@id": "https://nhattran.co/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does a digital analytics contractor do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I manage the reporting and measurement side of your digital marketing: pulling data from every channel, reconciling it, building and maintaining dashboards, producing month-end reports, and measuring ROAS and ROI, so your team gets one trusted view without hiring full-time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you work with our existing tools and workflows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. I work on top of your existing workflows and platforms rather than replacing them. If your team already uses Power BI, DOMO, Tableau, NinjaCat, GA4, or spreadsheets, I plug into that setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which channels and platforms do you cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paid search, social, programmatic, OTT, video, and email. That includes platforms such as Google Ads, GA4, Meta, Amazon Ads, Google Ad Manager, Campaign Manager 360, and Display & Video 360, with reporting in tools like Power BI, DOMO, Tableau, and NinjaCat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does month-end digital reporting work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I collect data from every channel on a consistent date range, reconcile spend and conversions against your source of truth, run quality checks, calculate KPIs against plan and prior periods, and deliver a report with a clear narrative of what changed, why, and what to do next."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you measure ROAS and ROI across channels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I use consistent definitions across channels and report ROAS for channel-level performance, MER for blended efficiency, and ROI where margin data is available. I also track the gap between platform-reported and source-of-truth numbers so differences are explained instead of argued over."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do we get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with a free 30-minute reporting audit. We map your channels, data sources, and current reporting process, then I recommend a scope, whether that is ongoing month-end reporting, a dashboard build, or a measurement framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why use a contractor instead of hiring full-time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A contractor fills the gap now, while you hire or when the work doesn't justify a full-time role. You get experienced multi-channel analytics without the recruiting time, and your team keeps its focus on running campaigns."
+          }
+        }
+      ]
+    },
+    {
       "@type": "WebSite",
       "@id": "https://nhattran.co/#website",
       "url": "https://nhattran.co/",
@@ -162,7 +224,7 @@ header.nav.scrolled{border-color:var(--line);box-shadow:0 4px 20px rgba(22,29,51
 .nav-links a:hover{color:var(--brand);background:var(--brand-tint)}
 .nav-links a.active{color:var(--brand)}
 .nav-cta{display:flex;align-items:center;gap:10px}
-.nav-cta .btn{padding:9px 16px;font-size:.88rem}
+.nav-cta .btn{padding:9px 16px;font-size:.88rem;white-space:nowrap}
 .burger{display:none;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
 .burger span{display:block;width:18px;height:2px;background:var(--ink);margin:3px auto;border-radius:2px;transition:.2s}
 
@@ -470,7 +532,22 @@ td.heat{border-radius:5px;font-weight:600}
 .services-intro .avail::before{content:"";width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
 .services-intro h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:16px 0 14px}
 .services-intro p{color:var(--ink-soft);font-size:1.02rem;margin-bottom:14px}
-.services-intro .btn{margin-top:10px}
+.services-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.services-note{color:var(--muted)!important;font-size:.88rem!important;margin:14px 0 0!important}
+
+/* ---------- faq ---------- */
+.faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow);overflow:hidden}
+.faq-item summary{cursor:pointer;list-style:none;padding:18px 54px 18px 22px;font-family:"Fraunces",Georgia,serif;font-weight:600;
+  font-size:1.08rem;color:var(--ink);position:relative}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:"Inter";font-size:1.5rem;
+  font-weight:400;color:var(--brand);transition:transform .2s}
+.faq-item[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq-item summary:hover{color:var(--brand)}
+.faq-item .faq-a{padding:0 22px 20px;color:var(--ink-soft);font-size:.98rem}
+.faq-item .faq-a p+p{margin-top:10px}
+.faq-more{text-align:center;margin-top:28px}
 .service-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .service-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:.22s}
 .service-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#dcd6ca}
@@ -496,28 +573,6 @@ td.heat{border-radius:5px;font-weight:600}
 .blog-body .read{margin-top:16px;font-size:.85rem;font-weight:600;color:var(--brand);display:inline-flex;align-items:center;gap:6px}
 .blog-body .read svg{width:15px;height:15px;transition:.2s}
 .blog-card:hover .read svg{transform:translateX(4px)}
-
-/* ---------- modal ---------- */
-.modal-back{position:fixed;inset:0;z-index:100;background:rgba(22,29,51,.5);backdrop-filter:blur(4px);
-  display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
-.modal-back.open{display:flex;animation:fade .25s}
-.modal{background:var(--surface);border-radius:22px;max-width:720px;width:100%;box-shadow:var(--shadow-lg);
-  overflow:hidden;position:relative;animation:pop .3s cubic-bezier(.2,.9,.3,1.3)}
-@keyframes pop{from{transform:scale(.95) translateY(20px);opacity:0}to{transform:none;opacity:1}}
-.modal-cover{height:180px;position:relative;display:grid;place-items:end start;padding:24px}
-.modal-cover .rd{background:rgba(255,255,255,.92);font-size:.75rem;font-weight:600;padding:5px 13px;border-radius:999px}
-.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);
-  display:grid;place-items:center;z-index:2;box-shadow:var(--shadow);transition:.16s}
-.modal-close:hover{transform:rotate(90deg)}
-.modal-content{padding:32px 38px 40px}
-.modal-content .meta{font-size:.82rem;color:var(--muted);margin-bottom:12px}
-.modal-content h2{font-size:1.9rem;margin-bottom:18px}
-.modal-content p{color:var(--ink-soft);margin-bottom:16px;font-size:1.02rem}
-.modal-content h3{font-size:1.3rem;margin:26px 0 12px}
-.modal-content ul{margin:0 0 16px 20px;color:var(--ink-soft)}
-.modal-content ul li{margin-bottom:8px}
-.modal-content blockquote{border-left:3px solid var(--brand);padding:6px 0 6px 20px;margin:20px 0;
-  font-family:"Fraunces";font-size:1.2rem;font-style:italic;color:var(--ink)}
 
 /* ---------- contact ---------- */
 .contact-card{background:linear-gradient(135deg,var(--ink),#232b47);border-radius:28px;padding:56px 48px;color:#fff;
@@ -580,7 +635,6 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
   .work-grid,.blog-grid,.service-list{grid-template-columns:1fr}
   .tl-when{margin-left:0;width:100%}
   .contact-card{padding:36px 26px}
-  .modal-content{padding:26px 24px 32px}
   .hero-stats{gap:20px}
 }
 </style>
@@ -604,7 +658,7 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="Nhat-Tran-Resume.pdf" target="_blank" class="btn btn-ghost rez">Resume</a>
+      <a href="Nhat-Tran-Resume.pdf" target="_blank" class="btn btn-ghost rez" data-ga="resume" data-loc="nav">Resume</a>
       <a href="#contact" class="btn btn-primary">Let's talk</a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -1315,8 +1369,12 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
         <h2>Digital Analytics Contractor for brands &amp; in-house media teams</h2>
         <p>Need reporting you can trust, without hiring full-time? I step in as an extension of your team to manage multi-channel <strong>reporting &amp; dashboards</strong> — and I do it <strong>on top of your existing workflows</strong>, so nothing about how your team works has to change.</p>
         <p>From month-end close to ROAS and ROI measurement, I turn scattered platform data into one clear view of what's working and where the next dollar should go.</p>
-        <a href="#contact" class="btn btn-primary">Reach out about my services
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="services-cta">
+          <a href="mailto:nhat.tran72822@gmail.com?subject=Free%20reporting%20audit&amp;body=Hi%20Nhat%2C%0A%0AI%27d%20like%20to%20set%20up%20a%20free%2030-minute%20reporting%20audit.%0A%0ACompany%3A%0AChannels%20we%20run%3A%0ACurrent%20reporting%20pain%3A%0A" class="btn btn-primary" data-ga="audit_request" data-loc="services">Book a free reporting audit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#contact" class="btn btn-ghost">Reach out about my services</a>
+        </div>
+        <p class="services-note">A free 30-minute call to map your channels, data sources, and current reporting process.</p>
       </div>
       <div class="service-list">
         <div class="service-item reveal">
@@ -1344,16 +1402,89 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="section alt" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">FAQ</span>
+      <h2>Digital analytics contracting, answered</h2>
+      <p>Common questions from brands and in-house media teams about cross-channel reporting and measurement.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal" open>
+        <summary>What does a digital analytics contractor do?</summary>
+        <div class="faq-a"><p>I manage the reporting and measurement side of your digital marketing: pulling data from every channel, reconciling it, building and maintaining dashboards, producing month-end reports, and measuring ROAS and ROI, so your team gets one trusted view without hiring full-time.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Can you work with our existing tools and workflows?</summary>
+        <div class="faq-a"><p>Yes. I work on top of your existing workflows and platforms rather than replacing them. If your team already uses Power BI, DOMO, Tableau, NinjaCat, GA4, or spreadsheets, I plug into that setup.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Which channels and platforms do you cover?</summary>
+        <div class="faq-a"><p>Paid search, social, programmatic, OTT, video, and email. That includes platforms such as Google Ads, GA4, Meta, Amazon Ads, Google Ad Manager, Campaign Manager 360, and Display &amp; Video 360, with reporting in tools like Power BI, DOMO, Tableau, and NinjaCat.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How does month-end digital reporting work?</summary>
+        <div class="faq-a"><p>I collect data from every channel on a consistent date range, reconcile spend and conversions against your source of truth, run quality checks, calculate KPIs against plan and prior periods, and deliver a report with a clear narrative of what changed, why, and what to do next.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How do you measure ROAS and ROI across channels?</summary>
+        <div class="faq-a"><p>I use consistent definitions across channels and report ROAS for channel-level performance, MER for blended efficiency, and ROI where margin data is available. I also track the gap between platform-reported and source-of-truth numbers so differences are explained instead of argued over.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How do we get started?</summary>
+        <div class="faq-a"><p>Start with a free 30-minute reporting audit. We map your channels, data sources, and current reporting process, then I recommend a scope, whether that is ongoing month-end reporting, a dashboard build, or a measurement framework.</p></div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Why use a contractor instead of hiring full-time?</summary>
+        <div class="faq-a"><p>A contractor fills the gap now, while you hire or when the work doesn't justify a full-time role. You get experienced multi-channel analytics without the recruiting time, and your team keeps its focus on running campaigns.</p></div>
+      </details>
+    </div>
+    <p class="faq-more reveal"><a href="mailto:nhat.tran72822@gmail.com?subject=Free%20reporting%20audit" class="btn btn-primary" data-ga="audit_request" data-loc="faq">Book a free reporting audit</a></p>
+  </div>
+</section>
+
 <!-- ============ BLOG ============ -->
 <section class="section" id="blog">
   <div class="wrap">
     <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
       <span class="eyebrow">Writing &amp; ideas</span>
       <h2>Thoughts from the analytics floor</h2>
-      <p>Notes on measurement, media, and the messy reality of turning data into decisions. Click any post to read.</p>
+      <p>Notes on measurement, media, and the messy reality of turning data into decisions.</p>
     </div>
-    <div class="blog-grid" id="blogGrid"></div>
-    <p class="note" style="text-align:center;margin-top:26px">These are starter posts — edit the text in <b>index.html</b> (the <code>POSTS</code> array) to publish your own.</p>
+    <div class="blog-grid">
+<a class="blog-card" href="/blog/why-platform-conversions-dont-match-ga4/">
+  <div class="blog-cover"><div class="gr" style="background:linear-gradient(135deg,#0ea5a4,#2b4de0)"></div><span class="rd">6 min read</span></div>
+  <div class="blog-body"><div class="meta"><span class="tagx">Measurement</span> · <span>Oct 2026</span></div>
+  <h3>Why your ad platform conversions never match GA4 (and how to reconcile them)</h3><p>Google Ads says 120 conversions, Meta says 95, GA4 says 70. None of them is necessarily wrong. Here's why they disagree, and how to report one number leadership can trust.</p>
+  <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="blog-card" href="/blog/roas-vs-mer-vs-roi/">
+  <div class="blog-cover"><div class="gr" style="background:linear-gradient(135deg,#2b4de0,#7c5cfc)"></div><span class="rd">6 min read</span></div>
+  <div class="blog-body"><div class="meta"><span class="tagx">Media Strategy</span> · <span>Oct 2026</span></div>
+  <h3>ROAS vs MER vs ROI: which number should you actually report?</h3><p>A 4x ROAS can still lose money. Here's how ROAS, MER, and ROI differ, a worked example, and which one belongs in front of which audience.</p>
+  <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="blog-card" href="/blog/month-end-digital-reporting-checklist/">
+  <div class="blog-cover"><div class="gr" style="background:linear-gradient(135deg,#f5a524,#f4715b)"></div><span class="rd">5 min read</span></div>
+  <div class="blog-body"><div class="meta"><span class="tagx">Reporting</span> · <span>Oct 2026</span></div>
+  <h3>The month-end digital reporting checklist for multi-channel teams</h3><p>Month-end reporting goes wrong in predictable places. Here's the checklist I'd run across search, social, programmatic, and OTT to get to numbers leadership can trust.</p>
+  <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="blog-card" href="/blog/your-dashboard-is-lying-to-you/">
+  <div class="blog-cover"><div class="gr" style="background:linear-gradient(135deg,#2b4de0,#7c5cfc)"></div><span class="rd">6 min read</span></div>
+  <div class="blog-body"><div class="meta"><span class="tagx">Measurement</span> · <span>Jul 2026</span></div>
+  <h3>Your dashboard is lying to you (and it's not the data's fault)</h3><p>Most executive dashboards fail not because the numbers are wrong, but because nobody agreed on what a "good" number means. Here's the framework I use to fix that.</p>
+  <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="blog-card" href="/blog/marketing-mix-modeling-explained/">
+  <div class="blog-cover"><div class="gr" style="background:linear-gradient(135deg,#0ea5a4,#2b4de0)"></div><span class="rd">5 min read</span></div>
+  <div class="blog-body"><div class="meta"><span class="tagx">Media Strategy</span> · <span>Jun 2026</span></div>
+  <h3>Marketing Mix Modeling, minus the mystique</h3><p>MMM has a reputation for being a black box only PhDs can open. It isn't. At its core it's one honest idea: every channel has a point of diminishing returns.</p>
+  <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+<a class="blog-card" href="/blog/llm-agents-analytics-hours-saved/">
+  <div class="blog-cover"><div class="gr" style="background:linear-gradient(135deg,#f5a524,#f4715b)"></div><span class="rd">7 min read</span></div>
+  <div class="blog-body"><div class="meta"><span class="tagx">AI & Analytics</span> · <span>May 2026</span></div>
+  <h3>I gave 100 hours a month back to my team with LLM agents</h3><p>The highest-value AI use case in analytics isn't flashy — it's deleting the recurring manual work that quietly burns out your best people.</p>
+  <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+    </div>
+    <p style="text-align:center;margin-top:30px"><a href="/blog/" class="btn btn-ghost">View all posts</a></p>
   </div>
 </section>
 
@@ -1367,20 +1498,20 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
           <h2>Have a data problem worth solving?</h2>
           <p>Whether it's a measurement framework, a dashboard that finally tells the truth, or an analytics team to build — I'd love to talk. Based in Atlanta, working everywhere.</p>
           <div class="contact-cta">
-            <a href="mailto:nhat.tran72822@gmail.com" class="btn btn-primary">
+            <a href="mailto:nhat.tran72822@gmail.com" class="btn btn-primary" data-ga="email" data-loc="contact_cta">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
               Email me</a>
-            <a href="https://www.linkedin.com/in/nhat-tran-mba/" target="_blank" class="btn btn-ghost">Connect on LinkedIn</a>
+            <a href="https://www.linkedin.com/in/nhat-tran-mba/" target="_blank" class="btn btn-ghost" data-ga="linkedin" data-loc="contact_cta">Connect on LinkedIn</a>
           </div>
         </div>
         <div class="contact-list">
-          <a href="mailto:nhat.tran72822@gmail.com">
+          <a href="mailto:nhat.tran72822@gmail.com" data-ga="email" data-loc="contact_list">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
             <div><small>Email</small><b>nhat.tran72822@gmail.com</b></div></a>
-          <a href="tel:+14043946685">
+          <a href="tel:+14043946685" data-ga="phone" data-loc="contact_list">
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.5 2.1L8 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z"/></svg></span>
             <div><small>Phone</small><b>(404) 394-6685</b></div></a>
-          <a href="https://www.linkedin.com/in/nhat-tran-mba/" target="_blank">
+          <a href="https://www.linkedin.com/in/nhat-tran-mba/" target="_blank" data-ga="linkedin" data-loc="contact_list">
             <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.3 18V10H5.7v8h2.6zM7 8.8a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.3 18v-4.4c0-2.4-1.3-3.5-3-3.5a2.6 2.6 0 00-2.3 1.3V10h-2.6v8h2.6v-4.2c0-1.1.2-2.2 1.6-2.2s1.4 1.3 1.4 2.3V18h2.3z"/></svg></span>
             <div><small>LinkedIn</small><b>/in/nhat-tran-mba</b></div></a>
         </div>
@@ -1396,21 +1527,12 @@ footer.site{padding:44px 0;border-top:1px solid var(--line);margin-top:20px}
       <div>Nhat Tran<p style="margin:0">Digital Analytics &amp; Media Strategy · Atlanta, GA</p></div></div>
     <div class="foot-links">
       <a href="#about">About</a><a href="#tools">Tools</a><a href="#work">Work</a>
-      <a href="#services">Services</a><a href="#blog">Blog</a><a href="Nhat-Tran-Resume.pdf" target="_blank">Resume</a>
+      <a href="#services">Services</a><a href="/blog/">Blog</a><a href="Nhat-Tran-Resume.pdf" target="_blank" data-ga="resume" data-loc="footer">Resume</a>
     </div>
     <p>© <span id="year"></span> Nhat Tran</p>
   </div>
 </footer>
 
-<!-- ============ BLOG MODAL ============ -->
-<div class="modal-back" id="modal">
-  <div class="modal">
-    <button class="modal-close" id="modalClose" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div class="modal-cover" id="modalCover"><span class="rd" id="modalTag"></span></div>
-    <div class="modal-content" id="modalContent"></div>
-  </div>
-</div>
 
 <script>
 /* ============================================================
@@ -1448,6 +1570,12 @@ const spy = new IntersectionObserver(es=>{
 },{rootMargin:'-45% 0px -50% 0px'});
 sections.forEach(id=>{const el=document.getElementById(id); if(el)spy.observe(el);});
 $('#year').textContent = new Date().getFullYear();
+/* GA4 conversion events: tag any link with data-ga (email, phone, linkedin, resume, audit_request) */
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-ga]'); if(!a||typeof gtag!=='function') return;
+  const m=a.dataset.ga;
+  gtag('event',m==='audit_request'?'generate_lead':(m==='resume'?'resume_download':'contact_click'),{method:m,link_location:a.dataset.loc||'page'});
+});
 
 /* Reveal on scroll */
 const revObs = new IntersectionObserver(es=>{
@@ -2569,70 +2697,6 @@ function workViz(el,type){
 $$('.work-viz').forEach(el=>workViz(el,el.dataset.viz));
 
 /* ============================================================
-   Blog posts + modal
-   ============================================================ */
-const POSTS=[
-  {tag:'Measurement',date:'Jul 2026',read:'6 min',grad:'linear-gradient(135deg,#2b4de0,#7c5cfc)',
-   title:'Your dashboard is lying to you (and it\'s not the data\'s fault)',
-   excerpt:'Most executive dashboards fail not because the numbers are wrong, but because nobody agreed on what a "good" number means. Here\'s the framework I use to fix that.',
-   body:`<p>Every analyst has lived this moment: you ship a beautiful dashboard, leadership nods politely, and three weeks later two directors are arguing about whether the business is up or down — using the same chart.</p>
-   <p>The problem is almost never the data. It's that a dashboard without a <strong>decision it's meant to serve</strong> is just decoration. Before I build anything at Cox Media Group, I ask three questions.</p>
-   <h3>1. What decision does this change?</h3>
-   <p>If a metric can't move a budget, a headcount, or a strategy, it doesn't belong on the executive view. It belongs in the appendix. Ruthless editing is the highest-leverage design skill in analytics.</p>
-   <h3>2. What's the benchmark?</h3>
-   <p>A number without a reference point is trivia. Is $2.4M in revenue good? Only relative to plan, to last year, and to the cost that produced it. Every KPI on my dashboards ships with a benchmark baked in.</p>
-   <blockquote>A metric without a benchmark is a fact. A metric with a benchmark is a decision.</blockquote>
-   <h3>3. Who owns the "so what"?</h3>
-   <p>The best dashboards assign a name to every red cell. Measurement without ownership is just anxiety at scale.</p>
-   <p>Get these three right and the tool practically narrates itself — which, not coincidentally, is when people finally start trusting it.</p>`},
-  {tag:'Media Strategy',date:'Jun 2026',read:'5 min',grad:'linear-gradient(135deg,#0ea5a4,#2b4de0)',
-   title:'Marketing Mix Modeling, minus the mystique',
-   excerpt:'MMM has a reputation for being a black box only PhDs can open. It isn\'t. At its core it\'s one honest idea: every channel has a point of diminishing returns.',
-   body:`<p>When people hear "marketing mix modeling" they picture a statistical séance. In reality, the intuition behind MMM fits on a napkin: <strong>the first dollar in a channel works harder than the last.</strong></p>
-   <p>That single idea — the saturation curve — is why pouring your entire budget into last-click search eventually stops paying off, and why the "obviously best" channel isn't always where the next dollar should go.</p>
-   <h3>The marginal-return rule</h3>
-   <p>The optimal mix isn't the one where every channel has the highest average ROI. It's the one where the <em>next</em> dollar in every channel returns the same amount. When marginal returns are equal, you can't do better by moving money around. That's the whole game.</p>
-   <p>You can feel this yourself in the <strong>Media Mix Modeling tool</strong> on this site — set a lopsided budget, hit optimize, and watch it push dollars off the flat part of one curve onto the steep part of another.</p>
-   <h3>What MMM won't tell you</h3>
-   <ul><li>It won't give you person-level attribution — it's a top-down view.</li><li>It struggles with channels that have little spend variation.</li><li>It needs enough history to see the curves bend.</li></ul>
-   <p>Used honestly, though, MMM answers the one question every CMO actually asks: <em>where does the next dollar go?</em></p>`},
-  {tag:'AI & Analytics',date:'May 2026',read:'7 min',grad:'linear-gradient(135deg,#f5a524,#f4715b)',
-   title:'I gave 100 hours a month back to my team with LLM agents',
-   excerpt:'The highest-value AI use case in analytics isn\'t flashy — it\'s deleting the recurring manual work that quietly burns out your best people.',
-   body:`<p>Everyone wants AI to generate insight. In my experience, the bigger win is letting it <strong>generate time.</strong></p>
-   <p>At Cox Media Group I helped design LLM-powered analytics agents that took over the most soul-draining part of the job: the recurring pull-clean-summarize-format cycle that ate 100+ hours a month across the team.</p>
-   <h3>Start with the boring wins</h3>
-   <p>We didn't begin with a moonshot. We began with the monthly business review — a report so predictable you could set a watch by it. If a task is repetitive, rule-based, and well-documented, it's a candidate. If it needs judgment and context, keep a human in the loop.</p>
-   <blockquote>Automate the sentence you've written a hundred times. Keep the sentence only you can write.</blockquote>
-   <h3>Guardrails matter more than cleverness</h3>
-   <p>An agent that's confidently wrong is worse than no agent. We built in source citations, value-range checks, and a human sign-off before anything reached leadership. Trust is the product; the automation is just the delivery mechanism.</p>
-   <h3>The real payoff</h3>
-   <p>The hours we recovered didn't go back into more reports. They went into the work that actually needs a human: asking better questions, pressure-testing assumptions, and telling the story the data can't tell on its own.</p>`},
-];
-function buildBlog(){
-  const g=$('#blogGrid');
-  g.innerHTML=POSTS.map((p,i)=>`<button class="blog-card" data-i="${i}">
-    <div class="blog-cover"><div class="gr" style="background:${p.grad}"></div><span class="rd">${p.read} read</span></div>
-    <div class="blog-body">
-      <div class="meta"><span class="tagx">${p.tag}</span> · <span>${p.date}</span></div>
-      <h3>${p.title}</h3><p>${p.excerpt}</p>
-      <span class="read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-    </div></button>`).join('');
-  $$('.blog-card').forEach(c=>c.addEventListener('click',()=>openPost(+c.dataset.i)));
-}
-function openPost(i){
-  const p=POSTS[i];
-  $('#modalCover').style.background=p.grad;
-  $('#modalTag').textContent=p.tag;
-  $('#modalContent').innerHTML=`<div class="meta">${p.date} · ${p.read} read</div><h2>${p.title}</h2>${p.body}`;
-  $('#modal').classList.add('open');document.body.style.overflow='hidden';
-}
-function closePost(){$('#modal').classList.remove('open');document.body.style.overflow='';}
-$('#modalClose').addEventListener('click',closePost);
-$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))closePost();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closePost();});
-
-/* ============================================================
    Init
    ============================================================ */
 buildMMMControls(); renderMMM();
@@ -2640,7 +2704,6 @@ buildPlanControls(); renderPlan();
 renderImpr();
 bindDashMetric(); renderDash();
 buildAgents();
-buildBlog();
 // render charts that live in hidden panels once, after first paint
 window.addEventListener('load',()=>{setTimeout(()=>{renderPlan();renderImpr();renderDash();},60);});
 </script>
